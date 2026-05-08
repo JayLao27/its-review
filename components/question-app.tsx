@@ -63,6 +63,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
   const [dragMappingsByQuestion, setDragMappingsByQuestion] = useState<Record<string, Record<string, string>>>({});
   const [dropTargetsByQuestion, setDropTargetsByQuestion] = useState<Record<string, string[]>>({});
   const [reviewMode, setReviewMode] = useState(false);
+  const [activeDragItem, setActiveDragItem] = useState<string | null>(null);
 
   const filteredQuestions = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -139,6 +140,11 @@ export function QuestionApp({ questions }: QuestionAppProps) {
     }
   }, [currentQuestion]);
 
+  // Reset active drag item when question changes
+  useEffect(() => {
+    setActiveDragItem(null);
+  }, [currentIndex]);
+
   // Auto-reveal guidance for the current question when review mode is enabled
   useEffect(() => {
     if (reviewMode && currentQuestion) {
@@ -179,14 +185,34 @@ export function QuestionApp({ questions }: QuestionAppProps) {
 
       return (
         <div className="space-y-4 px-4 py-4 sm:px-5">
-          <div className="grid gap-4 lg:grid-cols-2">
+          {currentQuestion.question ? (
+            <div className="rounded-none border border-border bg-muted/40 px-4 py-3">
+              <div className="text-[10px] uppercase tracking-[0.18em] text-primary">Question</div>
+              <div className="mt-1 text-sm font-semibold text-foreground/90">{currentQuestion.question}</div>
+            </div>
+          ) : null}
+
+          <div className="grid gap-6 md:grid-cols-2">
             <div>
-              <div className="mb-2 text-sm font-semibold text-slate-300">Items</div>
-              <div className="space-y-2">
+              <div className="mb-2 text-[10px] uppercase tracking-[0.2em] font-semibold text-muted-foreground">Items</div>
+              <div className="flex flex-wrap gap-2 sm:grid sm:gap-2">
                 {available.map((k) => (
-                  <div key={k} draggable onDragStart={(e) => e.dataTransfer.setData("text/plain", k)} className="cursor-grab rounded border border-border bg-card/60 px-3 py-2 text-sm text-foreground">{k}</div>
+                  <div
+                    key={k}
+                    draggable
+                    onDragStart={(e) => e.dataTransfer.setData("text/plain", k)}
+                    onClick={() => setActiveDragItem(activeDragItem === k ? null : k)}
+                    className={cn(
+                      "cursor-pointer rounded border px-3 py-2 text-xs sm:text-sm transition-all duration-200 select-none",
+                      activeDragItem === k
+                        ? "border-primary bg-primary/20 text-primary shadow-[0_0_10px_rgba(var(--primary),0.2)] scale-105"
+                        : "border-border bg-card/60 text-foreground hover:bg-muted/50"
+                    )}
+                  >
+                    {k}
+                  </div>
                 ))}
-                {available.length === 0 && <div className="text-sm text-muted-foreground">All items assigned</div>}
+                {available.length === 0 && <div className="text-xs text-muted-foreground italic">All items assigned</div>}
               </div>
             </div>
 
@@ -201,11 +227,28 @@ export function QuestionApp({ questions }: QuestionAppProps) {
 
                   return (
                     <div key={target}>
-                      <div onDragOver={(e) => e.preventDefault()} onDrop={(e) => { const k = e.dataTransfer.getData("text/plain"); if (k) setDragMappingsByQuestion((cur) => ({ ...cur, [currentQuestion.id]: { ...(cur[currentQuestion.id] ?? {}), [target]: k } })); }} className={cn("min-h-[48px] flex items-center justify-between gap-3 rounded border border-border bg-card/60 px-3 py-2", revealedIds.has(currentQuestion.id) && assignedKey ? (assignedKey === correctKey ? "border-emerald-500/50 bg-emerald-500/10 text-emerald-500" : "border-destructive/50 bg-destructive/10 text-destructive") : "")}>
-                        <div className="text-sm text-slate-300">{target}</div>
-                        <div className="min-w-[140px]">{assignedKey ? (
-                          <div className="flex items-center justify-between gap-2"><div className="text-sm text-foreground">{assignedKey}</div><button className="text-xs text-muted-foreground" onClick={(ev) => { ev.stopPropagation(); setDragMappingsByQuestion((cur) => { const next = { ...(cur[currentQuestion.id] ?? {}) }; delete next[target]; return { ...cur, [currentQuestion.id]: next }; }); }}>Clear</button></div>
-                        ) : <div className="text-sm text-muted-foreground">Drop item here</div>}</div>
+                      <div
+                        onDragOver={(e) => e.preventDefault()}
+                        onDrop={(e) => {
+                          const k = e.dataTransfer.getData("text/plain");
+                          if (k) setDragMappingsByQuestion((cur) => ({ ...cur, [currentQuestion.id]: { ...(cur[currentQuestion.id] ?? {}), [target]: k } }));
+                        }}
+                        onClick={() => {
+                          if (activeDragItem) {
+                            setDragMappingsByQuestion((cur) => ({ ...cur, [currentQuestion.id]: { ...(cur[currentQuestion.id] ?? {}), [target]: activeDragItem } }));
+                            setActiveDragItem(null);
+                          }
+                        }}
+                        className={cn(
+                          "min-h-[48px] flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded border px-3 py-3 sm:py-2 transition-all duration-200 cursor-pointer",
+                          activeDragItem ? "border-primary/40 bg-primary/5 hover:border-primary/60" : "border-border bg-card/60",
+                          revealedIds.has(currentQuestion.id) && assignedKey ? (assignedKey === correctKey ? "border-emerald-500/50 bg-emerald-500/10 text-emerald-500" : "border-destructive/50 bg-destructive/10 text-destructive") : ""
+                        )}
+                      >
+                        <div className="text-xs sm:text-sm text-slate-300">{target}</div>
+                        <div className="w-full sm:w-auto sm:min-w-[140px]">{assignedKey ? (
+                          <div className="flex items-center justify-between gap-2 border-t border-border/40 pt-2 sm:border-0 sm:pt-0"><div className="text-xs sm:text-sm text-foreground">{assignedKey}</div><button className="text-[10px] text-muted-foreground underline underline-offset-2" onClick={(ev) => { ev.stopPropagation(); setDragMappingsByQuestion((cur) => { const next = { ...(cur[currentQuestion.id] ?? {}) }; delete next[target]; return { ...cur, [currentQuestion.id]: next }; }); }}>Clear</button></div>
+                        ) : <div className="text-xs sm:text-sm text-muted-foreground italic">{activeDragItem ? "Tap to drop here" : "Drop item here"}</div>}</div>
                       </div>
                       {isWrongAssignment && showMismatchMessage ? (
                         <div className="mt-2 rounded-none border-l-4 border-rose-400/60 bg-rose-950/10 px-4 py-2 text-sm text-rose-100">
@@ -231,21 +274,16 @@ export function QuestionApp({ questions }: QuestionAppProps) {
               {revealedIds.has(currentQuestion.id) ? renderAnswer(currentQuestion.answer) : null}
             </div>
 
-            {currentQuestion.question ? (
-              <div className="rounded-none border border-border bg-muted/40 px-4 py-3">
-                <div className="text-[10px] uppercase tracking-[0.18em] text-primary">Question</div>
-                <div className="mt-1 text-sm font-semibold text-foreground/90">{currentQuestion.question}</div>
-              </div>
-            ) : null}
 
-            <div className="grid grid-cols-2 gap-2 pt-2">
-              <Button type="button" variant="outline" className="rounded-none border-border bg-card/80 text-[11px] uppercase tracking-[0.18em] text-slate-200" onClick={goPrev} disabled={currentIndex === 0}><ArrowLeft className="mr-2 h-4 w-4" /> Prev</Button>
-              <Button type="button" className="rounded-none border border-primary/50 bg-primary/10 text-[11px] uppercase tracking-[0.18em] text-primary" onClick={goNext} disabled={currentIndex >= filteredQuestions.length - 1 || (!hasAnsweredCurrentQuestion && !reviewMode)}>Next <ArrowRight className="ml-2 h-4 w-4" /></Button>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
+              <Button type="button" variant="outline" className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-slate-200" onClick={goPrev} disabled={currentIndex === 0}><ArrowLeft className="mr-2 h-3 w-3 sm:h-4 sm:w-4" /> Prev</Button>
+              <Button type="button" className="rounded-none border border-primary/50 bg-primary/10 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-primary" onClick={goNext} disabled={currentIndex >= filteredQuestions.length - 1 || (!hasAnsweredCurrentQuestion && !reviewMode)}>Next <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" /></Button>
             </div>
 
-            <div className="grid grid-cols-2 gap-2">
-              <Button type="button" variant="outline" className="rounded-none border-border bg-card/80 text-[11px] uppercase tracking-[0.18em] text-slate-200" onClick={() => revealCurrent(currentQuestion.id)}>Check Answer</Button>
-              <Button type="button" variant="outline" className="rounded-none border-border bg-card/80 text-[11px] uppercase tracking-[0.18em] text-slate-200" onClick={resetSession}>Reset view</Button>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <Button type="button" variant="outline" className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-slate-200" onClick={() => revealCurrent(currentQuestion.id)}>Check Answer</Button>
+              <Button type="button" variant="outline" className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-slate-200" onClick={resetSession}>Reset view</Button>
             </div>
 
 
@@ -258,6 +296,13 @@ export function QuestionApp({ questions }: QuestionAppProps) {
     if (currentQuestion.options?.length) {
       return (
         <div className="space-y-3 px-4 py-4 sm:px-5">
+          {currentQuestion.question ? (
+            <div className="mb-2 rounded-none border border-border bg-muted/40 px-4 py-3">
+              <div className="text-[10px] uppercase tracking-[0.18em] text-primary">Question</div>
+              <div className="mt-1 text-sm font-semibold text-foreground/90">{currentQuestion.question}</div>
+            </div>
+          ) : null}
+
           {currentQuestion.options.map((opt, idx) => {
             const selection = selectedAnswers[currentQuestion.id];
             const isSelected = Array.isArray(selection) ? selection.includes(idx) : selection === idx;
@@ -295,21 +340,16 @@ export function QuestionApp({ questions }: QuestionAppProps) {
               {revealedIds.has(currentQuestion.id) ? renderAnswer(currentQuestion.answer) : null}
             </div>
 
-            {currentQuestion.question ? (
-              <div className="rounded-none border border-border bg-muted/40 px-4 py-3">
-                <div className="text-[10px] uppercase tracking-[0.18em] text-primary">Question</div>
-                <div className="mt-1 text-sm font-semibold text-foreground/90">{currentQuestion.question}</div>
-              </div>
-            ) : null}
 
-            <div className="grid grid-cols-2 gap-2 pt-2">
-              <Button type="button" variant="outline" className="rounded-none border-border bg-card/80 text-[11px] uppercase tracking-[0.18em] text-slate-200" onClick={goPrev} disabled={currentIndex === 0}><ArrowLeft className="mr-2 h-4 w-4" /> Prev</Button>
-              <Button type="button" className="rounded-none border border-primary/50 bg-primary/10 text-[11px] uppercase tracking-[0.18em] text-primary" onClick={goNext} disabled={currentIndex >= filteredQuestions.length - 1 || (!hasAnsweredCurrentQuestion && !reviewMode)}>Next <ArrowRight className="ml-2 h-4 w-4" /></Button>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
+              <Button type="button" variant="outline" className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-slate-200" onClick={goPrev} disabled={currentIndex === 0}><ArrowLeft className="mr-2 h-3 w-3 sm:h-4 sm:w-4" /> Prev</Button>
+              <Button type="button" className="rounded-none border border-primary/50 bg-primary/10 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-primary" onClick={goNext} disabled={currentIndex >= filteredQuestions.length - 1 || (!hasAnsweredCurrentQuestion && !reviewMode)}>Next <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" /></Button>
             </div>
 
-            <div className="grid grid-cols-2 gap-2">
-              <Button type="button" variant="outline" className="rounded-none border-border bg-card/80 text-[11px] uppercase tracking-[0.18em] text-slate-200" onClick={() => revealCurrent(currentQuestion.id)}>Check Answer</Button>
-              <Button type="button" variant="outline" className="rounded-none border-border bg-card/80 text-[11px] uppercase tracking-[0.18em] text-slate-200" onClick={resetSession}>Reset view</Button>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <Button type="button" variant="outline" className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-slate-200" onClick={() => revealCurrent(currentQuestion.id)}>Check Answer</Button>
+              <Button type="button" variant="outline" className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-slate-200" onClick={resetSession}>Reset view</Button>
             </div>
 
             <div className="flex items-center justify-between border-t border-border px-4 py-3 text-[11px] uppercase tracking-[0.18em] text-muted-foreground sm:px-5"><span>CASE {currentQuestionNumber} OF {filteredQuestions.length}</span><span>Threat Feed</span></div>
@@ -332,9 +372,9 @@ export function QuestionApp({ questions }: QuestionAppProps) {
       <section className="relative mx-auto flex w-full max-w-5xl flex-col gap-5 px-4 py-6 sm:px-6 lg:px-8">
         <div className="flex items-start justify-between">
           <div>
-            <Badge className="mx-0 w-fit rounded-none border border-primary/20 bg-primary/10 px-4 py-1 text-[11px] uppercase tracking-[0.35em] text-primary">Cybersecurity Review</Badge>
-            <h1 className="mt-4 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">Cybersecurity</h1>
-            <p className="mt-2 text-xs uppercase tracking-[0.28em] text-muted-foreground">{normalizedQuestions.length} mathewpaay</p>
+            <Badge className="mx-0 w-fit rounded-none border border-primary/20 bg-primary/10 px-4 py-1 text-[10px] sm:text-[11px] uppercase tracking-[0.35em] text-primary">Cybersecurity Review</Badge>
+            <h1 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-5xl">Cybersecurity</h1>
+            <p className="mt-2 text-[10px] uppercase tracking-[0.28em] text-muted-foreground">{normalizedQuestions.length} mathewpaay</p>
           </div>
 
           <div className="ml-4">
