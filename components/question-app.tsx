@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Search, XCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Search, Shuffle, XCircle } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
@@ -66,14 +66,25 @@ export function QuestionApp({ questions }: QuestionAppProps) {
   const [activeDragItem, setActiveDragItem] = useState<string | null>(null);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [isShuffled, setIsShuffled] = useState(false);
+  const [shuffleSeed, setShuffleSeed] = useState(0);
+
+  const processedQuestions = useMemo(() => {
+    if (!isShuffled) return normalizedQuestions;
+    // Fisher-Yates shuffle would be better, but Math.random sort is okay for this
+    return [...normalizedQuestions].sort((a, b) => {
+      // Use a stable sort key if possible, but random is what they want
+      return Math.random() - 0.5;
+    });
+  }, [normalizedQuestions, isShuffled, shuffleSeed]);
 
   const filteredQuestions = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return normalizedQuestions.filter((item) => {
+    return processedQuestions.filter((item) => {
       const hay = [item.question, stringifyValue(item.answer), item.category, ...(item.tags ?? []), item.explanation ?? ""].join(" ").toLowerCase();
       return q.length === 0 || hay.includes(q);
     });
-  }, [normalizedQuestions, query]);
+  }, [processedQuestions, query]);
 
   const currentQuestion = filteredQuestions[currentIndex] ?? null;
   const currentQuestionNumber = currentQuestion ? currentIndex + 1 : 0;
@@ -87,6 +98,13 @@ export function QuestionApp({ questions }: QuestionAppProps) {
     setRevealedIds(new Set());
     setDragMappingsByQuestion({});
     setDropTargetsByQuestion({});
+    setIsShuffled(false);
+  };
+
+  const toggleShuffle = () => {
+    setIsShuffled(!isShuffled);
+    setShuffleSeed((s) => s + 1);
+    setCurrentIndex(0);
   };
 
   const revealCurrent = (id: string) => setRevealedIds((s) => new Set(s).add(id));
@@ -421,19 +439,35 @@ export function QuestionApp({ questions }: QuestionAppProps) {
                 <Progress value={progressPercent} className="h-2 bg-muted" />
               </div>
 
-              <button
-                type="button"
-                onClick={() => setReviewMode(!reviewMode)}
-                className={cn(
-                  "flex items-center gap-3 rounded-none border px-4 py-2 transition-all duration-300",
-                  reviewMode
-                    ? "border-primary/50 bg-primary/10 text-primary shadow-[0_0_15px_rgba(var(--primary),0.1)]"
-                    : "border-border bg-card/40 text-muted-foreground hover:border-muted hover:text-foreground"
-                )}
-              >
-                <div className={cn("h-1.5 w-1.5 rounded-full", reviewMode ? "animate-pulse bg-primary shadow-[0_0_8px_rgba(var(--primary),0.8)]" : "bg-muted-foreground")} />
-                <span className="text-[10px] font-semibold uppercase tracking-[0.25em]">Review Mode: {reviewMode ? "ON" : "OFF"}</span>
-              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={toggleShuffle}
+                  className={cn(
+                    "flex items-center gap-3 rounded-none border px-4 py-2 transition-all duration-300",
+                    isShuffled
+                      ? "border-emerald-500/50 bg-emerald-500/10 text-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.1)]"
+                      : "border-border bg-card/40 text-muted-foreground hover:border-muted hover:text-foreground"
+                  )}
+                >
+                  <Shuffle className={cn("h-3.5 w-3.5", isShuffled ? "animate-spin-slow" : "")} />
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.25em]">Shuffle</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setReviewMode(!reviewMode)}
+                  className={cn(
+                    "flex items-center gap-3 rounded-none border px-4 py-2 transition-all duration-300",
+                    reviewMode
+                      ? "border-primary/50 bg-primary/10 text-primary shadow-[0_0_15px_rgba(var(--primary),0.1)]"
+                      : "border-border bg-card/40 text-muted-foreground hover:border-muted hover:text-foreground"
+                  )}
+                >
+                  <div className={cn("h-1.5 w-1.5 rounded-full", reviewMode ? "animate-pulse bg-primary shadow-[0_0_8px_rgba(var(--primary),0.8)]" : "bg-muted-foreground")} />
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.25em]">Review Mode: {reviewMode ? "ON" : "OFF"}</span>
+                </button>
+              </div>
             </div>
           </CardContent>
         </Card>
