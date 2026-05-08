@@ -125,12 +125,14 @@ export function QuestionApp({ questions }: QuestionAppProps) {
     setCurrentIndex((c) => Math.min(c + 1, Math.max(filteredQuestions.length - 1, 0)));
   };
 
-  const minSwipeDistance = 70;
+  const minSwipeDistance = 50;
   const onTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
   };
-  const onTouchMove = (e: React.TouchEvent) => setTouchEnd(e.targetTouches[0].clientX);
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
   const onTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
     const distance = touchStart - touchEnd;
@@ -380,7 +382,8 @@ export function QuestionApp({ questions }: QuestionAppProps) {
 
   return (
     <main
-      className="min-h-screen bg-background text-foreground font-sans antialiased overflow-x-hidden"
+      className="min-h-screen bg-background text-foreground font-sans antialiased overflow-x-hidden touch-pan-y"
+      style={{ touchAction: "pan-y" }}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
