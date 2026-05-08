@@ -417,7 +417,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
           <div>
             <Badge className="mx-0 w-fit rounded-none border border-primary/20 bg-primary/10 px-4 py-1 text-[10px] sm:text-[11px] uppercase tracking-[0.35em] text-primary">Cybersecurity Review</Badge>
             <h1 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-5xl">Cybersecurity</h1>
-            <p className="mt-2 text-[10px] uppercase tracking-[0.28em] text-muted-foreground">{normalizedQuestions.length} mathewpaay</p>
+            <p className="mt-2 text-[10px] uppercase tracking-[0.28em] text-muted-foreground">{normalizedQuestions.length} questions</p>
           </div>
 
           <div className="ml-4">

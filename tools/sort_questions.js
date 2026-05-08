@@ -2,7 +2,6 @@ const fs = require('fs');
 const path = require('path');
 const file = path.join(__dirname, '..', 'data', 'questions.json');
 let s = fs.readFileSync(file, 'utf8');
-// join multiple top-level arrays into a single array of arrays
 const wrapped = '[' + s.replace(/\]\s*\[/g, '],[') + ']';
 let arrays;
 try {
