@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, ArrowRight, CheckCircle2, Search, XCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Search, XCircle } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
@@ -64,6 +64,8 @@ export function QuestionApp({ questions }: QuestionAppProps) {
   const [dropTargetsByQuestion, setDropTargetsByQuestion] = useState<Record<string, string[]>>({});
   const [reviewMode, setReviewMode] = useState(false);
   const [activeDragItem, setActiveDragItem] = useState<string | null>(null);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
   const filteredQuestions = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -121,6 +123,21 @@ export function QuestionApp({ questions }: QuestionAppProps) {
     if (!hasAnsweredCurrentQuestion && !reviewMode) return;
     if (currentQuestion) revealCurrent(currentQuestion.id);
     setCurrentIndex((c) => Math.min(c + 1, Math.max(filteredQuestions.length - 1, 0)));
+  };
+
+  const minSwipeDistance = 70;
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+  const onTouchMove = (e: React.TouchEvent) => setTouchEnd(e.targetTouches[0].clientX);
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe) goNext();
+    if (isRightSwipe) goPrev();
   };
 
   useEffect(() => {
@@ -362,7 +379,12 @@ export function QuestionApp({ questions }: QuestionAppProps) {
   }
 
   return (
-    <main className="min-h-screen bg-background text-foreground font-sans antialiased">
+    <main
+      className="min-h-screen bg-background text-foreground font-sans antialiased overflow-x-hidden"
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+    >
       {/* Shadcn-like background mesh/glow */}
       <div className="pointer-events-none fixed inset-0 -z-10">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" />
@@ -429,6 +451,39 @@ export function QuestionApp({ questions }: QuestionAppProps) {
           </Card>
         </div>
       </section>
+
+      {/* Floating Navigation for Mobile - Edge Buttons */}
+      <div className="fixed top-1/2 right-2 z-50 -translate-y-1/2 sm:hidden">
+        <Button
+          type="button"
+          variant="outline"
+          size="icon"
+          className={cn(
+            "h-14 w-10 rounded-l-2xl border-y border-l border-primary/30 bg-card/60 shadow-[0_0_20px_rgba(var(--primary),0.1)] backdrop-blur-md transition-all active:scale-95",
+            (!hasAnsweredCurrentQuestion && !reviewMode) || currentIndex >= filteredQuestions.length - 1 ? "opacity-20 grayscale" : "opacity-100"
+          )}
+          onClick={goNext}
+          disabled={currentIndex >= filteredQuestions.length - 1 || (!hasAnsweredCurrentQuestion && !reviewMode)}
+        >
+          <ChevronRight className="h-6 w-6 text-primary" />
+        </Button>
+      </div>
+
+      <div className="fixed top-1/2 left-2 z-50 -translate-y-1/2 sm:hidden">
+        <Button
+          type="button"
+          variant="outline"
+          size="icon"
+          className={cn(
+            "h-14 w-10 rounded-r-2xl border-y border-r border-border/30 bg-card/60 shadow-xl backdrop-blur-md transition-all active:scale-95",
+            currentIndex === 0 ? "opacity-20 grayscale" : "opacity-100"
+          )}
+          onClick={goPrev}
+          disabled={currentIndex === 0}
+        >
+          <ChevronLeft className="h-6 w-6 text-foreground" />
+        </Button>
+      </div>
     </main>
   );
 }
