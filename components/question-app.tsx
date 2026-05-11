@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Search, Shuffle, XCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Moon, Search, Shuffle, Sun, XCircle } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
@@ -30,7 +30,7 @@ function renderAnswer(answer: unknown) {
     return (
       <div className="flex flex-wrap gap-2">
         {answer.map((a, i) => (
-          <Badge key={`${String(a)}-${i}`} variant="secondary" className="rounded-none border border-cyan-400/30 bg-cyan-500/10 px-3 py-1.5 text-cyan-100">
+          <Badge key={`${String(a)}-${i}`} variant="secondary" className="rounded-none border border-border bg-muted/60 px-3 py-1.5 text-foreground dark:border-cyan-400/30 dark:bg-cyan-500/10 dark:text-cyan-100">
             {String(a)}
           </Badge>
         ))}
@@ -44,14 +44,14 @@ function renderAnswer(answer: unknown) {
         {Object.entries(answer as Record<string, unknown>).map(([k, v]) => (
           <div key={k} className="rounded-none border border-border bg-card/60 p-3">
             <div className="text-[10px] uppercase tracking-[0.22em] text-primary">{k}</div>
-            <div className="mt-1 text-sm leading-6 text-slate-200">{stringifyValue(v)}</div>
+            <div className="mt-1 text-sm leading-6 text-foreground">{stringifyValue(v)}</div>
           </div>
         ))}
       </div>
     );
   }
 
-  return <p className="text-sm leading-6 text-slate-200">{String(answer)}</p>;
+  return <p className="text-sm leading-6 text-foreground">{String(answer)}</p>;
 }
 
 export function QuestionApp({ questions }: QuestionAppProps) {
@@ -68,6 +68,12 @@ export function QuestionApp({ questions }: QuestionAppProps) {
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const [isShuffled, setIsShuffled] = useState(false);
   const [shuffleSeed, setShuffleSeed] = useState(0);
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isDark);
+    document.documentElement.style.colorScheme = isDark ? "dark" : "light";
+  }, [isDark]);
 
   const processedQuestions = useMemo(() => {
     if (!isShuffled) return normalizedQuestions;
@@ -111,6 +117,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
 
   const selectAnswer = (q: NormalizedQuestionItem, index: number) => {
     if ((q as any).type === "msq") {
+      if (revealedIds.has(q.id)) return;
       setSelectedAnswers((cur) => {
         const prev = cur[q.id];
         const selected = Array.isArray(prev) ? prev : [];
@@ -133,7 +140,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
     ((currentQuestion as any).type === "drag_and_drop"
       ? currentDropTargets.length > 0 && currentDropTargets.every((target) => Boolean(currentDragMapping[target]))
       : (currentQuestion as any).type === "msq"
-        ? Array.isArray(selectedAnswers[currentQuestion.id]) && (selectedAnswers[currentQuestion.id] as number[]).length === (Array.isArray(currentQuestion.answer) ? currentQuestion.answer.length : 1)
+        ? Array.isArray(selectedAnswers[currentQuestion.id]) && (selectedAnswers[currentQuestion.id] as number[]).length > 0
         : selectedAnswers[currentQuestion.id] !== undefined)
   );
 
@@ -196,20 +203,14 @@ export function QuestionApp({ questions }: QuestionAppProps) {
     }
   }, [currentQuestion, hasAnsweredCurrentQuestion]);
 
-  // Mark MSQ as revealed once required number of items are selected
-  useEffect(() => {
-    if (currentQuestion && (currentQuestion as any).type === "msq" && hasAnsweredCurrentQuestion) {
-      revealCurrent(currentQuestion.id);
-    }
-  }, [currentQuestion, hasAnsweredCurrentQuestion]);
 
   function renderQuestionBody() {
     if (!currentQuestion) return (
       <div className="flex min-h-64 flex-col items-center justify-center gap-3 p-8 text-center">
         <Search className="h-10 w-10 text-muted-foreground" />
         <div className="space-y-1">
-          <h3 className="text-xl font-semibold text-white">No findings matched</h3>
-          <p className="max-w-md text-sm leading-6 text-slate-400">Try a different search term or reset the session.</p>
+          <h3 className="text-xl font-semibold text-foreground">No findings matched</h3>
+          <p className="max-w-md text-sm leading-6 text-muted-foreground">Try a different search term or reset the session.</p>
         </div>
       </div>
     );
@@ -254,7 +255,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
             </div>
 
             <div>
-              <div className="mb-2 text-sm font-semibold text-slate-300">Match to mitigation</div>
+              <div className="mb-2 text-sm font-semibold text-foreground">Match to mitigation</div>
               <div className="space-y-2">
                 {currentDropTargets.map((target) => {
                   const assignedKey = currentDragMapping[target];
@@ -279,16 +280,16 @@ export function QuestionApp({ questions }: QuestionAppProps) {
                         className={cn(
                           "min-h-[48px] flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded border px-3 py-3 sm:py-2 transition-all duration-200 cursor-pointer",
                           activeDragItem ? "border-primary/40 bg-primary/5 hover:border-primary/60" : "border-border bg-card/60",
-                          revealedIds.has(currentQuestion.id) && assignedKey ? (assignedKey === correctKey ? "border-emerald-500/50 bg-emerald-500/10 text-emerald-500" : "border-destructive/50 bg-destructive/10 text-destructive") : ""
+                          revealedIds.has(currentQuestion.id) && assignedKey ? (assignedKey === correctKey ? "border-emerald-500/50 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400" : "border-destructive/50 bg-destructive/10 text-destructive") : ""
                         )}
                       >
-                        <div className="text-xs sm:text-sm text-slate-300">{target}</div>
+                        <div className="text-xs sm:text-sm text-foreground">{target}</div>
                         <div className="w-full sm:w-auto sm:min-w-[140px]">{assignedKey ? (
                           <div className="flex items-center justify-between gap-2 border-t border-border/40 pt-2 sm:border-0 sm:pt-0"><div className="text-xs sm:text-sm text-foreground">{assignedKey}</div><button className="text-[10px] text-muted-foreground underline underline-offset-2" onClick={(ev) => { ev.stopPropagation(); setDragMappingsByQuestion((cur) => { const next = { ...(cur[currentQuestion.id] ?? {}) }; delete next[target]; return { ...cur, [currentQuestion.id]: next }; }); }}>Clear</button></div>
                         ) : <div className="text-xs sm:text-sm text-muted-foreground italic">{activeDragItem ? "Tap to drop here" : "Drop item here"}</div>}</div>
                       </div>
                       {isWrongAssignment && showMismatchMessage ? (
-                        <div className="mt-2 rounded-none border-l-4 border-rose-400/60 bg-rose-950/10 px-4 py-2 text-sm text-rose-100">
+                        <div className="mt-2 rounded-none border-l-4 border-rose-400/60 bg-rose-500/10 px-4 py-2 text-sm text-rose-700 dark:text-rose-100">
                           <div className="font-semibold">Incorrect match.</div>
                         </div>
                       ) : null}
@@ -307,20 +308,20 @@ export function QuestionApp({ questions }: QuestionAppProps) {
               </div>
             ) : null}
 
-            <div className="space-y-2 rounded-none border border-border bg-muted/50 p-3 text-sm leading-6 text-slate-200">
+            <div className="space-y-2 rounded-none border border-border bg-muted/50 p-3 text-sm leading-6 text-foreground">
               {revealedIds.has(currentQuestion.id) ? renderAnswer(currentQuestion.answer) : null}
             </div>
 
 
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
-              <Button type="button" variant="outline" className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-slate-200" onClick={goPrev} disabled={currentIndex === 0}><ArrowLeft className="mr-2 h-3 w-3 sm:h-4 sm:w-4" /> Prev</Button>
-              <Button type="button" className="rounded-none border border-primary/50 bg-primary/10 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-primary" onClick={goNext} disabled={currentIndex >= filteredQuestions.length - 1 || (!hasAnsweredCurrentQuestion && !reviewMode)}>Next <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" /></Button>
+              <Button type="button" variant="outline" className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-foreground" onClick={goPrev} disabled={currentIndex === 0}><ArrowLeft className="mr-2 h-3 w-3 sm:h-4 sm:w-4" /> Prev</Button>
+              <Button type="button" className="rounded-none border border-primary/50 bg-primary/10 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-primary hover:bg-primary/20 hover:text-primary" onClick={goNext} disabled={currentIndex >= filteredQuestions.length - 1 || (!hasAnsweredCurrentQuestion && !reviewMode)}>Next <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" /></Button>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              <Button type="button" variant="outline" className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-slate-200" onClick={() => revealCurrent(currentQuestion.id)}>Check Answer</Button>
-              <Button type="button" variant="outline" className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-slate-200" onClick={resetSession}>Reset view</Button>
+              <Button type="button" variant="outline" className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-foreground" onClick={() => revealCurrent(currentQuestion.id)}>Check Answer</Button>
+              <Button type="button" variant="outline" className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-foreground" onClick={resetSession}>Reset view</Button>
             </div>
 
 
@@ -353,13 +354,13 @@ export function QuestionApp({ questions }: QuestionAppProps) {
               <React.Fragment key={`${currentQuestion.id}-${idx}`}>
                 <button type="button" onClick={() => selectAnswer(currentQuestion, idx)} className={cn(
                   "flex w-full items-center gap-4 border px-4 py-4 text-left transition",
-                  isSelected ? "border-primary/60 bg-primary/10 text-primary-foreground" : "border-border bg-card/60 text-slate-200 hover:border-cyan-400/40 hover:bg-slate-900",
-                  isCorrect && "border-emerald-500/50 bg-emerald-500/10 text-emerald-500",
+                  isSelected ? "border-primary/60 bg-primary/10 text-primary" : "border-border bg-card/60 text-foreground hover:border-primary/40 hover:bg-muted",
+                  isCorrect && "border-emerald-500/50 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400",
                   isWrong && "border-destructive/50 bg-destructive/10 text-destructive",
                 )}>
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center border border-slate-700 text-xs font-semibold uppercase tracking-[0.18em] text-primary/90">{optionLabel(idx)}.</span>
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center border border-border text-xs font-semibold uppercase tracking-[0.18em] text-primary/90">{optionLabel(idx)}.</span>
                   <span className="text-sm font-medium leading-6">{opt}</span>
-                  <span className="ml-auto">{isCorrect ? <CheckCircle2 className="h-4 w-4 text-emerald-400" /> : null}{isWrong ? <XCircle className="h-4 w-4 text-rose-400" /> : null}</span>
+                  <span className="ml-auto">{isCorrect ? <CheckCircle2 className="h-4 w-4 text-emerald-700 dark:text-emerald-400" /> : null}{isWrong ? <XCircle className="h-4 w-4 text-rose-600 dark:text-rose-400" /> : null}</span>
                 </button>
               </React.Fragment>
             );
@@ -373,20 +374,20 @@ export function QuestionApp({ questions }: QuestionAppProps) {
               </div>
             ) : null}
 
-            <div className="space-y-2 rounded-none border border-border bg-muted/50 p-3 text-sm leading-6 text-slate-200">
+            <div className="space-y-2 rounded-none border border-border bg-muted/50 p-3 text-sm leading-6 text-foreground">
               {revealedIds.has(currentQuestion.id) ? renderAnswer(currentQuestion.answer) : null}
             </div>
 
 
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
-              <Button type="button" variant="outline" className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-slate-200" onClick={goPrev} disabled={currentIndex === 0}><ArrowLeft className="mr-2 h-3 w-3 sm:h-4 sm:w-4" /> Prev</Button>
-              <Button type="button" className="rounded-none border border-primary/50 bg-primary/10 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-primary" onClick={goNext} disabled={currentIndex >= filteredQuestions.length - 1 || (!hasAnsweredCurrentQuestion && !reviewMode)}>Next <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" /></Button>
+              <Button type="button" variant="outline" className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-foreground" onClick={goPrev} disabled={currentIndex === 0}><ArrowLeft className="mr-2 h-3 w-3 sm:h-4 sm:w-4" /> Prev</Button>
+              <Button type="button" className="rounded-none border border-primary/50 bg-primary/10 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-primary hover:bg-primary/20 hover:text-primary" onClick={goNext} disabled={currentIndex >= filteredQuestions.length - 1 || (!hasAnsweredCurrentQuestion && !reviewMode)}>Next <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" /></Button>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              <Button type="button" variant="outline" className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-slate-200" onClick={() => revealCurrent(currentQuestion.id)}>Check Answer</Button>
-              <Button type="button" variant="outline" className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-slate-200" onClick={resetSession}>Reset view</Button>
+              <Button type="button" variant="outline" className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-foreground" onClick={() => revealCurrent(currentQuestion.id)}>Check Answer</Button>
+              <Button type="button" variant="outline" className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-foreground" onClick={resetSession}>Reset view</Button>
             </div>
 
             <div className="flex items-center justify-between border-t border-border px-4 py-3 text-[11px] uppercase tracking-[0.18em] text-muted-foreground sm:px-5"><span>CASE {currentQuestionNumber} OF {filteredQuestions.length}</span><span>Threat Feed</span></div>
@@ -395,7 +396,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
       );
     }
 
-    return <div className="rounded-none border border-dashed border-slate-700 bg-card/60 p-4 text-sm leading-6 text-slate-400">This item uses a structured answer. Use the guidance panel to inspect the response shape.</div>;
+    return <div className="rounded-none border border-dashed border-border bg-card/60 p-4 text-sm leading-6 text-muted-foreground">This item uses a structured answer. Use the guidance panel to inspect the response shape.</div>;
   }
 
   return (
@@ -408,8 +409,8 @@ export function QuestionApp({ questions }: QuestionAppProps) {
     >
       {/* Shadcn-like background mesh/glow */}
       <div className="pointer-events-none fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" />
-        <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-cyan-500/10 opacity-20 blur-[100px]" />
+        <div className="absolute inset-0 opacity-60 dark:opacity-100 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" />
+        <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-amber-500/10 opacity-30 blur-[100px] dark:bg-cyan-500/10 dark:opacity-20" />
       </div>
 
       <section className="relative mx-auto flex w-full max-w-5xl flex-col gap-5 px-4 py-6 sm:px-6 lg:px-8">
@@ -420,7 +421,10 @@ export function QuestionApp({ questions }: QuestionAppProps) {
             <p className="mt-2 text-[10px] uppercase tracking-[0.28em] text-muted-foreground">{normalizedQuestions.length} questions</p>
           </div>
 
-          <div className="ml-4">
+          <div className="ml-4 flex items-center gap-2">
+            <Button type="button" variant="outline" className="h-10 w-10 rounded-md border-border bg-card/40 p-0" onClick={() => setIsDark((d) => !d)} aria-label="Toggle theme">
+              {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </Button>
             <Button type="button" variant="outline" className="h-10 rounded-md border-border bg-card/40 px-3 text-sm font-medium text-foreground" onClick={resetSession}>Reset Session</Button>
           </div>
         </div>
@@ -429,7 +433,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
           <CardContent className="space-y-4 p-4 sm:p-5">
             <div className="grid gap-3 sm:grid-cols-3">
               <div className="rounded-md border border-border bg-muted/50 px-4 py-3"><div className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Reviewed</div><div className="mt-1 text-2xl font-semibold text-primary">{reviewedCount}</div></div>
-              <div className="rounded-md border border-border bg-muted/50 px-4 py-3"><div className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Open</div><div className="mt-1 text-2xl font-semibold text-emerald-500">{Math.max(normalizedQuestions.length - reviewedCount, 0)}</div></div>
+              <div className="rounded-md border border-border bg-muted/50 px-4 py-3"><div className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Open</div><div className="mt-1 text-2xl font-semibold text-emerald-700 dark:text-emerald-500">{Math.max(normalizedQuestions.length - reviewedCount, 0)}</div></div>
               <div className="rounded-md border border-border bg-muted/50 px-4 py-3"><div className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Total</div><div className="mt-1 text-2xl font-semibold text-foreground">{filteredQuestions.length}</div></div>
             </div>
 
@@ -446,7 +450,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
                   className={cn(
                     "flex items-center gap-3 rounded-none border px-4 py-2 transition-all duration-300",
                     isShuffled
-                      ? "border-emerald-500/50 bg-emerald-500/10 text-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.1)]"
+                      ? "border-emerald-500/50 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.15)]"
                       : "border-border bg-card/40 text-muted-foreground hover:border-muted hover:text-foreground"
                   )}
                 >
