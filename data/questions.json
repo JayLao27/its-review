@@ -222,7 +222,7 @@
   },
   {
     "id": "12",
-    "type": "mcq",
+    "type": "msq",
     "question": "Which two components are required to enable clients to connect to a wireless network using the WPA2-Enterprise security protocol? (Choose 2.)",
     "options": [
       "WEP",
@@ -230,7 +230,10 @@
       "RADIUS",
       "PSK"
     ],
-    "answer": "SSID, RADIUS",
+    "answer": [
+      "SSID",
+      "RADIUS"
+    ],
     "category": "Wireless Security",
     "tags": [
       "WPA2-Enterprise",
@@ -242,7 +245,7 @@
   },
   {
     "id": "13",
-    "type": "mcq",
+    "type": "msq",
     "question": "What are the three components of the AAA concept in cybersecurity? (Choose 3.)",
     "options": [
       "Authentication",
@@ -251,7 +254,11 @@
       "Automation",
       "Authenticity"
     ],
-    "answer": "Authentication, Authorization, Accounting",
+    "answer": [
+      "Authentication",
+      "Authorization",
+      "Accounting"
+    ],
     "category": "Cybersecurity Fundamentals",
     "tags": [
       "AAA",
@@ -278,7 +285,12 @@
       "something you know",
       "something you are"
     ],
-    "explanation": "SMS token is a one-time password sent to a device (something you have). PIN number is memorized (something you know). Facial recognition is a biometric (something you are)."
+    "explanation": "SMS token is a one-time password sent to a device (something you have). PIN number is memorized (something you know). Facial recognition is a biometric (something you are).",
+    "answer": {
+      "SMS token": "Something you have",
+      "PIN number": "Something you know",
+      "Facial recognition": "Something you are"
+    }
   },
   {
     "id": "15",
@@ -514,7 +526,12 @@
       "NGFW",
       "packet filtering"
     ],
-    "explanation": "Stateful firewalls track connection state; stateless firewalls inspect each packet independently; next-generation firewalls (NGFW) operate at the application layer."
+    "explanation": "Stateful firewalls track connection state; stateless firewalls inspect each packet independently; next-generation firewalls (NGFW) operate at the application layer.",
+    "answer": {
+      "Stateful": "Remembers active connections established between devices.",
+      "Stateless": "Inspects every packet without context from any other packets.",
+      "NGFW": "Can filter packets at the application level."
+    }
   },
   {
     "id": "27",
@@ -559,7 +576,7 @@
   },
   {
     "id": "29",
-    "type": "mcq",
+    "type": "msq",
     "question": "Which two network vulnerability assessment tools are used to scan networks? (Choose 2.)",
     "options": [
       "Nessus",
@@ -567,7 +584,10 @@
       "Wireshark",
       "OpenSSL"
     ],
-    "answer": "Nessus, Wireshark",
+    "answer": [
+      "Nessus",
+      "Wireshark"
+    ],
     "category": "Vulnerability Assessment",
     "tags": [
       "Nessus",
@@ -601,7 +621,7 @@
   },
   {
     "id": "31",
-    "type": "mcq",
+    "type": "msq",
     "question": "An app a user has installed has many known security flaws. A security administrator wants the device the user has to be restored to the previous restore point, taken before the app was installed. What will change about the device? (Choose two)",
     "options": [
       "The device will return to a state before the app was installed.",
@@ -609,7 +629,10 @@
       "The device's files will be rolled back to the restore point.",
       "The operating system will be reset."
     ],
-    "answer": "The device will return to a state before the app was installed., The device's registry will be rolled back to the restored point.",
+    "answer": [
+      "The device will return to a state before the app was installed.",
+      "The device's registry will be rolled back to the restored point."
+    ],
     "category": "System Recovery",
     "tags": [
       "restore point",
@@ -853,7 +876,13 @@
       "supply chain",
       "employee training"
     ],
-    "explanation": "Natural disasters are mitigated by hardened facilities and alternate sites; cyberattacks by firewalls, IDS/IPS, and log analyzers; supply-chain disruptions by alternate sources and inventory management; employee errors by standard procedures and training."
+    "explanation": "Natural disasters are mitigated by hardened facilities and alternate sites; cyberattacks by firewalls, IDS/IPS, and log analyzers; supply-chain disruptions by alternate sources and inventory management; employee errors by standard procedures and training.",
+    "answer": {
+      "Natural disasters": "Hardened facilities and alternate sites.",
+      "Cyberattack": "Firewalls, IDS and IPS, and Log Analyzers.",
+      "Supply-chain disruptions": "Alternate sources, and inventory management.",
+      "Employee errors": "Standard procedures, and training."
+    }
   },
   {
     "id": "44",
@@ -877,7 +906,7 @@
   },
   {
     "id": "45",
-    "type": "mcq",
+    "type": "msq",
     "question": "Which security-related tasks and items are part of security governance? (Choose two)",
     "options": [
       "Meeting regulatory compliance requirements.",
@@ -885,7 +914,10 @@
       "Hiring IT staff and management.",
       "Nepotism."
     ],
-    "answer": "Meeting regulatory compliance requirements., Defining security roles and responsibilities.",
+    "answer": [
+      "Meeting regulatory compliance requirements.",
+      "Defining security roles and responsibilities."
+    ],
     "category": "Security Governance",
     "tags": [
       "governance",
@@ -953,7 +985,13 @@
       "logging",
       "monitoring"
     ],
-    "explanation": "Alert (Level 1) requires immediate correction; Warning (Level 4) indicates possible future error; Notice (Level 5) records unusual but non-error events; Informational (Level 6) logs normal operations."
+    "explanation": "Alert (Level 1) requires immediate correction; Warning (Level 4) indicates possible future error; Notice (Level 5) records unusual but non-error events; Informational (Level 6) logs normal operations.",
+    "answer": {
+      "Level 1 (Alert)": "The condition should be corrected immediately.",
+      "Level 4 (Warning)": "An error may occur if the situation is not remedied.",
+      "Level 5 (Notice)": "Unusual event but not an error.",
+      "Level 6 (Informational)": "Normal operation. The situation requires no intervention."
+    }
   },
   {
     "id": "49",
@@ -977,7 +1015,7 @@
   },
   {
     "id": "50",
-    "type": "mcq",
+    "type": "msq",
     "question": "Which three options are standards that enable the exchange of cyber threat intelligence (CTI) in an automated, consistent, and machine-readable format? (Choose 3.)",
     "options": [
       "CybOX",
@@ -986,7 +1024,11 @@
       "TAXII",
       "FireEye Helix"
     ],
-    "answer": "CybOX, STIX, TAXII",
+    "answer": [
+      "CybOX",
+      "STIX",
+      "TAXII"
+    ],
     "category": "Threat Intelligence",
     "tags": [
       "CTI",
@@ -1177,7 +1219,7 @@
   },
   {
     "id": "60",
-    "type": "mcq",
+    "type": "msq",
     "question": "Which three authentication factors are valid for use in a multi-factor authentication scenario? (Choose three)",
     "options": [
       "Something you are",
@@ -1187,7 +1229,11 @@
       "Something you see",
       "Something you earn"
     ],
-    "answer": "Something you know, Something you have, Something you are",
+    "answer": [
+      "Something you know",
+      "Something you have",
+      "Something you are"
+    ],
     "category": "Authentication",
     "tags": [
       "MFA",
@@ -1304,7 +1350,7 @@
   },
   {
     "id": "66",
-    "type": "mcq",
+    "type": "msq",
     "question": "Which two private IPv4 addresses would be blocked on the internet to prevent security and performance issues? (Choose two)",
     "options": [
       "10.0.0.0/8",
@@ -1312,7 +1358,10 @@
       "192.168.0.0/16",
       "169.254.0.0/16"
     ],
-    "answer": "172.16.0.0/12, 192.168.0.0/16",
+    "answer": [
+      "172.16.0.0/12",
+      "192.168.0.0/16"
+    ],
     "category": "Network Security",
     "tags": [
       "private IP",
@@ -1405,7 +1454,7 @@
   },
   {
     "id": "71",
-    "type": "mcq",
+    "type": "msq",
     "question": "What are two natural disasters that would cause a company to implement a disaster recovery plan? (Choose two)",
     "options": [
       "Hazardous material spills",
@@ -1413,7 +1462,10 @@
       "Floods",
       "Nuclear contamination"
     ],
-    "answer": "Floods, Volcanic eruptions",
+    "answer": [
+      "Floods",
+      "Volcanic eruptions"
+    ],
     "category": "Disaster Recovery",
     "tags": [
       "natural disasters",
@@ -1762,7 +1814,7 @@
   },
   {
     "id": "89",
-    "type": "mcq",
+    "type": "msq",
     "question": "You work for a community healthcare organization using an electronic health record system. You have implemented physical and technical safeguards required by HIPAA. You need to prove the system is compliant with those safeguards. Which two approaches should you use to verify compliance? (Choose two)",
     "options": [
       "Security awareness training",
@@ -1770,7 +1822,10 @@
       "Penetration testing",
       "IT auditing"
     ],
-    "answer": "Penetration testing, IT auditing",
+    "answer": [
+      "Penetration testing",
+      "IT auditing"
+    ],
     "category": "Compliance",
     "tags": [
       "HIPAA",
@@ -1822,7 +1877,7 @@
   },
   {
     "id": "92",
-    "type": "mcq",
+    "type": "msq",
     "question": "What are two disadvantages of public vulnerability databases? (Choose two)",
     "options": [
       "Publicly available databases are incompatible with most security platforms",
@@ -1830,7 +1885,10 @@
       "Threat actors can access the databases to learn how to vary threats to avoid detection",
       "It is costly for intelligence analysts to document and submit newly discovered vulnerabilities"
     ],
-    "answer": "It can take a long time for reported vulnerabilities to be investigated and approved; Threat actors can access the databases to learn how to vary threats to avoid detection",
+    "answer": [
+      "It can take a long time for reported vulnerabilities to be investigated and approved",
+      "Threat actors can access the databases to learn how to vary threats to avoid detection"
+    ],
     "category": "Vulnerability Management",
     "tags": [
       "vulnerability databases",
@@ -1902,7 +1960,7 @@
   },
   {
     "id": "96",
-    "type": "mcq",
+    "type": "msq",
     "question": "You are reviewing company remote access procedures and notice Telnet is being used to connect to a corporate database server to check inventory levels. Which two actions should you take immediately? (Choose two)",
     "options": [
       "Disable Telnet access on the server",
@@ -1910,7 +1968,10 @@
       "Reconfigure the server to only accept HTTP connections",
       "Implement SSH access on the server"
     ],
-    "answer": "Disable Telnet access on the server, Implement SSH access on the server",
+    "answer": [
+      "Disable Telnet access on the server",
+      "Implement SSH access on the server"
+    ],
     "category": "Secure Communications",
     "tags": [
       "Telnet",
