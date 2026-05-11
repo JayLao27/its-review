@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { AlertTriangle, ArrowLeft, ArrowRight, CheckCircle2, ChevronLeft, XCircle } from "lucide-react";
+import { AlertTriangle, ArrowLeft, ArrowRight, CheckCircle2, ChevronLeft, Moon, Sun, XCircle } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
@@ -36,7 +36,8 @@ function isCorrect(q: NormalizedQuestionItem, answer: UserAnswer | undefined): b
 
   if (qtype === "drag_and_drop") {
     if (answer.type !== "drag_and_drop") return false;
-    const correctAnswer = (q as any).answer as Record<string, string>;
+    const correctAnswer = ((q as any).answer ?? (q as any).items) as Record<string, string> | null;
+    if (!correctAnswer) return false;
     return Object.entries(correctAnswer).every(([k, v]) => answer.mapping[v] === k);
   }
 
@@ -70,12 +71,15 @@ export function TestMode({ questions }: TestModeProps) {
   const [isDark, setIsDark] = useState(true);
   const warningDismissed = useRef(false);
 
-  // Sync dark mode with document
+  // Sync dark mode with document on mount, then apply on toggle
   useEffect(() => {
-    const htmlEl = document.documentElement;
-    const wasDark = htmlEl.classList.contains("dark");
-    setIsDark(wasDark);
+    setIsDark(document.documentElement.classList.contains("dark"));
   }, []);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isDark);
+    document.documentElement.style.colorScheme = isDark ? "dark" : "light";
+  }, [isDark]);
 
   // Tab-switch detection
   useEffect(() => {
@@ -212,7 +216,10 @@ export function TestMode({ questions }: TestModeProps) {
                 </div>
               )}
               <Progress value={pct} className="h-3 bg-muted" />
-              <div className="mt-6 flex justify-center gap-3">
+              <div className="mt-6 flex justify-center gap-3 flex-wrap">
+                <Button variant="outline" size="icon" className="h-10 w-10 border-border text-foreground" onClick={() => setIsDark((d) => !d)} aria-label="Toggle theme">
+                  {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+                </Button>
                 <Button variant="outline" className="border-border text-foreground" onClick={() => setPhase("intro")}>Back to Home</Button>
                 <Button className="border border-primary/50 bg-primary/10 text-primary hover:bg-primary/20 hover:text-primary" onClick={startTest}>Retake Test</Button>
               </div>
@@ -303,10 +310,13 @@ export function TestMode({ questions }: TestModeProps) {
     return (
       <main className="min-h-screen bg-background text-foreground antialiased flex items-center justify-center px-4">
         <div className="w-full max-w-md">
-          <div className="mb-2">
+          <div className="mb-2 flex items-center justify-between">
             <a href="/" className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors">
               <ChevronLeft className="h-3.5 w-3.5" /> Back to Reviewer
             </a>
+            <Button variant="outline" size="icon" className="h-8 w-8 border-border bg-card/40" onClick={() => setIsDark((d) => !d)} aria-label="Toggle theme">
+              {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </Button>
           </div>
           <Card className="border-border bg-card/80 shadow-xl">
             <CardContent className="p-8 text-center space-y-5">
@@ -389,8 +399,17 @@ export function TestMode({ questions }: TestModeProps) {
             <Badge className="rounded-none border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-primary">Test Mode</Badge>
             <span className="text-sm text-muted-foreground">{currentIndex + 1} / {testQuestions.length}</span>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <span className="text-xs text-muted-foreground">{answeredCount} answered</span>
+            <Button
+              variant="outline"
+              size="icon"
+              className="h-8 w-8 border-border text-muted-foreground hover:text-foreground"
+              onClick={() => setIsDark((d) => !d)}
+              aria-label="Toggle theme"
+            >
+              {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </Button>
             <Button
               variant="outline"
               size="icon"

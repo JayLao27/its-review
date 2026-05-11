@@ -285,7 +285,12 @@
       "something you know",
       "something you are"
     ],
-    "explanation": "SMS token is a one-time password sent to a device (something you have). PIN number is memorized (something you know). Facial recognition is a biometric (something you are)."
+    "explanation": "SMS token is a one-time password sent to a device (something you have). PIN number is memorized (something you know). Facial recognition is a biometric (something you are).",
+    "answer": {
+      "SMS token": "Something you have",
+      "PIN number": "Something you know",
+      "Facial recognition": "Something you are"
+    }
   },
   {
     "id": "15",
@@ -521,7 +526,12 @@
       "NGFW",
       "packet filtering"
     ],
-    "explanation": "Stateful firewalls track connection state; stateless firewalls inspect each packet independently; next-generation firewalls (NGFW) operate at the application layer."
+    "explanation": "Stateful firewalls track connection state; stateless firewalls inspect each packet independently; next-generation firewalls (NGFW) operate at the application layer.",
+    "answer": {
+      "Stateful": "Remembers active connections established between devices.",
+      "Stateless": "Inspects every packet without context from any other packets.",
+      "NGFW": "Can filter packets at the application level."
+    }
   },
   {
     "id": "27",
@@ -866,7 +876,13 @@
       "supply chain",
       "employee training"
     ],
-    "explanation": "Natural disasters are mitigated by hardened facilities and alternate sites; cyberattacks by firewalls, IDS/IPS, and log analyzers; supply-chain disruptions by alternate sources and inventory management; employee errors by standard procedures and training."
+    "explanation": "Natural disasters are mitigated by hardened facilities and alternate sites; cyberattacks by firewalls, IDS/IPS, and log analyzers; supply-chain disruptions by alternate sources and inventory management; employee errors by standard procedures and training.",
+    "answer": {
+      "Natural disasters": "Hardened facilities and alternate sites.",
+      "Cyberattack": "Firewalls, IDS and IPS, and Log Analyzers.",
+      "Supply-chain disruptions": "Alternate sources, and inventory management.",
+      "Employee errors": "Standard procedures, and training."
+    }
   },
   {
     "id": "44",
@@ -969,7 +985,13 @@
       "logging",
       "monitoring"
     ],
-    "explanation": "Alert (Level 1) requires immediate correction; Warning (Level 4) indicates possible future error; Notice (Level 5) records unusual but non-error events; Informational (Level 6) logs normal operations."
+    "explanation": "Alert (Level 1) requires immediate correction; Warning (Level 4) indicates possible future error; Notice (Level 5) records unusual but non-error events; Informational (Level 6) logs normal operations.",
+    "answer": {
+      "Level 1 (Alert)": "The condition should be corrected immediately.",
+      "Level 4 (Warning)": "An error may occur if the situation is not remedied.",
+      "Level 5 (Notice)": "Unusual event but not an error.",
+      "Level 6 (Informational)": "Normal operation. The situation requires no intervention."
+    }
   },
   {
     "id": "49",
