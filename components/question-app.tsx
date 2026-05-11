@@ -720,6 +720,12 @@ export function QuestionApp({ questions }: QuestionAppProps) {
                 <span className="hidden sm:inline">Download PDF</span>
               </Button>
             </a>
+            <a href="/test">
+              <Button type="button" className="h-10 rounded-md border border-primary/50 bg-primary/10 px-3 text-sm font-medium text-primary hover:bg-primary/20 hover:text-primary">
+                <span className="hidden sm:inline">Start Test</span>
+                <span className="sm:hidden">Test</span>
+              </Button>
+            </a>
             <Button
               type="button"
               variant="outline"
