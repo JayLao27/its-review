@@ -1,5 +1,6 @@
 export type QuestionItem = {
   id?: string | number;
+  type?: string;
   question: string;
   answer: unknown;
   category?: string;

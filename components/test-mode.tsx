@@ -121,7 +121,7 @@ export function TestMode({ questions }: TestModeProps) {
 
   const currentQ = testQuestions[currentIndex] ?? null;
   const currentAnswer = currentQ ? answers[currentQ.id] : undefined;
-  const qtype = currentQ ? (currentQ as any).type : null;
+  const qtype = currentQ ? (Array.isArray(currentQ.answer) ? "msq" : (currentQ as any).type) : null;
   const currentDropTargets = currentQ ? (dropTargets[currentQ.id] ?? []) : [];
   const currentMapping =
     currentAnswer?.type === "drag_and_drop" ? currentAnswer.mapping : {};
@@ -147,8 +147,8 @@ export function TestMode({ questions }: TestModeProps) {
     if (qtype === "msq") {
       setAnswers((prev) => {
         const cur = prev[id];
-        const selected = (cur?.type === "msq" || cur?.type === "mcq") && cur.selected ? (cur.selected as number[]) : [];
-        const next = selected.includes(idx) ? selected.filter((i) => i !== idx) : [...selected, idx];
+        const selected = Array.isArray((cur as any)?.selected) ? (cur as any).selected : [];
+        const next = selected.includes(idx) ? selected.filter((i: number) => i !== idx) : [...selected, idx];
         return { ...prev, [id]: { type: "msq", selected: next } };
       });
     } else {
