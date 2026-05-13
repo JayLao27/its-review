@@ -120,13 +120,14 @@
   },
   {
     "id": "7",
-    "type": "drag_and_drop",
+    "type": "msq",
     "question": "What is available to restore from cloud storage that is not available from a restore point on a Windows device? (Choose two)",
-    "items": {
-      "Containment, eradication, recovery": "Mitigate impact after incident",
-      "Detection and analysis": "Evaluate indicators to determine if legitimate attack and alert organization",
-      "Preparation": "Establish incident response capability to ensure assets are secure"
-    },
+    "options": [
+      "Files",
+      "Folders",
+      "System registry",
+      "Windows drivers"
+    ],
     "answer": [
       "Files",
       "Folders"
