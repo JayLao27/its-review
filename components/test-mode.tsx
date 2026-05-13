@@ -147,7 +147,7 @@ export function TestMode({ questions }: TestModeProps) {
     if (qtype === "msq") {
       setAnswers((prev) => {
         const cur = prev[id];
-        const selected = cur?.type === "msq" || cur?.type === "mcq" ? (cur as any).selected as number[] : [];
+        const selected = (cur?.type === "msq" || cur?.type === "mcq") && cur.selected ? (cur.selected as number[]) : [];
         const next = selected.includes(idx) ? selected.filter((i) => i !== idx) : [...selected, idx];
         return { ...prev, [id]: { type: "msq", selected: next } };
       });
