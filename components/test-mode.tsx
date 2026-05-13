@@ -162,6 +162,11 @@ export function TestMode({ questions }: TestModeProps) {
     setAnswers((prev) => {
       const cur = prev[id];
       const mapping = cur?.type === "drag_and_drop" ? { ...cur.mapping } : {};
+      Object.keys(mapping).forEach((t) => {
+        if (mapping[t] === key && t !== target) {
+          delete mapping[t];
+        }
+      });
       mapping[target] = key;
       return { ...prev, [id]: { type: "drag_and_drop", mapping } };
     });
@@ -178,6 +183,23 @@ export function TestMode({ questions }: TestModeProps) {
       delete mapping[target];
       return { ...prev, [id]: { type: "drag_and_drop", mapping } };
     });
+  };
+
+  const clearDropByKey = (key: string) => {
+    if (!currentQ) return;
+    const id = currentQ.id;
+    setAnswers((prev) => {
+      const cur = prev[id];
+      if (cur?.type !== "drag_and_drop") return prev;
+      const mapping = { ...cur.mapping };
+      Object.keys(mapping).forEach((target) => {
+        if (mapping[target] === key) {
+          delete mapping[target];
+        }
+      });
+      return { ...prev, [id]: { type: "drag_and_drop", mapping } };
+    });
+    setActiveDragItem(null);
   };
 
   const goNext = () => {
@@ -446,12 +468,22 @@ export function TestMode({ questions }: TestModeProps) {
               >
                 <div>
                   <div className="mb-2 text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-semibold">Items</div>
-                  <div className="flex flex-wrap gap-2">
+                  <div
+                    className="flex flex-wrap gap-2"
+                    onDragOver={(e) => e.preventDefault()}
+                    onDrop={(e) => {
+                      const k = e.dataTransfer.getData("text/plain");
+                      if (k) clearDropByKey(k);
+                    }}
+                  >
                     {availableItems.map((k) => (
                       <div
                         key={k}
                         draggable
-                        onDragStart={(e) => e.dataTransfer.setData("text/plain", k)}
+                        onDragStart={(e) => {
+                          e.dataTransfer.setData("text/plain", k);
+                          e.dataTransfer.effectAllowed = "move";
+                        }}
                         onClick={() => setActiveDragItem(activeDragItem === k ? null : k)}
                         className={cn(
                           "cursor-pointer rounded border px-3 py-2 text-xs sm:text-sm transition-all select-none",
@@ -484,7 +516,16 @@ export function TestMode({ questions }: TestModeProps) {
                           <div className="w-full sm:w-auto sm:min-w-[140px]">
                             {assignedKey ? (
                               <div className="flex items-center justify-between gap-2 border-t border-border/40 pt-2 sm:border-0 sm:pt-0">
-                                <div className="text-xs sm:text-sm text-foreground">{assignedKey}</div>
+                                <div
+                                  draggable
+                                  onDragStart={(e) => {
+                                    e.dataTransfer.setData("text/plain", assignedKey);
+                                    e.dataTransfer.effectAllowed = "move";
+                                  }}
+                                  className="cursor-grab active:cursor-grabbing text-xs sm:text-sm text-foreground"
+                                >
+                                  {assignedKey}
+                                </div>
                                 <button className="text-[10px] text-muted-foreground underline underline-offset-2"
                                   onClick={(ev) => { ev.stopPropagation(); clearDrop(target); }}>Clear</button>
                               </div>
