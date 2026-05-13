@@ -20,6 +20,7 @@ import { Card, CardContent } from "./ui/card";
 import { Input } from "./ui/input";
 import { Progress } from "./ui/progress";
 import { cn } from "../lib/utils";
+import { TestMode } from "./test-mode";
 import {
   normalizeQuestions,
   type NormalizedQuestionItem,
@@ -110,6 +111,8 @@ export function QuestionApp({ questions }: QuestionAppProps) {
   const [isShuffled, setIsShuffled] = useState(false);
   const [shuffleSeed, setShuffleSeed] = useState(0);
   const [isDark, setIsDark] = useState(true);
+  const [showNewTest, setShowNewTest] = useState(false);
+  const [newTestQuestions, setNewTestQuestions] = useState<QuestionItem[]>([]);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", isDark);
@@ -159,6 +162,18 @@ export function QuestionApp({ questions }: QuestionAppProps) {
     setDragMappingsByQuestion({});
     setDropTargetsByQuestion({});
     setIsShuffled(false);
+  };
+
+  const startNewQuestionsTest = async () => {
+    try {
+      const mod = await import("../data/newquestions.json");
+      const data = (mod && (mod as any).default) || (mod as any);
+      setNewTestQuestions(data as QuestionItem[]);
+      setShowNewTest(true);
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error("Failed to start new questions test", err);
+    }
   };
 
   const toggleShuffle = () => {
@@ -665,6 +680,10 @@ export function QuestionApp({ questions }: QuestionAppProps) {
     );
   }
 
+  if (showNewTest && newTestQuestions.length) {
+    return <TestMode questions={newTestQuestions} />;
+  }
+
   return (
     <main
       className="min-h-screen bg-background text-foreground font-sans antialiased overflow-x-hidden touch-pan-y"
@@ -682,10 +701,10 @@ export function QuestionApp({ questions }: QuestionAppProps) {
       <section className="relative mx-auto flex w-full max-w-5xl flex-col gap-5 px-4 py-6 sm:px-6 lg:px-8">
         <div className="flex items-start justify-between">
           <div>
-            <Badge className="mx-0 w-fit rounded-none border border-primary/20 bg-primary/10 px-4 py-1 text-[10px] sm:text-[11px] uppercase tracking-[0.35em] text-primary">
+            <Badge onClick={startNewQuestionsTest} className="mx-0 w-fit rounded-none border border-primary/20 bg-primary/10 px-4 py-1 text-[10px] sm:text-[11px] uppercase tracking-[0.35em] text-primary cursor-pointer">
               Cybersecurity Review
             </Badge>
-            <h1 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-5xl">
+            <h1 onClick={startNewQuestionsTest} className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-5xl cursor-pointer">
               Cybersecurity
             </h1>
             <p className="mt-2 text-[10px] uppercase tracking-[0.28em] text-muted-foreground">

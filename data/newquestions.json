@@ -1,0 +1,662 @@
+[
+  {
+    "id": "1",
+    "type": "mcq",
+    "question": "The employees in the accounting department of a company receive an email about the latest federal accounting regulations. The email contains a hyperlink to register for a webinar that provides the latest updates on financial transaction security. The webinar is hosted by a government agency. As a security officer, you notice that the hyperlink points to an unknown party. Which type of cybersecurity threat should you investigate?",
+    "options": ["Ransomware", "Vishing", "Smishing", "Spear phishing"],
+    "answer": "Spear phishing",
+    "category": "Security Threats",
+    "tags": ["phishing", "spear-phishing", "email-security"],
+    "explanation": "Spear phishing targets specific individuals or groups with personalized messages. The email appears legitimate but links to an unknown party, indicating a targeted phishing attempt."
+  },
+  {
+    "id": "2",
+    "type": "mcq",
+    "question": "You need to transfer configuration files to a router across an unsecured network. Which protocol should you use to encrypt the files in transit?",
+    "options": ["HTTP", "Telnet", "SSH", "TFTP"],
+    "answer": "SSH",
+    "category": "Network Security",
+    "tags": ["encryption", "ssh", "secure-transfer"],
+    "explanation": "SSH (Secure Shell) provides encrypted communication over unsecured networks. HTTP, Telnet, and TFTP send data in cleartext."
+  },
+  {
+    "id": "3",
+    "type": "mcq",
+    "question": "You need to allow employees to access your company's secure network from their homes. Which type of security should you implement?",
+    "options": ["IDS", "VPN", "BYOD", "SNMP"],
+    "answer": "VPN",
+    "category": "Network Security",
+    "tags": ["vpn", "remote-access", "secure-connectivity"],
+    "explanation": "A VPN (Virtual Private Network) creates an encrypted tunnel over the internet, allowing secure remote access to a private network."
+  },
+  {
+    "id": "4",
+    "type": "mcq",
+    "question": "Your home network seems to have slowed down considerably. You look at the home router GUI and notice that an unknown host is attached to the network. What should you do to prevent this specific host from attaching to the network again?",
+    "options": ["Create an IP access control list", "Implement MAC address filtering", "Block the host IP address", "Change the network SSID"],
+    "answer": "Implement MAC address filtering",
+    "category": "Network Security",
+    "tags": ["mac-filtering", "access-control", "home-network"],
+    "explanation": "MAC address filtering allows or denies devices based on their unique MAC address. Blocking an IP is ineffective if the attacker changes IP, and changing SSID does not prevent a specific host."
+  },
+  {
+    "id": "5",
+    "type": "mcq",
+    "question": "What are two natural disasters that would cause a company to implement a disaster recovery plan? (Choose two.)",
+    "options": ["Hazardous material spills", "Volcanic eruptions", "Floods", "Nuclear contamination"],
+    "answer": ["Volcanic eruptions", "Floods"],
+    "category": "Risk Management",
+    "tags": ["disaster-recovery", "natural-disasters", "business-continuity"],
+    "explanation": "Volcanic eruptions and floods are natural disasters. Hazardous material spills and nuclear contamination are man-made or industrial disasters."
+  },
+  {
+    "id": "6",
+    "type": "mcq",
+    "question": "A cybersecurity analyst is investigating an unknown executable file discovered on a Linux desktop computer. The analyst enters the following command in a terminal: ls -l. What is the purpose of this command?",
+    "options": ["To navigate to the folder that is passed as an argument", "To open a text editor", "To display the file permissions and ownership of the executable file", "To display the content of a text file"],
+    "answer": "To display the file permissions and ownership of the executable file",
+    "category": "Security Operations",
+    "tags": ["linux", "command-line", "file-permissions"],
+    "explanation": "The 'ls -l' command lists files in long format, showing permissions, ownership, size, and modification time. It does not navigate, edit, or display file content."
+  },
+  {
+    "id": "7",
+    "type": "mcq",
+    "question": "We need to filter the websites that are available to employees on the company network. Which type of device should you deploy?",
+    "options": ["IPS", "Honeypot", "Proxy server", "IDS"],
+    "answer": "Proxy server",
+    "category": "Network Security",
+    "tags": ["proxy", "web-filtering", "access-control"],
+    "explanation": "A proxy server can intercept web requests and enforce URL filtering policies. IPS/IDS monitor traffic but do not filter websites, and a honeypot is a decoy."
+  },
+  {
+    "id": "8",
+    "type": "mcq",
+    "question": "Several staff members are experiencing unexplained computer crashes and many unwanted popups. Which two actions should you take immediately to address the problem without impacting data? (Choose two.)",
+    "options": ["Reinstall Windows on the affected workstations", "Deploy a policy to install and automatically upgrade antivirus and anti-malware software", "Scan affected workstations and remove malware", "Configure the network firewall to block malware from entering the internal network"],
+    "answer": ["Deploy a policy to install and automatically upgrade antivirus and anti-malware software", "Scan affected workstations and remove malware"],
+    "category": "Incident Response",
+    "tags": ["malware", "antivirus", "incident-response"],
+    "explanation": "Scanning and removing malware addresses the immediate issue without data loss. Deploying an antivirus policy prevents future infections. Reinstalling Windows may cause data loss, and firewall configuration is slower to implement."
+  },
+  {
+    "id": "9",
+    "type": "mcq",
+    "question": "You are a security analyst reviewing output from a SIEM. You notice an alert concerning malicious files detected by IDS. After reviewing the user device and posture information, you determine that it is a valid incident. What should you do next?",
+    "options": ["Prepare notes to present at the weekly cybersecurity team meeting", "Escalate the situation immediately", "Log the alert and watch for a second occurrence", "Update the documentation to include the new alert information"],
+    "answer": "Escalate the situation immediately",
+    "category": "Incident Response",
+    "tags": ["siem", "incident-handling", "escalation"],
+    "explanation": "A confirmed valid incident requires immediate escalation according to incident response procedures, not documentation or waiting."
+  },
+  {
+    "id": "10",
+    "type": "mcq",
+    "question": "Which two basic metrics should be taken into consideration when assigning a severity to a vulnerability during an assessment? (Choose two.)",
+    "options": ["The age of the hardware running the software that contains vulnerability", "The likelihood that an adversary can and will exploit the vulnerability", "The time involved in choosing replacement software to replace older systems", "The impacts that exploitation of the vulnerability will have on the organization"],
+    "answer": ["The likelihood that an adversary can and will exploit the vulnerability", "The impacts that exploitation of the vulnerability will have on the organization"],
+    "category": "Vulnerability Management",
+    "tags": ["risk-assessment", "severity", "cvss"],
+    "explanation": "Severity is based on likelihood of exploitation and potential impact. Hardware age and replacement time are operational factors, not direct severity metrics."
+  },
+  {
+    "id": "11",
+    "type": "mcq",
+    "question": "Your organization's SIEM system alerts you that users are connecting to an unusual URL. You need to determine whether the URL is malicious and what type of threat it represents. What should you do?",
+    "options": ["Ask users why they visited the website.", "Submit the URL to the threat intelligence portal for analysis.", "Visit the URL to determine whether the website is legitimate.", "Block the URL by placing it on the network block list."],
+    "answer": "Submit the URL to the threat intelligence portal for analysis.",
+    "category": "Threat Intelligence",
+    "tags": ["url-analysis", "threat-intel", "siem"],
+    "explanation": "Threat intelligence portals provide reputation and analysis of URLs without risking exposure. Visiting the URL could be dangerous, and blocking without analysis is premature."
+  },
+  {
+    "id": "12",
+    "type": "mcq",
+    "question": "Which activity by an adversary is an example of an exploit that is attempting to gain user credentials?",
+    "options": ["Executing a remote port scan of all the enterprise-registered IP addresses", "Installing a backdoor in order to enable two-way communication with the device", "Obtaining a directory listing of files located on the database server or sending an email with a link to a fictitious web portal login page", "Cracking a server password with brute force software"],
+    "answer": "Obtaining a directory listing of files located on the database server or sending an email with a link to a fictitious web portal login page",
+    "category": "Security Threats",
+    "tags": ["credential-theft", "phishing", "exploit"],
+    "explanation": "Sending a fake login page (phishing) directly targets credential harvesting. Brute force also attempts credentials but is less stealthy and not an 'exploit' per se. The listed option explicitly includes a deceptive login page."
+  },
+  {
+    "id": "13",
+    "type": "mcq",
+    "question": "A security analyst discovers that a hacker was able to gain root access to an enterprise Linux server. The hacker accessed the server as a guest, used a program to bypass the root password, and then killed essential server processes as the root user. Which type of endpoint attack is this?",
+    "options": ["Brute force", "Privilege escalation", "Buffer overflow", "DDoS"],
+    "answer": "Privilege escalation",
+    "category": "Security Threats",
+    "tags": ["privilege-escalation", "linux", "endpoint-attack"],
+    "explanation": "The attacker started as a guest (low privilege) and bypassed root password to gain root access, which is privilege escalation."
+  },
+  {
+    "id": "14",
+    "type": "mcq",
+    "question": "A system on your network is experiencing slower than usual response times. In order to gather information about the status of the system, you issue the netstat -l command to display all the TCP ports that are in the listening state. What does the listening state indicate about these ports?",
+    "options": ["The ports are actively connected to another system or process.", "The remote end disconnected and the ports are closing.", "The ports are open on the system and are waiting for connections.", "The state of the connection on the ports is unknown."],
+    "answer": "The ports are open on the system and are waiting for connections.",
+    "category": "Network Security",
+    "tags": ["netstat", "tcp-ports", "network-monitoring"],
+    "explanation": "LISTENING state means a service is bound to the port and waiting for incoming connections. Active connections are ESTABLISHED, closing is TIME_WAIT/CLOSE_WAIT."
+  },
+  {
+    "id": "15",
+    "type": "mcq",
+    "question": "Which activity is an example of active reconnaissance performed during a penetration test?",
+    "options": ["Searching the WHOIS database for the owner and technical contact information for a domain", "Performing an Nmap port scan on the LAN to determine types of connected devices and open ports", "Gathering employee information from available web directories and social media", "Using a browser to view the HTTP source code of company web pages"],
+    "answer": "Performing an Nmap port scan on the LAN to determine types of connected devices and open ports",
+    "category": "Penetration Testing",
+    "tags": ["reconnaissance", "active-recon", "nmap"],
+    "explanation": "Active reconnaissance involves direct interaction with the target (e.g., port scanning). WHOIS, social media, and viewing source code are passive."
+  },
+  {
+    "id": "16",
+    "type": "mcq",
+    "question": "What is the purpose of a hypervisor?",
+    "options": ["It provides and services a gateway between users and the Internet.", "It monitors and logs network traffic for malicious packets.", "It creates and runs virtual machines.", "It provides and monitors firewall services for cloud computing."],
+    "answer": "It creates and runs virtual machines.",
+    "category": "Cloud & Virtualization",
+    "tags": ["hypervisor", "virtualization", "vm"],
+    "explanation": "A hypervisor (e.g., VMware ESXi, Hyper-V) allows multiple virtual machines to run on a single physical host."
+  },
+  {
+    "id": "17",
+    "type": "mcq",
+    "question": "What does hashing provide for data communication?",
+    "options": ["Data integrity", "Data non-repudiation", "Data encryption", "Origin authentication"],
+    "answer": "Data integrity",
+    "category": "Cryptography",
+    "tags": ["hashing", "integrity", "cryptography"],
+    "explanation": "Hashing produces a fixed-size digest that changes if the data changes, ensuring integrity. Non-repudiation and origin authentication are provided by digital signatures; encryption provides confidentiality."
+  },
+  {
+    "id": "18",
+    "type": "mcq",
+    "question": "Which wireless encryption technology requires AES to secure home wireless networks?",
+    "options": ["TKIP", "WEP", "WPA2", "WPA"],
+    "answer": "WPA2",
+    "category": "Network Security",
+    "tags": ["wireless", "aes", "wpa2"],
+    "explanation": "WPA2 mandates AES-CCMP for robust security. WEP and WPA (TKIP) are outdated and vulnerable."
+  },
+  {
+    "id": "19",
+    "type": "mcq",
+    "question": "What enables the network security team to keep track of the operating system versions, security updates, and patches on end-user devices?",
+    "options": ["Business continuity planning", "Incident management", "Security policies and procedures", "Asset management"],
+    "answer": "Asset management",
+    "category": "Security Management",
+    "tags": ["asset-management", "patch-management", "inventory"],
+    "explanation": "Asset management includes tracking hardware, software versions, and patch levels. Policies and incident management are not inventory tools."
+  },
+  {
+    "id": "20",
+    "type": "mcq",
+    "question": "You are a security technician. You just completed a full scan of a Windows 10 PC. Where should you go to view the scan results?",
+    "options": ["Windows Application Logs", "Windows Task Manager", "Windows Security", "Windows System Logs"],
+    "answer": "Windows Security",
+    "category": "Security Operations",
+    "tags": ["windows", "antivirus", "scan-results"],
+    "explanation": "Windows Security (formerly Windows Defender Security Center) displays antivirus scan results. Application and System logs may contain related events but are not the primary interface."
+  },
+  {
+    "id": "21",
+    "type": "mcq",
+    "question": "You work for a community healthcare organization that uses an electronic health record system. You have implemented the physical and technical safeguards required by HIPAA. You need to prove that the system is compliant with those safeguards. Which two approaches should you use to verify the system is compliant? (Choose two.)",
+    "options": ["Security awareness training", "Automatic logoff implementation", "Penetration testing", "IT auditing"],
+    "answer": ["Penetration testing", "IT auditing"],
+    "category": "Compliance",
+    "tags": ["hipaa", "compliance-verification", "auditing", "penetration-testing"],
+    "explanation": "Penetration testing and IT auditing are verification methods. Security awareness training and automatic logoff are safeguards themselves, not verification approaches."
+  },
+  {
+    "id": "22",
+    "type": "mcq",
+    "question": "You are monitoring the syslog server and observe that the DNS server is sending messages with a warning severity. What do these messages indicate about the operation of the DNS server?",
+    "options": ["A condition exists that will cause errors in the future if the issue is not fixed.", "The server has a hardware error that does not require immediate attention.", "An error condition is occurring that must be addressed immediately.", "The DNS server is unusable due to a severe malfunction and is shutting down."],
+    "answer": "A condition exists that will cause errors in the future if the issue is not fixed.",
+    "category": "Monitoring & Logging",
+    "tags": ["syslog", "severity-levels", "dns"],
+    "explanation": "Warning severity indicates a potential future problem. Emergency and alert levels require immediate action; error indicates a current failure."
+  },
+  {
+    "id": "23",
+    "type": "mcq",
+    "question": "A corporation hires a group of experienced cybercriminals to create a prolonged and in-depth presence on the network of a competitor. This presence will allow the corporation to steal or sabotage sensitive data from their competitor. Which type of attack is this?",
+    "options": ["Brute force attack", "DDoS attack", "APT (Advanced Persistent Threat)", "Ransomware"],
+    "answer": "APT (Advanced Persistent Threat)",
+    "category": "Security Threats",
+    "tags": ["apt", "cyber-espionage", "persistent-threat"],
+    "explanation": "An APT involves long-term, stealthy presence to exfiltrate data. DDoS is disruptive, ransomware encrypts for ransom, brute force is short-lived."
+  },
+  {
+    "id": "24",
+    "type": "mcq",
+    "question": "What are the two disadvantages of public vulnerability databases? (Choose 2.)",
+    "options": ["Publicly available databases are incompatible with most security platforms.", "It can take a long time for reported vulnerabilities to be investigated and approved for addition to the databases.", "Threat actors can access the databases to learn how to vary the threats to avoid detection.", "It is costly for intelligence analysts to document and submit newly discovered vulnerabilities."],
+    "answer": [
+      "It can take a long time for reported vulnerabilities to be investigated and approved for addition to the databases.",
+      "Threat actors can access the databases to learn how to vary the threats to avoid detection."
+    ],
+    "category": "Vulnerability Management",
+    "tags": ["vulnerability-database", "cve", "threat-intel"],
+    "explanation": "Public databases (e.g., CVE) have delays in adding new vulnerabilities and are accessible to attackers. Compatibility is generally good, and submission is often free/open."
+  },
+  {
+    "id": "25",
+    "type": "mcq",
+    "question": "After an administrator installs an operating system update on a laptop, the laptop user can no longer use their wireless printer. What should solve the issue?",
+    "options": ["Update the firmware on the laptop.", "Check for patches for wireless printers.", "Install a new device driver for the wireless printer.", "Reinstall the same service pack."],
+    "answer": "Install a new device driver for the wireless printer.",
+    "category": "Troubleshooting",
+    "tags": ["driver", "printer", "os-update"],
+    "explanation": "An OS update can break printer drivers. Reinstalling or updating the printer driver is the most direct fix. Firmware updates on the laptop are less relevant."
+  },
+  {
+    "id": "26",
+    "type": "mcq",
+    "question": "Customers of an online shopping store are complaining that they cannot visit the website. As an IT technician, you restart the website. After 30 minutes, the website crashes again. You suspect a cyberattack. Which type of cybersecurity threat should you investigate?",
+    "options": ["Social engineering", "Denial of Service (DoS)", "Ransomware", "Spear phishing"],
+    "answer": "Denial of Service (DoS)",
+    "category": "Security Threats",
+    "tags": ["dos", "availability", "web-application"],
+    "explanation": "Repeated crashing after restart is typical of a DoS attack flooding the service. Ransomware would encrypt data, phishing targets credentials."
+  },
+  {
+    "id": "27",
+    "type": "mcq",
+    "question": "You are reviewing company remote access procedures and notice that Telnet is being used to connect to a corporate database server. Which two actions should you take immediately? (Choose 2.)",
+    "options": ["Disable Telnet access on the server.", "Force users to implement secure Telnet passwords.", "Reconfigure the server to only accept HTTP connections.", "Implement SSH access on the server."],
+    "answer": ["Disable Telnet access on the server.", "Implement SSH access on the server."],
+    "category": "Network Security",
+    "tags": ["telnet", "ssh", "secure-remote-access"],
+    "explanation": "Telnet sends credentials in cleartext and should be disabled in favor of SSH. HTTP is also insecure for database access."
+  },
+  {
+    "id": "28",
+    "type": "mcq",
+    "question": "Several employees complain that the company intranet site is no longer accepting their login information. You notice misspellings on the URL. What should you do?",
+    "options": [
+      "Restart the web server.",
+      "Clear the DNS cache on the client machines.",
+      "Check for a man-in-the-middle attack.",
+      "Verify the accuracy of the entry for the site in the local DNS server."
+    ],
+    "answer": "Verify the accuracy of the entry for the site in the local DNS server.",
+    "category": "Network Security",
+    "tags": ["dns", "url-misspelling", "incident-response"],
+    "explanation": "Misspelled URL suggests a DNS issue (e.g., typo in DNS record). Verifying the DNS entry is the logical first step."
+  },
+  {
+    "id": "29",
+    "type": "mcq",
+    "question": "In order to do online banking, you enter a strong password and then enter a 5-digit code sent to your smartphone. Which type of authentication does this describe?",
+    "options": ["AAA", "VPN", "Multifactor", "RADIUS"],
+    "answer": "Multifactor",
+    "category": "Identity & Access Management",
+    "tags": ["mfa", "authentication", "2fa"],
+    "explanation": "Using a password (something you know) and a code from smartphone (something you have) is multifactor authentication."
+  },
+  {
+    "id": "30",
+    "type": "mcq",
+    "question": "You work for a hospital storing electronic protected health information (ePHI) in an online portal. Which safeguard should you develop to comply with HIPAA?",
+    "options": [
+      "A policy to govern how ePHI is removed from mobile devices",
+      "A contingency plan",
+      "A policy requiring multifactor authentication to use the mobile device",
+      "An ownership policy for employees' mobile devices"
+    ],
+    "answer": "A contingency plan",
+    "category": "Compliance",
+    "tags": ["hipaa", "contingency-plan", "ePHI"],
+    "explanation": "HIPAA requires a contingency plan (disaster recovery, emergency mode operation) for ePHI availability. The other options are good practices but not the primary required safeguard."
+  },
+  {
+    "id": "31",
+    "type": "mcq",
+    "question": "A threat actor sets up a rogue access point (AP) at a local café, captures traffic, and forwards it to the real AP. What type of attack is this?",
+    "options": ["DDoS", "Reconnaissance", "Ransomware", "Man-in-the-middle"],
+    "answer": "Man-in-the-middle",
+    "category": "Security Threats",
+    "tags": ["mitm", "rogue-ap", "wireless-attack"],
+    "explanation": "The rogue AP intercepts and forwards traffic, allowing the attacker to eavesdrop or modify data – a classic man-in-the-middle attack."
+  },
+  {
+    "id": "32",
+    "type": "mcq",
+    "question": "Which two private IPv4 addresses would be blocked on the internet? (Choose 2.)",
+    "options": ["192.168.18.189", "203.0.113.168", "224.0.2.172", "172.18.100.78"],
+    "answer": ["192.168.18.189", "172.18.100.78"],
+    "category": "Network Security",
+    "tags": ["private-ip", "rfc1918", "networking"],
+    "explanation": "192.168.0.0/16 and 172.16.0.0/12 are private RFC 1918 addresses. 203.0.113.0/24 is test-net (documentation) and 224.0.0.0/4 is multicast."
+  },
+  {
+    "id": "33",
+    "type": "mcq",
+    "question": "A remote worker cannot connect their laptop to a branch wireless access point (WAP). What is a possible cause?",
+    "options": [
+      "The SSID is not broadcasting.",
+      "The WAP is using open authentication.",
+      "The WAP is configured for MAC address filtering.",
+      "The IP address of the laptop is not correct."
+    ],
+    "answer": "The WAP is configured for MAC address filtering.",
+    "category": "Troubleshooting",
+    "tags": ["wireless", "mac-filtering", "connectivity"],
+    "explanation": "MAC filtering would prevent the laptop if its MAC is not allowed. Non-broadcasting SSID still allows manual connection; open authentication would allow; incorrect IP would occur after association."
+  },
+  {
+    "id": "34",
+    "type": "mcq",
+    "question": "Why is it necessary to update firmware to the latest version?",
+    "options": [
+      "To support the latest operating systems and applications",
+      "To patch firmware in the kernel of the operating system"
+    ],
+    "answer": "To support the latest operating systems and applications",
+    "category": "System Maintenance",
+    "tags": ["firmware", "updates", "compatibility"],
+    "explanation": "Firmware updates provide compatibility, security patches, and performance improvements. The kernel option is incorrect as firmware is separate from OS kernel."
+  },
+  {
+    "id": "35",
+    "type": "true_false",
+    "question": "Determine if each element of the Diamond Model is correctly matched with the intrusion event.",
+    "statements": [
+      {
+        "statement": "Adversary: Phishing email, malware",
+        "correct": false
+      },
+      {
+        "statement": "Infrastructure: Email server and domain name",
+        "correct": true
+      },
+      {
+        "statement": "Capability: Ransomware group",
+        "correct": false
+      },
+      {
+        "statement": "Victim: Customer and product databases",
+        "correct": true
+      }
+    ],
+    "answer": {
+      "Adversary: Phishing email, malware": false,
+      "Infrastructure: Email server and domain name": true,
+      "Capability: Ransomware group": false,
+      "Victim: Customer and product databases": true
+    },
+    "category": "Threat Modeling",
+    "tags": ["diamond-model", "intrusion-analysis", "threat-intel"],
+    "explanation": "Adversary should be the attacker entity, not tools. Capability is the tool/technique (phishing email, malware). Ransomware group is an adversary. Infrastructure and victim are correctly matched."
+  },
+  {
+    "id": "36",
+    "type": "mcq",
+    "question": "Your manager asks you to review the output of vulnerability scans. Which two findings should you report? (Choose 2.)",
+    "options": ["SSH packets", "Encrypted passwords", "Open ports", "Disabled firewalls"],
+    "answer": ["Open ports", "Disabled firewalls"],
+    "category": "Vulnerability Management",
+    "tags": ["vulnerability-scan", "findings", "reporting"],
+    "explanation": "Open ports (especially unnecessary ones) and disabled firewalls are security weaknesses. SSH packets and encrypted passwords are not vulnerabilities."
+  },
+  {
+    "id": "37",
+    "type": "true_false",
+    "question": "Determine if each NIST Incident Response Lifecycle phase is correctly matched with its description.",
+    "statements": [
+      {
+        "statement": "Containment, Eradication, and Recovery: Mitigates the impact of the incident",
+        "correct": true
+      },
+      {
+        "statement": "Detection and Analysis: Evaluates incident indicators and alerts the organization",
+        "correct": true
+      },
+      {
+        "statement": "Post-Incident Activity: Reports cause, cost, and prevention steps",
+        "correct": true
+      },
+      {
+        "statement": "Preparation: Establishes an incident response capability",
+        "correct": true
+      }
+    ],
+    "answer": {
+      "Containment, Eradication, and Recovery: Mitigates the impact of the incident": true,
+      "Detection and Analysis: Evaluates incident indicators and alerts the organization": true,
+      "Post-Incident Activity: Reports cause, cost, and prevention steps": true,
+      "Preparation: Establishes an incident response capability": true
+    },
+    "category": "Incident Response",
+    "tags": ["nist", "incident-response", "lifecycle"],
+    "explanation": "All descriptions accurately match the NIST SP 800-61 incident response phases."
+  },
+  {
+    "id": "38",
+    "type": "mcq",
+    "question": "Your supervisor suspects unauthorized login attempts on a Windows machine. Which two audit events help verify this? (Choose 2.)",
+    "options": ["Account lockout success", "Account logon failure", "Object access failure", "Account logoff success"],
+    "answer": ["Account lockout success", "Account logon failure"],
+    "category": "Monitoring & Logging",
+    "tags": ["windows-audit", "login-failures", "account-lockout"],
+    "explanation": "Account logon failures indicate failed login attempts; account lockout success indicates multiple failures leading to lockout. Object access and logoff events are not relevant."
+  },
+  {
+    "id": "39",
+    "type": "mcq",
+    "question": "You need a software solution that logs information, compiles network data, orchestrates case management, and automates incident responses. What product should you use?",
+    "options": ["NextGen IPS", "SIEM", "Snort", "SOAR"],
+    "answer": "SOAR",
+    "category": "Security Operations",
+    "tags": ["soar", "automation", "orchestration", "incident-response"],
+    "explanation": "SOAR (Security Orchestration, Automation, and Response) specifically handles case management and automation. SIEM focuses on logging and alerting; IPS/Snort are intrusion prevention/detection."
+  },
+  {
+    "id": "40",
+    "type": "mcq",
+    "question": "Your company is creating a BYOD policy. Which three requirements are common? (Choose 3.)",
+    "options": [
+      "Installation of secure apps only",
+      "Deletion of all personal data from the phone",
+      "Upgrade of data plan to maximum available",
+      "Encryption of stored confidential corporate data",
+      "Synchronization of lock screen password with network password",
+      "Configuration of a strong password"
+    ],
+    "answer": ["Installation of secure apps only", "Encryption of stored confidential corporate data", "Configuration of a strong password"],
+    "category": "Security Policies",
+    "tags": ["byod", "mobile-security", "policy"],
+    "explanation": "Common BYOD requirements include strong passwords, data encryption, and approved app sources. Deleting all personal data is extreme; data plan upgrade and password synchronization are not typical."
+  },
+  {
+    "id": "41",
+    "type": "true_false",
+    "question": "Determine if each Windows host log type description is correct.",
+    "statements": [
+      {
+        "statement": "Application logs: Contain events from running programs",
+        "correct": true
+      },
+      {
+        "statement": "Setup logs: Record OS updates and software installations",
+        "correct": true
+      },
+      {
+        "statement": "System logs: List hardware, driver, and process events",
+        "correct": true
+      },
+      {
+        "statement": "Security logs: Record success/failure of audit events",
+        "correct": true
+      }
+    ],
+    "answer": {
+      "Application logs: Contain events from running programs": true,
+      "Setup logs: Record OS updates and software installations": true,
+      "System logs: List hardware, driver, and process events": true,
+      "Security logs: Record success/failure of audit events": true
+    },
+    "category": "Monitoring & Logging",
+    "tags": ["windows-logs", "event-viewer", "audit"],
+    "explanation": "All descriptions accurately reflect the default Windows Event Log categories."
+  },
+  {
+    "id": "42",
+    "type": "true_false",
+    "question": "Determine if each framework is properly matched to its purpose.",
+    "statements": [
+      {
+        "statement": "GDPR: Protects personal information of EU members",
+        "correct": true
+      },
+      {
+        "statement": "HIPAA: Protects healthcare information",
+        "correct": true
+      },
+      {
+        "statement": "PCI-DSS: Protects credit card information",
+        "correct": true
+      },
+      {
+        "statement": "FERPA: Protects educational records",
+        "correct": true
+      },
+      {
+        "statement": "FISMA: Protects information stored by federal agencies",
+        "correct": true
+      }
+    ],
+    "answer": {
+      "GDPR: Protects personal information of EU members": true,
+      "HIPAA: Protects healthcare information": true,
+      "PCI-DSS: Protects credit card information": true,
+      "FERPA: Protects educational records": true,
+      "FISMA: Protects information stored by federal agencies": true
+    },
+    "category": "Compliance",
+    "tags": ["gdpr", "hipaa", "pci-dss", "ferpa", "fisma"],
+    "explanation": "All frameworks are correctly matched with their primary purpose."
+  },
+  {
+    "id": "43",
+    "type": "true_false",
+    "question": "Match each cybersecurity tool in the Vulnerability Management Process: Discover: Nessus Scanner. Is this correct?",
+    "statements": [
+      {
+        "statement": "Discover: Nessus Scanner",
+        "correct": true
+      }
+    ],
+    "answer": {
+      "Discover: Nessus Scanner": true
+    },
+    "category": "Vulnerability Management",
+    "tags": ["nessus", "vulnerability-scanning", "discovery"],
+    "explanation": "Nessus is a widely used vulnerability scanner used in the discovery phase of vulnerability management."
+  },
+  {
+    "id": "44",
+    "type": "mcq",
+    "question": "Which network security technology passively monitors and compares traffic against malicious signatures?",
+    "options": ["Honeypot", "Proxy Server", "IPS", "IDS"],
+    "answer": "IDS",
+    "category": "Network Security",
+    "tags": ["ids", "passive-monitoring", "signature-based"],
+    "explanation": "An Intrusion Detection System (IDS) passively monitors traffic and alerts on malicious signatures. IPS actively blocks; honeypots decoy; proxies forward requests."
+  },
+  {
+    "id": "45",
+    "type": "mcq",
+    "question": "How can you verify an EHR system’s HIPAA compliance? (Choose 2.)",
+    "options": ["Security awareness training", "Automatic log-off implementation", "Penetration testing", "IT auditing"],
+    "answer": ["Penetration testing", "IT auditing"],
+    "category": "Compliance",
+    "tags": ["hipaa", "ehr", "compliance-verification"],
+    "explanation": "Penetration testing and IT auditing are verification methods. Security awareness training and automatic log-off are controls, not verification techniques."
+  },
+  {
+    "id": "46",
+    "type": "true_false",
+    "question": "Determine if each attacker scenario is correct or wrong.",
+    "statements": [
+      {
+        "statement": "State-sponsored attacker: Works with a government to promote its agenda",
+        "correct": true
+      },
+      {
+        "statement": "Insider threat: Installs malware on a server as a contractor",
+        "correct": true
+      },
+      {
+        "statement": "Hacktivist: Interferes with elections for justice causes",
+        "correct": false
+      },
+      {
+        "statement": "Cyber criminal: Profits from stolen data via spamming",
+        "correct": true
+      }
+    ],
+    "answer": {
+      "State-sponsored attacker: Works with a government to promote its agenda": true,
+      "Insider threat: Installs malware on a server as a contractor": true,
+      "Hacktivist: Interferes with elections for justice causes": false,
+      "Cyber criminal: Profits from stolen data via spamming": true
+    },
+    "category": "Security Threats",
+    "tags": ["threat-actors", "state-sponsored", "insider", "hacktivist", "cyber-criminal"],
+    "explanation": "State-sponsored actors work for government agendas. Insider threats include contractors. Hacktivists typically protest or promote social/political causes, but election interference is more typical of state-sponsored. Cyber criminals profit financially, e.g., via spamming or selling data."
+  },
+  {
+    "id": "47",
+    "type": "mcq",
+    "question": "How does sandboxing help with the analysis of malware?",
+    "options": [
+      "It specifies the applications that are authorized for use on the network.",
+      "It restricts traffic from passing from one network to another.",
+      "It allows suspicious applications to run in a safe and isolated testing environment.",
+      "It defines the suspicious or malicious applications that should be blocked."
+    ],
+    "answer": "It allows suspicious applications to run in a safe and isolated testing environment.",
+    "category": "Malware Analysis",
+    "tags": ["sandboxing", "malware-analysis", "isolation"],
+    "explanation": "Sandboxing provides an isolated environment to execute and observe malware behavior without risking production systems."
+  },
+  {
+    "id": "48",
+    "type": "mcq",
+    "question": "You notice that a new CVE has been shared to an email group that you belong to. What should you do first with the CVE?",
+    "options": [
+      "Add the CVE to the firewall rules for your organization.",
+      "Research measures to prevent the CVE from attacking the network.",
+      "Look up details of the vulnerability to determine whether it applies to your network.",
+      "Record the CVE as part of the disaster recovery plan."
+    ],
+    "answer": "Look up details of the vulnerability to determine whether it applies to your network.",
+    "category": "Vulnerability Management",
+    "tags": ["cve", "vulnerability-handling", "prioritization"],
+    "explanation": "First determine if the vulnerability affects your environment before taking further action like patching or rule changes."
+  },
+  {
+    "id": "49",
+    "type": "mcq",
+    "question": "You are going to perform a penetration test on a company LAN. As part of your preparation, you access the company’s websites, view webpage source code, and run internet searches to uncover domain information. You also use social media to gather details about the company and its employees. Which type of reconnaissance activities are you performing?",
+    "options": ["Invasive", "Offline", "Active", "Passive"],
+    "answer": "Passive",
+    "category": "Penetration Testing",
+    "tags": ["reconnaissance", "passive-recon", "osint"],
+    "explanation": "Passive reconnaissance uses publicly available information without directly interacting with the target systems. Active reconnaissance would involve scanning or probing."
+  },
+  {
+    "id": "50",
+    "type": "mcq",
+    "question": "An employee accidentally sends an email containing sensitive corporate information to an external email address. Which type of threat does this scenario describe?",
+    "options": ["Logic bomb", "Insider", "Phishing", "Malware"],
+    "answer": "Insider",
+    "category": "Security Threats",
+    "tags": ["insider-threat", "accidental", "data-leak"],
+    "explanation": "An insider threat involves a person within the organization causing harm, whether intentional or accidental. This is an unintentional insider incident."
+  }
+]
