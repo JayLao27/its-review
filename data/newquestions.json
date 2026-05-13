@@ -41,7 +41,7 @@
   },
   {
     "id": "5",
-    "type": "mcq",
+    "type": "msq",
     "question": "What are two natural disasters that would cause a company to implement a disaster recovery plan? (Choose two.)",
     "options": ["Hazardous material spills", "Volcanic eruptions", "Floods", "Nuclear contamination"],
     "answer": ["Volcanic eruptions", "Floods"],
@@ -71,7 +71,7 @@
   },
   {
     "id": "8",
-    "type": "mcq",
+    "type": "msq",
     "question": "Several staff members are experiencing unexplained computer crashes and many unwanted popups. Which two actions should you take immediately to address the problem without impacting data? (Choose two.)",
     "options": ["Reinstall Windows on the affected workstations", "Deploy a policy to install and automatically upgrade antivirus and anti-malware software", "Scan affected workstations and remove malware", "Configure the network firewall to block malware from entering the internal network"],
     "answer": ["Deploy a policy to install and automatically upgrade antivirus and anti-malware software", "Scan affected workstations and remove malware"],
@@ -91,7 +91,7 @@
   },
   {
     "id": "10",
-    "type": "mcq",
+    "type": "msq",
     "question": "Which two basic metrics should be taken into consideration when assigning a severity to a vulnerability during an assessment? (Choose two.)",
     "options": ["The age of the hardware running the software that contains vulnerability", "The likelihood that an adversary can and will exploit the vulnerability", "The time involved in choosing replacement software to replace older systems", "The impacts that exploitation of the vulnerability will have on the organization"],
     "answer": ["The likelihood that an adversary can and will exploit the vulnerability", "The impacts that exploitation of the vulnerability will have on the organization"],
