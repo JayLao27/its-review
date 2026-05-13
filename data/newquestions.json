@@ -361,33 +361,41 @@
     "explanation": "Firmware updates provide compatibility, security patches, and performance improvements. The kernel option is incorrect as firmware is separate from OS kernel."
   },
   {
-    "id": "35",
-    "type": "true_false",
-    "question": "Determine if each element of the Diamond Model is correctly matched with the intrusion event.",
-    "statements": [
-      {
-        "statement": "Adversary: Phishing email, malware",
-        "correct": false
-      },
-      {
-        "statement": "Infrastructure: Email server and domain name",
-        "correct": true
-      },
-      {
-        "statement": "Capability: Ransomware group",
-        "correct": false
-      },
-      {
-        "statement": "Victim: Customer and product databases",
-        "correct": true
-      }
-    ],
-    "answer": {
-      "Adversary: Phishing email, malware": false,
-      "Infrastructure: Email server and domain name": true,
-      "Capability: Ransomware group": false,
-      "Victim: Customer and product databases": true
-    },
+    "id": "35-1",
+    "type": "mcq",
+    "question": "Adversary: Phishing email, malware. Is this correct?",
+    "options": ["True", "False"],
+    "answer": "False",
+    "category": "Threat Modeling",
+    "tags": ["diamond-model", "intrusion-analysis", "threat-intel"],
+    "explanation": "Adversary should be the attacker entity, not tools. Capability is the tool/technique (phishing email, malware). Ransomware group is an adversary. Infrastructure and victim are correctly matched."
+  },
+  {
+    "id": "35-2",
+    "type": "mcq",
+    "question": "Infrastructure: Email server and domain name. Is this correct?",
+    "options": ["True", "False"],
+    "answer": "True",
+    "category": "Threat Modeling",
+    "tags": ["diamond-model", "intrusion-analysis", "threat-intel"],
+    "explanation": "Adversary should be the attacker entity, not tools. Capability is the tool/technique (phishing email, malware). Ransomware group is an adversary. Infrastructure and victim are correctly matched."
+  },
+  {
+    "id": "35-3",
+    "type": "mcq",
+    "question": "Capability: Ransomware group. Is this correct?",
+    "options": ["True", "False"],
+    "answer": "False",
+    "category": "Threat Modeling",
+    "tags": ["diamond-model", "intrusion-analysis", "threat-intel"],
+    "explanation": "Adversary should be the attacker entity, not tools. Capability is the tool/technique (phishing email, malware). Ransomware group is an adversary. Infrastructure and victim are correctly matched."
+  },
+  {
+    "id": "35-4",
+    "type": "mcq",
+    "question": "Victim: Customer and product databases. Is this correct?",
+    "options": ["True", "False"],
+    "answer": "True",
     "category": "Threat Modeling",
     "tags": ["diamond-model", "intrusion-analysis", "threat-intel"],
     "explanation": "Adversary should be the attacker entity, not tools. Capability is the tool/technique (phishing email, malware). Ransomware group is an adversary. Infrastructure and victim are correctly matched."
@@ -403,33 +411,41 @@
     "explanation": "Open ports (especially unnecessary ones) and disabled firewalls are security weaknesses. SSH packets and encrypted passwords are not vulnerabilities."
   },
   {
-    "id": "37",
-    "type": "true_false",
-    "question": "Determine if each NIST Incident Response Lifecycle phase is correctly matched with its description.",
-    "statements": [
-      {
-        "statement": "Containment, Eradication, and Recovery: Mitigates the impact of the incident",
-        "correct": true
-      },
-      {
-        "statement": "Detection and Analysis: Evaluates incident indicators and alerts the organization",
-        "correct": true
-      },
-      {
-        "statement": "Post-Incident Activity: Reports cause, cost, and prevention steps",
-        "correct": true
-      },
-      {
-        "statement": "Preparation: Establishes an incident response capability",
-        "correct": true
-      }
-    ],
-    "answer": {
-      "Containment, Eradication, and Recovery: Mitigates the impact of the incident": true,
-      "Detection and Analysis: Evaluates incident indicators and alerts the organization": true,
-      "Post-Incident Activity: Reports cause, cost, and prevention steps": true,
-      "Preparation: Establishes an incident response capability": true
-    },
+    "id": "37-1",
+    "type": "mcq",
+    "question": "Containment, Eradication, and Recovery: Mitigates the impact of the incident. Is this correct?",
+    "options": ["True", "False"],
+    "answer": "True",
+    "category": "Incident Response",
+    "tags": ["nist", "incident-response", "lifecycle"],
+    "explanation": "All descriptions accurately match the NIST SP 800-61 incident response phases."
+  },
+  {
+    "id": "37-2",
+    "type": "mcq",
+    "question": "Detection and Analysis: Evaluates incident indicators and alerts the organization. Is this correct?",
+    "options": ["True", "False"],
+    "answer": "True",
+    "category": "Incident Response",
+    "tags": ["nist", "incident-response", "lifecycle"],
+    "explanation": "All descriptions accurately match the NIST SP 800-61 incident response phases."
+  },
+  {
+    "id": "37-3",
+    "type": "mcq",
+    "question": "Post-Incident Activity: Reports cause, cost, and prevention steps. Is this correct?",
+    "options": ["True", "False"],
+    "answer": "True",
+    "category": "Incident Response",
+    "tags": ["nist", "incident-response", "lifecycle"],
+    "explanation": "All descriptions accurately match the NIST SP 800-61 incident response phases."
+  },
+  {
+    "id": "37-4",
+    "type": "mcq",
+    "question": "Preparation: Establishes an incident response capability. Is this correct?",
+    "options": ["True", "False"],
+    "answer": "True",
     "category": "Incident Response",
     "tags": ["nist", "incident-response", "lifecycle"],
     "explanation": "All descriptions accurately match the NIST SP 800-61 incident response phases."
@@ -472,87 +488,101 @@
     "explanation": "Common BYOD requirements include strong passwords, data encryption, and approved app sources. Deleting all personal data is extreme; data plan upgrade and password synchronization are not typical."
   },
   {
-    "id": "41",
-    "type": "true_false",
-    "question": "Determine if each Windows host log type description is correct.",
-    "statements": [
-      {
-        "statement": "Application logs: Contain events from running programs",
-        "correct": true
-      },
-      {
-        "statement": "Setup logs: Record OS updates and software installations",
-        "correct": true
-      },
-      {
-        "statement": "System logs: List hardware, driver, and process events",
-        "correct": true
-      },
-      {
-        "statement": "Security logs: Record success/failure of audit events",
-        "correct": true
-      }
-    ],
-    "answer": {
-      "Application logs: Contain events from running programs": true,
-      "Setup logs: Record OS updates and software installations": true,
-      "System logs: List hardware, driver, and process events": true,
-      "Security logs: Record success/failure of audit events": true
-    },
+    "id": "41-1",
+    "type": "mcq",
+    "question": "Application logs: Contain events from running programs. Is this correct?",
+    "options": ["True", "False"],
+    "answer": "True",
     "category": "Monitoring & Logging",
     "tags": ["windows-logs", "event-viewer", "audit"],
     "explanation": "All descriptions accurately reflect the default Windows Event Log categories."
   },
   {
-    "id": "42",
-    "type": "true_false",
-    "question": "Determine if each framework is properly matched to its purpose.",
-    "statements": [
-      {
-        "statement": "GDPR: Protects personal information of EU members",
-        "correct": true
-      },
-      {
-        "statement": "HIPAA: Protects healthcare information",
-        "correct": true
-      },
-      {
-        "statement": "PCI-DSS: Protects credit card information",
-        "correct": true
-      },
-      {
-        "statement": "FERPA: Protects educational records",
-        "correct": true
-      },
-      {
-        "statement": "FISMA: Protects information stored by federal agencies",
-        "correct": true
-      }
-    ],
-    "answer": {
-      "GDPR: Protects personal information of EU members": true,
-      "HIPAA: Protects healthcare information": true,
-      "PCI-DSS: Protects credit card information": true,
-      "FERPA: Protects educational records": true,
-      "FISMA: Protects information stored by federal agencies": true
-    },
+    "id": "41-2",
+    "type": "mcq",
+    "question": "Setup logs: Record OS updates and software installations. Is this correct?",
+    "options": ["True", "False"],
+    "answer": "True",
+    "category": "Monitoring & Logging",
+    "tags": ["windows-logs", "event-viewer", "audit"],
+    "explanation": "All descriptions accurately reflect the default Windows Event Log categories."
+  },
+  {
+    "id": "41-3",
+    "type": "mcq",
+    "question": "System logs: List hardware, driver, and process events. Is this correct?",
+    "options": ["True", "False"],
+    "answer": "True",
+    "category": "Monitoring & Logging",
+    "tags": ["windows-logs", "event-viewer", "audit"],
+    "explanation": "All descriptions accurately reflect the default Windows Event Log categories."
+  },
+  {
+    "id": "41-4",
+    "type": "mcq",
+    "question": "Security logs: Record success/failure of audit events. Is this correct?",
+    "options": ["True", "False"],
+    "answer": "True",
+    "category": "Monitoring & Logging",
+    "tags": ["windows-logs", "event-viewer", "audit"],
+    "explanation": "All descriptions accurately reflect the default Windows Event Log categories."
+  },
+  {
+    "id": "42-1",
+    "type": "mcq",
+    "question": "GDPR: Protects personal information of EU members. Is this correct?",
+    "options": ["True", "False"],
+    "answer": "True",
+    "category": "Compliance",
+    "tags": ["gdpr", "hipaa", "pci-dss", "ferpa", "fisma"],
+    "explanation": "All frameworks are correctly matched with their primary purpose."
+  },
+  {
+    "id": "42-2",
+    "type": "mcq",
+    "question": "HIPAA: Protects healthcare information. Is this correct?",
+    "options": ["True", "False"],
+    "answer": "True",
+    "category": "Compliance",
+    "tags": ["gdpr", "hipaa", "pci-dss", "ferpa", "fisma"],
+    "explanation": "All frameworks are correctly matched with their primary purpose."
+  },
+  {
+    "id": "42-3",
+    "type": "mcq",
+    "question": "PCI-DSS: Protects credit card information. Is this correct?",
+    "options": ["True", "False"],
+    "answer": "True",
+    "category": "Compliance",
+    "tags": ["gdpr", "hipaa", "pci-dss", "ferpa", "fisma"],
+    "explanation": "All frameworks are correctly matched with their primary purpose."
+  },
+  {
+    "id": "42-4",
+    "type": "mcq",
+    "question": "FERPA: Protects educational records. Is this correct?",
+    "options": ["True", "False"],
+    "answer": "True",
+    "category": "Compliance",
+    "tags": ["gdpr", "hipaa", "pci-dss", "ferpa", "fisma"],
+    "explanation": "All frameworks are correctly matched with their primary purpose."
+  },
+  {
+    "id": "42-5",
+    "type": "mcq",
+    "question": "FISMA: Protects information stored by federal agencies. Is this correct?",
+    "options": ["True", "False"],
+    "answer": "True",
     "category": "Compliance",
     "tags": ["gdpr", "hipaa", "pci-dss", "ferpa", "fisma"],
     "explanation": "All frameworks are correctly matched with their primary purpose."
   },
   {
     "id": "43",
-    "type": "true_false",
-    "question": "Match each cybersecurity tool in the Vulnerability Management Process: Discover: Nessus Scanner. Is this correct?",
-    "statements": [
-      {
-        "statement": "Discover: Nessus Scanner",
-        "correct": true
-      }
-    ],
-    "answer": {
-      "Discover: Nessus Scanner": true
-    },
+    "type": "mcq",
+    "question": "Discover: Nessus Scanner. Is this correct?",
+    "options": ["True", "False"],
+    "answer": "True",
     "category": "Vulnerability Management",
     "tags": ["nessus", "vulnerability-scanning", "discovery"],
     "explanation": "Nessus is a widely used vulnerability scanner used in the discovery phase of vulnerability management."
@@ -578,33 +608,41 @@
     "explanation": "Penetration testing and IT auditing are verification methods. Security awareness training and automatic log-off are controls, not verification techniques."
   },
   {
-    "id": "46",
-    "type": "true_false",
-    "question": "Determine if each attacker scenario is correct or wrong.",
-    "statements": [
-      {
-        "statement": "State-sponsored attacker: Works with a government to promote its agenda",
-        "correct": true
-      },
-      {
-        "statement": "Insider threat: Installs malware on a server as a contractor",
-        "correct": true
-      },
-      {
-        "statement": "Hacktivist: Interferes with elections for justice causes",
-        "correct": false
-      },
-      {
-        "statement": "Cyber criminal: Profits from stolen data via spamming",
-        "correct": true
-      }
-    ],
-    "answer": {
-      "State-sponsored attacker: Works with a government to promote its agenda": true,
-      "Insider threat: Installs malware on a server as a contractor": true,
-      "Hacktivist: Interferes with elections for justice causes": false,
-      "Cyber criminal: Profits from stolen data via spamming": true
-    },
+    "id": "46-1",
+    "type": "mcq",
+    "question": "State-sponsored attacker: Works with a government to promote its agenda. Is this correct?",
+    "options": ["True", "False"],
+    "answer": "True",
+    "category": "Security Threats",
+    "tags": ["threat-actors", "state-sponsored", "insider", "hacktivist", "cyber-criminal"],
+    "explanation": "State-sponsored actors work for government agendas. Insider threats include contractors. Hacktivists typically protest or promote social/political causes, but election interference is more typical of state-sponsored. Cyber criminals profit financially, e.g., via spamming or selling data."
+  },
+  {
+    "id": "46-2",
+    "type": "mcq",
+    "question": "Insider threat: Installs malware on a server as a contractor. Is this correct?",
+    "options": ["True", "False"],
+    "answer": "True",
+    "category": "Security Threats",
+    "tags": ["threat-actors", "state-sponsored", "insider", "hacktivist", "cyber-criminal"],
+    "explanation": "State-sponsored actors work for government agendas. Insider threats include contractors. Hacktivists typically protest or promote social/political causes, but election interference is more typical of state-sponsored. Cyber criminals profit financially, e.g., via spamming or selling data."
+  },
+  {
+    "id": "46-3",
+    "type": "mcq",
+    "question": "Hacktivist: Interferes with elections for justice causes. Is this correct?",
+    "options": ["True", "False"],
+    "answer": "False",
+    "category": "Security Threats",
+    "tags": ["threat-actors", "state-sponsored", "insider", "hacktivist", "cyber-criminal"],
+    "explanation": "State-sponsored actors work for government agendas. Insider threats include contractors. Hacktivists typically protest or promote social/political causes, but election interference is more typical of state-sponsored. Cyber criminals profit financially, e.g., via spamming or selling data."
+  },
+  {
+    "id": "46-4",
+    "type": "mcq",
+    "question": "Cyber criminal: Profits from stolen data via spamming. Is this correct?",
+    "options": ["True", "False"],
+    "answer": "True",
     "category": "Security Threats",
     "tags": ["threat-actors", "state-sponsored", "insider", "hacktivist", "cyber-criminal"],
     "explanation": "State-sponsored actors work for government agendas. Insider threats include contractors. Hacktivists typically protest or promote social/political causes, but election interference is more typical of state-sponsored. Cyber criminals profit financially, e.g., via spamming or selling data."
