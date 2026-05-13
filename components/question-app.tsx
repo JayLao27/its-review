@@ -187,7 +187,6 @@ export function QuestionApp({ questions }: QuestionAppProps) {
 
   const selectAnswer = (q: NormalizedQuestionItem, index: number) => {
     if ((q as any).type === "msq") {
-      if (revealedIds.has(q.id)) return;
       setSelectedAnswers((cur) => {
         const prev = cur[q.id];
         const selected = Array.isArray(prev) ? prev : [];
