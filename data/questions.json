@@ -120,14 +120,13 @@
   },
   {
     "id": "7",
-    "type": "msq",
+    "type": "drag_and_drop",
     "question": "What is available to restore from cloud storage that is not available from a restore point on a Windows device? (Choose two)",
-    "options": [
-      "Files",
-      "Folders",
-      "Registry settings",
-      "Operating system settings"
-    ],
+    "items": {
+      "Containment, eradication, recovery": "Mitigate impact after incident",
+      "Detection and analysis": "Evaluate indicators to determine if legitimate attack and alert organization",
+      "Preparation": "Establish incident response capability to ensure assets are secure"
+    },
     "answer": [
       "Files",
       "Folders"
@@ -682,65 +681,6 @@
     "explanation": "Object Access auditing tracks attempts to access files and other objects. Process Tracking tracks program activation, and Directory Services tracks Active Directory object access."
   },
   {
-    "id": "34",
-    "type": "mcq",
-    "question": "What is the term to describe a weakness in a computer device, system, or network?",
-    "options": [
-      "Vulnerability",
-      "Threat",
-      "Exploit",
-      "Attack"
-    ],
-    "answer": "Vulnerability",
-    "category": "Cybersecurity Fundamentals",
-    "tags": [
-      "vulnerability",
-      "weakness",
-      "threat",
-      "exploit",
-      "attack"
-    ],
-    "explanation": "A vulnerability is a weakness. A threat is a potential danger, an exploit is code that takes advantage of a vulnerability, and an attack is an actual harmful act."
-  },
-  {
-    "id": "35",
-    "type": "mcq",
-    "question": "What is spyware?",
-    "options": [
-      "A program that collects information about users, systems, and browsing habits",
-      "A program with malicious purposes that hides inside another useful program",
-      "A program that replicates itself by modifying system or application software",
-      "A program that prevents, scans, detects, and deletes viruses from a computer"
-    ],
-    "answer": "A program that collects information about users, systems, and browsing habits",
-    "category": "Malware",
-    "tags": [
-      "spyware",
-      "malware",
-      "information theft",
-      "privacy"
-    ],
-    "explanation": "Spyware collects user information. Hiding inside useful programs describes a trojan; self-replication describes a worm; virus protection describes antivirus software."
-  },
-  {
-    "id": "36",
-    "type": "mcq",
-    "question": "You are completing a college admissions application online. When navigating to the next page in the application, the website becomes unresponsive and appears to crash. You attempt to refresh the Admissions page, but you get a generic browser error and cannot access your application. What part of the CIA Triad has been compromised?",
-    "options": [
-      "Availability",
-      "Integrity",
-      "Confidentiality"
-    ],
-    "answer": "Availability",
-    "category": "Security Principles",
-    "tags": [
-      "CIA Triad",
-      "availability",
-      "downtime"
-    ],
-    "explanation": "Availability is compromised because the application is no longer accessible. Confidentiality and integrity are not affected as no data breach or modification occurred."
-  },
-  {
     "id": "37",
     "type": "mcq",
     "question": "Which cybersecurity framework serves as a guide and provides best practices for improving information security and properly conducting cybersecurity risk management?",
@@ -1080,25 +1020,6 @@
     "explanation": "Patch management directly addresses outdated software. Email security, firewalls, and permissions policies do not solve the underlying issue of missing OS updates."
   },
   {
-    "id": "53",
-    "type": "mcq",
-    "question": "Which option represents an external source of risk to an organization?",
-    "options": [
-      "Lack of encryption on local database file stores.",
-      "Natural disasters, such as earthquakes or floods.",
-      "Failure to update program documentation.",
-      "Obsolete or end-of-support hardware installed."
-    ],
-    "answer": "Natural disasters, such as earthquakes or floods.",
-    "category": "Risk Management",
-    "tags": [
-      "external risk",
-      "natural disasters",
-      "risk sources"
-    ],
-    "explanation": "Natural disasters are external sources of risk. Lack of encryption, failure to update documentation, and obsolete hardware are internal sources of risk."
-  },
-  {
     "id": "54",
     "type": "mcq",
     "question": "Which attack method requires the use of a phone to obtain personal or sensitive information?",
@@ -1286,16 +1207,15 @@
   },
   {
     "id": "63",
-    "type": "mcq",
+    "type": "drag_and_drop",
     "question": "Match each compliance regulation with the data it protects.",
-    "options": [
-      "GDPR \u2192 Personal information of EU members",
-      "HIPAA \u2192 Healthcare information",
-      "PCI DSS \u2192 Credit card information",
-      "FERPA \u2192 Educational records",
-      "FISMA \u2192 Federal agency information"
-    ],
-    "answer": "GDPR \u2192 Personal information of EU members; HIPAA \u2192 Healthcare information; PCI DSS \u2192 Credit card information; FERPA \u2192 Educational records; FISMA \u2192 Federal agency information",
+    "answer": {
+      "GDPR": "Personal information of EU members",
+      "HIPAA": "Healthcare information",
+      "PCI DSS": "Credit card information",
+      "FERPA": "Educational records",
+      "FISMA": "Federal agency information"
+    },
     "category": "Compliance",
     "tags": [
       "GDPR",
@@ -1305,18 +1225,24 @@
       "FISMA",
       "data protection"
     ],
-    "explanation": "GDPR protects EU personal data; HIPAA protects healthcare information; PCI DSS protects credit card data; FERPA protects student education records; FISMA protects federal agency information."
+    "explanation": "GDPR protects EU personal data; HIPAA protects healthcare information; PCI DSS protects credit card data; FERPA protects student education records; FISMA protects federal agency information.",
+    "items": {
+      "GDPR": "Personal information of EU members",
+      "HIPAA": "Healthcare information",
+      "PCI DSS": "Credit card information",
+      "FERPA": "Educational records",
+      "FISMA": "Federal agency information"
+    }
   },
   {
     "id": "64",
-    "type": "mcq",
+    "type": "drag_and_drop",
     "question": "Match each CIA Triad component to its correct description.",
-    "options": [
-      "Integrity \u2192 Data should never be altered or compromised",
-      "Confidentiality \u2192 Data accessed only by authorized users",
-      "Availability \u2192 Data accessible when needed"
-    ],
-    "answer": "Integrity \u2192 Data should never be altered or compromised; Confidentiality \u2192 Data accessed only by authorized users; Availability \u2192 Data accessible when needed",
+    "answer": {
+      "Integrity": "Data should never be altered or compromised",
+      "Confidentiality": "Data accessed only by authorized users",
+      "Availability": "Data accessible when needed"
+    },
     "category": "Security Principles",
     "tags": [
       "CIA Triad",
@@ -1324,19 +1250,23 @@
       "confidentiality",
       "availability"
     ],
-    "explanation": "Integrity ensures data accuracy and prevents unauthorized modification; Confidentiality ensures only authorized users access data; Availability ensures data is accessible when needed."
+    "explanation": "Integrity ensures data accuracy and prevents unauthorized modification; Confidentiality ensures only authorized users access data; Availability ensures data is accessible when needed.",
+    "items": {
+      "Integrity": "Data should never be altered or compromised",
+      "Confidentiality": "Data accessed only by authorized users",
+      "Availability": "Data accessible when needed"
+    }
   },
   {
     "id": "65",
-    "type": "mcq",
+    "type": "drag_and_drop",
     "question": "Match each mitigation strategy to its correct action.",
-    "options": [
-      "Treatment \u2192 Clean and patch infected systems",
-      "Quarantine \u2192 Remove or block infected systems from the network",
-      "Inoculation \u2192 Patch unexpected systems to deprive the worm of targets",
-      "Containment \u2192 Compartmentalize and segment the network"
-    ],
-    "answer": "Treatment \u2192 Clean and patch infected systems; Quarantine \u2192 Remove or block infected systems; Inoculation \u2192 Patch unexpected systems to deprive worm of targets; Containment \u2192 Compartmentalize and segment the network",
+    "answer": {
+      "Treatment": "Clean and patch infected systems",
+      "Quarantine": "Remove or block infected systems from the network",
+      "Inoculation": "Patch unexpected systems to deprive the worm of targets",
+      "Containment": "Compartmentalize and segment the network"
+    },
     "category": "Incident Response",
     "tags": [
       "treatment",
@@ -1346,7 +1276,13 @@
       "worm",
       "incident response"
     ],
-    "explanation": "Treatment cleans infected systems; Quarantine isolates infected systems; Inoculation patches to remove targets; Containment segments the network to limit spread."
+    "explanation": "Treatment cleans infected systems; Quarantine isolates infected systems; Inoculation patches to remove targets; Containment segments the network to limit spread.",
+    "items": {
+      "Treatment": "Clean and patch infected systems",
+      "Quarantine": "Remove or block infected systems from the network",
+      "Inoculation": "Patch unexpected systems to deprive the worm of targets",
+      "Containment": "Compartmentalize and segment the network"
+    }
   },
   {
     "id": "66",
@@ -1570,7 +1506,7 @@
       "fake login page",
       "exploit"
     ],
-    "explanation": "A fake login page phishes for credentials. Port scans find open ports, backdoors enable persistence, directory listings expose file structure\u2014none directly steal credentials."
+    "explanation": "A fake login page phishes for credentials. Port scans find open ports, backdoors enable persistence, directory listings expose file structure—none directly steal credentials."
   },
   {
     "id": "77",
@@ -1632,14 +1568,13 @@
   },
   {
     "id": "80",
-    "type": "mcq",
+    "type": "drag_and_drop",
     "question": "Match each log type to its correct description.",
-    "options": [
-      "Setup logs \u2192 Record software installation and OS updates",
-      "System logs \u2192 Events generated by hardware, drivers, and processes",
-      "Security logs \u2192 Success or failure of audit policy events"
-    ],
-    "answer": "Setup logs \u2192 Record software installation and OS updates; System logs \u2192 Events generated by hardware, drivers, processes; Security logs \u2192 Success/failure of audit policy events",
+    "answer": {
+      "Setup logs": "Record software installation and OS updates",
+      "System logs": "Events generated by hardware, drivers, and processes",
+      "Security logs": "Success or failure of audit policy events"
+    },
     "category": "Logging",
     "tags": [
       "logs",
@@ -1648,18 +1583,22 @@
       "security logs",
       "audit"
     ],
-    "explanation": "Setup logs track installations; System logs record hardware/driver/process events; Security logs record audit policy successes and failures (logins, object access)."
+    "explanation": "Setup logs track installations; System logs record hardware/driver/process events; Security logs record audit policy successes and failures (logins, object access).",
+    "items": {
+      "Setup logs": "Record software installation and OS updates",
+      "System logs": "Events generated by hardware, drivers, and processes",
+      "Security logs": "Success or failure of audit policy events"
+    }
   },
   {
     "id": "81",
-    "type": "mcq",
+    "type": "drag_and_drop",
     "question": "Match each incident response phase to its correct activity.",
-    "options": [
-      "Containment, eradication, recovery \u2192 Mitigate impact after incident",
-      "Detection and analysis \u2192 Evaluate indicators to determine if legitimate attack and alert organization",
-      "Preparation \u2192 Establish incident response capability to ensure assets are secure"
-    ],
-    "answer": "Containment/eradication/recovery \u2192 Mitigate impact after incident; Detection/analysis \u2192 Evaluate indicators and alert; Preparation \u2192 Establish capability",
+    "answer": {
+      "Containment, eradication, recovery": "Mitigate impact after incident",
+      "Detection and analysis": "Evaluate indicators to determine if legitimate attack and alert organization",
+      "Preparation": "Establish incident response capability to ensure assets are secure"
+    },
     "category": "Incident Response",
     "tags": [
       "IR phases",
@@ -1668,7 +1607,12 @@
       "preparation",
       "NIST"
     ],
-    "explanation": "NIST IR phases: Preparation (establish capability), Detection & Analysis (identify and verify incidents), Containment/Eradication/Recovery (stop and restore)."
+    "explanation": "NIST IR phases: Preparation (establish capability), Detection & Analysis (identify and verify incidents), Containment/Eradication/Recovery (stop and restore).",
+    "items": {
+      "Containment, eradication, recovery": "Mitigate impact after incident",
+      "Detection and analysis": "Evaluate indicators to determine if legitimate attack and alert organization",
+      "Preparation": "Establish incident response capability to ensure assets are secure"
+    }
   },
   {
     "id": "82",
@@ -1752,15 +1696,14 @@
   },
   {
     "id": "86",
-    "type": "mcq",
+    "type": "drag_and_drop",
     "question": "Match each term to its correct definition.",
-    "options": [
-      "Asset \u2192 People, property, or data",
-      "Risk \u2192 Potential for loss, damage, or destruction",
-      "Threat \u2192 Action that causes negative impact",
-      "Vulnerability \u2192 Weakness that potentially exposes organizations to cyber attacks"
-    ],
-    "answer": "Asset \u2192 People, property, or data; Risk \u2192 Potential for loss, damage, destruction; Threat \u2192 Action causing negative impact; Vulnerability \u2192 Weakness exposing to cyber attacks",
+    "answer": {
+      "Asset": "People, property, or data",
+      "Risk": "Potential for loss, damage, or destruction",
+      "Threat": "Action that causes negative impact",
+      "Vulnerability": "Weakness that potentially exposes organizations to cyber attacks"
+    },
     "category": "Cybersecurity Fundamentals",
     "tags": [
       "asset",
@@ -1769,7 +1712,13 @@
       "vulnerability",
       "definitions"
     ],
-    "explanation": "Asset is what you protect; Risk is potential loss; Threat is a harmful action; Vulnerability is a weakness. This is foundational risk management terminology."
+    "explanation": "Asset is what you protect; Risk is potential loss; Threat is a harmful action; Vulnerability is a weakness. This is foundational risk management terminology.",
+    "items": {
+      "Asset": "People, property, or data",
+      "Risk": "Potential for loss, damage, or destruction",
+      "Threat": "Action that causes negative impact",
+      "Vulnerability": "Weakness that potentially exposes organizations to cyber attacks"
+    }
   },
   {
     "id": "87",
@@ -1940,14 +1889,13 @@
   },
   {
     "id": "95",
-    "type": "mcq",
+    "type": "drag_and_drop",
     "question": "Match each control type to its correct action.",
-    "options": [
-      "Detective measures \u2192 Discover unwanted events",
-      "Preventive measures \u2192 Avert the occurrence of an event",
-      "Corrective measures \u2192 Restore a system after an event"
-    ],
-    "answer": "Detective measures \u2192 Discover unwanted events; Preventive measures \u2192 Avert occurrence; Corrective measures \u2192 Restore after event",
+    "answer": {
+      "Detective measures": "Discover unwanted events",
+      "Preventive measures": "Avert the occurrence of an event",
+      "Corrective measures": "Restore a system after an event"
+    },
     "category": "Security Controls",
     "tags": [
       "detective",
@@ -1956,7 +1904,12 @@
       "security controls",
       "NIST"
     ],
-    "explanation": "Detective controls discover incidents (logs, alarms); Preventive controls stop incidents (firewalls, locks); Corrective controls restore systems (backups, DR)."
+    "explanation": "Detective controls discover incidents (logs, alarms); Preventive controls stop incidents (firewalls, locks); Corrective controls restore systems (backups, DR).",
+    "items": {
+      "Detective measures": "Discover unwanted events",
+      "Preventive measures": "Avert the occurrence of an event",
+      "Corrective measures": "Restore a system after an event"
+    }
   },
   {
     "id": "96",
@@ -3362,7 +3315,7 @@
       "evidence-collection",
       "order-of-volatility"
     ],
-    "explanation": "Contents of RAM, Contents of Fixed Disk, Archived Backup: This answer is correct because the contents of RAM are the most volatile and the contents of an archived backup are the least volatile. Contents of Fixed Disk, Contents of RAM, Archived Backup: This answer is incorrect because a fixed disk is less volatile than the contents of RAM. Contents of RAM, Contents of Fixed Disk, Archived Backup: The correct order follows the order of volatility \u2014 most volatile first. Archived Backup, Contents of Fixed Disk, Contents of RAM: This answer is incorrect because an archived backup is the least volatile."
+    "explanation": "Contents of RAM, Contents of Fixed Disk, Archived Backup: This answer is correct because the contents of RAM are the most volatile and the contents of an archived backup are the least volatile. Contents of Fixed Disk, Contents of RAM, Archived Backup: This answer is incorrect because a fixed disk is less volatile than the contents of RAM. Contents of RAM, Contents of Fixed Disk, Archived Backup: The correct order follows the order of volatility — most volatile first. Archived Backup, Contents of Fixed Disk, Contents of RAM: This answer is incorrect because an archived backup is the least volatile."
   },
   {
     "id": "166",
