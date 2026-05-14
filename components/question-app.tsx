@@ -20,7 +20,6 @@ import { Card, CardContent } from "./ui/card";
 import { Input } from "./ui/input";
 import { Progress } from "./ui/progress";
 import { cn } from "../lib/utils";
-import { TestMode } from "./test-mode";
 import {
   normalizeQuestions,
   type NormalizedQuestionItem,
@@ -88,10 +87,14 @@ function renderAnswer(answer: unknown) {
 }
 
 export function QuestionApp({ questions }: QuestionAppProps) {
-  const normalizedQuestions = useMemo(
-    () => normalizeQuestions(questions),
-    [questions],
-  );
+  const [externalQuestions, setExternalQuestions] = useState<
+    QuestionItem[] | null
+  >(null);
+
+  const normalizedQuestions = useMemo(() => {
+    const source = externalQuestions && externalQuestions.length ? externalQuestions : questions;
+    return normalizeQuestions(source);
+  }, [questions, externalQuestions]);
   const [query, setQuery] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<
@@ -111,8 +114,6 @@ export function QuestionApp({ questions }: QuestionAppProps) {
   const [isShuffled, setIsShuffled] = useState(false);
   const [shuffleSeed, setShuffleSeed] = useState(0);
   const [isDark, setIsDark] = useState(true);
-  const [showNewTest, setShowNewTest] = useState(false);
-  const [newTestQuestions, setNewTestQuestions] = useState<QuestionItem[]>([]);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", isDark);
@@ -162,19 +163,21 @@ export function QuestionApp({ questions }: QuestionAppProps) {
     setDragMappingsByQuestion({});
     setDropTargetsByQuestion({});
     setIsShuffled(false);
+    setExternalQuestions(null);
   };
 
   const startNewQuestionsTest = async () => {
     try {
       const mod = await import("../data/newquestions.json");
       const data = (mod && (mod as any).default) || (mod as any);
-      setNewTestQuestions(data as QuestionItem[]);
-      setShowNewTest(true);
+      setExternalQuestions(data as QuestionItem[]);
     } catch (err) {
       // eslint-disable-next-line no-console
       console.error("Failed to start new questions test", err);
     }
   };
+
+  
 
   const toggleShuffle = () => {
     setIsShuffled(!isShuffled);
@@ -679,9 +682,8 @@ export function QuestionApp({ questions }: QuestionAppProps) {
     );
   }
 
-  if (showNewTest && newTestQuestions.length) {
-    return <TestMode questions={newTestQuestions} />;
-  }
+  // When `externalQuestions` is set we continue rendering the main UI
+  // which will use the external questions as the data source.
 
   return (
     <main
@@ -744,6 +746,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
                 <span className="sm:hidden">Test</span>
               </Button>
             </a>
+            
             <Button
               type="button"
               variant="outline"
