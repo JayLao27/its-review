@@ -1494,7 +1494,7 @@
       "phishing",
       "credentials"
     ],
-    "explanation": "A fake login page phishes for credentials. Port scans find open ports, backdoors enable persistence, directory listings expose file structure\u2014none directly steal credentials."
+    "explanation": "A fake login page phishes for credentials. Port scans find open ports, backdoors enable persistence, directory listings expose file structure—none directly steal credentials."
   },
   {
     "id": 77,
@@ -3198,7 +3198,7 @@
       "digital-forensics",
       "order-of-volatility"
     ],
-    "explanation": "Evidence should be collected in order of volatility \u2014 most volatile (RAM) first, least volatile (archived backup) last."
+    "explanation": "Evidence should be collected in order of volatility — most volatile (RAM) first, least volatile (archived backup) last."
   },
   {
     "id": 166,
@@ -7755,5 +7755,3431 @@
       "patch-deployment"
     ],
     "explanation": "Group Policy can deploy software (including patches) to domain-joined computers efficiently and centrally."
+  },
+  {
+    "id": 420,
+    "type": "mcq",
+    "question": "What is a common method to ensure Availability of systems?",
+    "options": [
+      "Encryption",
+      "Access control",
+      "Data backups and disaster recovery plans",
+      "Data masking"
+    ],
+    "answer": "Data backups and disaster recovery plans",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Data backups and disaster recovery plans\". The other options (\"Encryption\", \"Access control\") are incorrect in this context."
+  },
+  {
+    "id": 421,
+    "type": "mcq",
+    "question": "An attacker successfully modifies the content of a company's website without being detected. Which aspect of the CIA Triad has been compromised?",
+    "options": [
+      "Integrity",
+      "Confidentiality",
+      "None of these",
+      "Availability"
+    ],
+    "answer": "Integrity",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Integrity\". The other options (\"Confidentiality\", \"None of these\") are incorrect in this context."
+  },
+  {
+    "id": 422,
+    "type": "mcq",
+    "question": "Which of the following is NOT part of the CIA Triad?",
+    "options": [
+      "Integrity",
+      "Accountability",
+      "Confidentiality",
+      "Availability"
+    ],
+    "answer": "Accountability",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Accountability\". The other options (\"Integrity\", \"Confidentiality\") are incorrect in this context."
+  },
+  {
+    "id": 423,
+    "type": "mcq",
+    "question": "A company wants to ensure that if a file on a shared drive is accidentally deleted, a backup is always available to restore it. This action protects which aspect of the CIA Triad?",
+    "options": [
+      "Integrity",
+      "Confidentiality",
+      "Availability",
+      "Authentication"
+    ],
+    "answer": "Availability",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Availability\". The other options (\"Integrity\", \"Confidentiality\") are incorrect in this context."
+  },
+  {
+    "id": 424,
+    "type": "mcq",
+    "question": "What does the 'A' in the CIA Triad stand for?",
+    "options": [
+      "Authorization",
+      "Authentication",
+      "Availability",
+      "Access"
+    ],
+    "answer": "Availability",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Availability\". The other options (\"Authorization\", \"Authentication\") are incorrect in this context."
+  },
+  {
+    "id": 425,
+    "type": "mcq",
+    "question": "A government organization needs to ensure that classified documents cannot be accessed by unauthorized individuals. Which action will help protect Confidentiality?",
+    "options": [
+      "Installing antivirus software on all machines",
+      "Ensuring all files are backed up daily",
+      "Performing regular file integrity checks",
+      "Implementing access control policies based on clearance levels"
+    ],
+    "answer": "Implementing access control policies based on clearance levels",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Implementing access control policies based on clearance levels\". The other options (\"Installing antivirus software on all machines\", \"Ensuring all files are backed up daily\") are incorrect in this context."
+  },
+  {
+    "id": 426,
+    "type": "mcq",
+    "question": "Which of the following best describes Availability in the CIA Triad?",
+    "options": [
+      "Ensuring that data is accurate and consistent",
+      "Ensuring that data can be accessed and used by authorized users whenever needed",
+      "Ensuring that only authorized users can view the data",
+      "Preventing unauthorized access to data"
+    ],
+    "answer": "Ensuring that data can be accessed and used by authorized users whenever needed",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Ensuring that data can be accessed and used by authorized users whenever needed\". The other options (\"Ensuring that data is accurate and consistent\", \"Ensuring that only authorized users can view the data\") are incorrect in this context."
+  },
+  {
+    "id": 427,
+    "type": "mcq",
+    "question": "Your organization experiences a power outage, and critical systems become unavailable. What action should you take to maintain Availability in the future?",
+    "options": [
+      "Use a virtual private network (VPN) for remote access",
+      "Use uninterruptible power supplies (UPS) and backup generators",
+      "Implement access controls to restrict who can use the system",
+      "Encrypt all data"
+    ],
+    "answer": "Use uninterruptible power supplies (UPS) and backup generators",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Use uninterruptible power supplies (UPS) and backup generators\". The other options (\"Use a virtual private network (VPN) for remote access\", \"Implement access controls to restrict who can use the system\") are incorrect in this context."
+  },
+  {
+    "id": 428,
+    "type": "mcq",
+    "question": "A Denial of Service (DoS) attack threatens which component of the CIA Triad?",
+    "options": [
+      "Authorization",
+      "Confidentiality",
+      "Availability",
+      "Integrity"
+    ],
+    "answer": "Availability",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Availability\". The other options (\"Authorization\", \"Confidentiality\") are incorrect in this context."
+  },
+  {
+    "id": 429,
+    "type": "mcq",
+    "question": "A company's customer database is breached, and the attackers steal sensitive information such as social security numbers and credit card details. Which part of the CIA Triad has been violated?",
+    "options": [
+      "Integrity",
+      "All of these",
+      "Availability",
+      "Confidentiality"
+    ],
+    "answer": "Confidentiality",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Confidentiality\". The other options (\"Integrity\", \"All of these\") are incorrect in this context."
+  },
+  {
+    "id": 430,
+    "type": "mcq",
+    "question": "Which of the following would be a violation of Confidentiality?",
+    "options": [
+      "Data being viewed by unauthorized personnel",
+      "Data corruption due to a virus",
+      "Data being lost because of insufficient backups",
+      "System downtime due to hardware failure"
+    ],
+    "answer": "Data being viewed by unauthorized personnel",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Data being viewed by unauthorized personnel\". The other options (\"Data corruption due to a virus\", \"Data being lost because of insufficient backups\") are incorrect in this context."
+  },
+  {
+    "id": 431,
+    "type": "mcq",
+    "question": "A customer-facing application is consistently crashing, preventing users from completing purchases. What part of the CIA Triad should be addressed?",
+    "options": [
+      "Integrity",
+      "Availability",
+      "Confidentiality",
+      "Authentication"
+    ],
+    "answer": "Availability",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Availability\". The other options (\"Integrity\", \"Confidentiality\") are incorrect in this context."
+  },
+  {
+    "id": 432,
+    "type": "mcq",
+    "question": "To ensure Integrity, what security measure should be implemented?",
+    "options": [
+      "Regular audit and checksums",
+      "Backing up data regularly",
+      "Role-based access control",
+      "Data encryption during transmission"
+    ],
+    "answer": "Regular audit and checksums",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Regular audit and checksums\". The other options (\"Backing up data regularly\", \"Role-based access control\") are incorrect in this context."
+  },
+  {
+    "id": 433,
+    "type": "mcq",
+    "question": "An example of maintaining Confidentiality would be:",
+    "options": [
+      "Using encryption to protect sensitive data during transmission",
+      "Using a hash function to ensure data integrity",
+      "Regularly updated software to prevent system downtime",
+      "Implementing redundant systems to prevent data loss"
+    ],
+    "answer": "Using encryption to protect sensitive data during transmission",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Using encryption to protect sensitive data during transmission\". The other options (\"Using a hash function to ensure data integrity\", \"Regularly updated software to prevent system downtime\") are incorrect in this context."
+  },
+  {
+    "id": 434,
+    "type": "mcq",
+    "question": "Which of the following threats primarily affects the Integrity of data?",
+    "options": [
+      "Altering records in a database",
+      "Eavesdropping on communication",
+      "Blocking access to a website",
+      "Performing a brute-force attack to crack passwords"
+    ],
+    "answer": "Altering records in a database",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Altering records in a database\". The other options (\"Eavesdropping on communication\", \"Blocking access to a website\") are incorrect in this context."
+  },
+  {
+    "id": 435,
+    "type": "mcq",
+    "question": "An example of ensuring Integrity is:",
+    "options": [
+      "Implementing hashing to verify data authenticity and accuracy",
+      "Using access control mechanisms to restrict unauthorized data access",
+      "Implementing multi-factor authentication for access control",
+      "Using backups to prevent data loss"
+    ],
+    "answer": "Implementing hashing to verify data authenticity and accuracy",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Implementing hashing to verify data authenticity and accuracy\". The other options (\"Using access control mechanisms to restrict unauthorized data access\", \"Implementing multi-factor authentication for access control\") are incorrect in this context."
+  },
+  {
+    "id": 436,
+    "type": "mcq",
+    "question": "A company's e-commerce website experiences an unexpected Denial of Service (DoS) attack, making the site inaccessible. Which part of the CIA Triad is impacted?",
+    "options": [
+      "Integrity",
+      "Availability",
+      "Authentication",
+      "Confidentiality"
+    ],
+    "answer": "Availability",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Availability\". The other options (\"Integrity\", \"Authentication\") are incorrect in this context."
+  },
+  {
+    "id": 437,
+    "type": "mcq",
+    "question": "Which of the following best describes Confidentiality in the CIA Triad?",
+    "options": [
+      "Ensuring that systems are always available for use",
+      "Ensuring that sensitive information is protected from unauthorized access",
+      "Ensuring that authorized users have access to the data they need",
+      "Ensuring that data has not been altered or tampered with"
+    ],
+    "answer": "Ensuring that sensitive information is protected from unauthorized access",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Ensuring that sensitive information is protected from unauthorized access\". The other options (\"Ensuring that systems are always available for use\", \"Ensuring that authorized users have access to the data they need\") are incorrect in this context."
+  },
+  {
+    "id": 438,
+    "type": "mcq",
+    "question": "What does the 'C' in CIA Triad stand for?",
+    "options": [
+      "Consistency",
+      "Cybersecurity",
+      "Confidentiality",
+      "Cryptography"
+    ],
+    "answer": "Confidentiality",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Confidentiality\". The other options (\"Consistency\", \"Cybersecurity\") are incorrect in this context."
+  },
+  {
+    "id": 439,
+    "type": "mcq",
+    "question": "An attacker intercepts unencrypted emails sent between the HR department and employees. Which aspect of the CIA Triad has been violated?",
+    "options": [
+      "Availability",
+      "Integrity",
+      "None of these",
+      "Confidentiality"
+    ],
+    "answer": "Confidentiality",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Confidentiality\". The other options (\"Availability\", \"Integrity\") are incorrect in this context."
+  },
+  {
+    "id": 440,
+    "type": "mcq",
+    "question": "Your organization needs to ensure that financial transaction data cannot be altered or tampered with once recorded. Which action is most appropriate to protect Integrity?",
+    "options": [
+      "Implementing encryption for stored data",
+      "Using digital signatures and checksums",
+      "Implementing multi-factor authentication",
+      "Regularly backing up transaction data"
+    ],
+    "answer": "Using digital signatures and checksums",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Using digital signatures and checksums\". The other options (\"Implementing encryption for stored data\", \"Implementing multi-factor authentication\") are incorrect in this context."
+  },
+  {
+    "id": 441,
+    "type": "mcq",
+    "question": "Ensuring that only authorized individuals can access sensitive information is a concern of:",
+    "options": [
+      "All of these",
+      "Integrity",
+      "Availability",
+      "Confidentiality"
+    ],
+    "answer": "Confidentiality",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Confidentiality\". The other options (\"All of these\", \"Integrity\") are incorrect in this context."
+  },
+  {
+    "id": 442,
+    "type": "mcq",
+    "question": "A healthcare provider uses an EHR system. To protect Confidentiality, which of the following actions should be taken?",
+    "options": [
+      "Ensure the system is always online",
+      "Implement checksums on all health records",
+      "Keep a daily backup of all patient data",
+      "Encrypt patient records and restrict access based on roles"
+    ],
+    "answer": "Encrypt patient records and restrict access based on roles",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Encrypt patient records and restrict access based on roles\". The other options (\"Ensure the system is always online\", \"Implement checksums on all health records\") are incorrect in this context."
+  },
+  {
+    "id": 443,
+    "type": "mcq",
+    "question": "After a recent cyberattack, several users report unauthorized changes to important documents. What aspect of the CIA Triad has been compromised?",
+    "options": [
+      "Availability",
+      "Authentication",
+      "Confidentiality",
+      "Integrity"
+    ],
+    "answer": "Integrity",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Integrity\". The other options (\"Availability\", \"Authentication\") are incorrect in this context."
+  },
+  {
+    "id": 444,
+    "type": "mcq",
+    "question": "You notice that an internal database containing financial records is accessible to every employee, regardless of their role. Which part of the CIA Triad is at risk?",
+    "options": [
+      "Authentication",
+      "Availability",
+      "Integrity",
+      "Confidentiality"
+    ],
+    "answer": "Confidentiality",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Confidentiality\". The other options (\"Authentication\", \"Availability\") are incorrect in this context."
+  },
+  {
+    "id": 445,
+    "type": "mcq",
+    "question": "A financial institution wants to guarantee that customers can access their banking services 24/7. Which action should the institution take to protect Availability?",
+    "options": [
+      "Conduct regular data integrity audits",
+      "Restrict customer access to non-business hours",
+      "Encrypt customer data during transactions",
+      "Implement redundant servers and failover mechanisms"
+    ],
+    "answer": "Implement redundant servers and failover mechanisms",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Implement redundant servers and failover mechanisms\". The other options (\"Conduct regular data integrity audits\", \"Restrict customer access to non-business hours\") are incorrect in this context."
+  },
+  {
+    "id": 446,
+    "type": "mcq",
+    "question": "A company notices employees have accidentally overwritten important files. Which Integrity measure should be implemented to prevent this?",
+    "options": [
+      "Encrypting the files to prevent unauthorized access",
+      "Using access control lists to restrict write permissions",
+      "Installing firewalls to prevent external access",
+      "Performing daily backups of all files"
+    ],
+    "answer": "Using access control lists to restrict write permissions",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Using access control lists to restrict write permissions\". The other options (\"Encrypting the files to prevent unauthorized access\", \"Installing firewalls to prevent external access\") are incorrect in this context."
+  },
+  {
+    "id": 447,
+    "type": "mcq",
+    "question": "Your company stores sensitive customer data in a cloud database. What would be the best approach to ensure Confidentiality?",
+    "options": [
+      "Regularly backing up the data",
+      "Allowing all employees access to the database",
+      "Encrypting the data both at rest and in transit",
+      "Disabling antivirus software to improve performance"
+    ],
+    "answer": "Encrypting the data both at rest and in transit",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Encrypting the data both at rest and in transit\". The other options (\"Regularly backing up the data\", \"Allowing all employees access to the database\") are incorrect in this context."
+  },
+  {
+    "id": 448,
+    "type": "mcq",
+    "question": "Which of the following controls help in protecting Availability?",
+    "options": [
+      "Redundant systems and failover mechanisms",
+      "Digital signatures",
+      "Firewalls",
+      "Multi-factor authentication"
+    ],
+    "answer": "Redundant systems and failover mechanisms",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Redundant systems and failover mechanisms\". The other options (\"Digital signatures\", \"Firewalls\") are incorrect in this context."
+  },
+  {
+    "id": 449,
+    "type": "mcq",
+    "question": "Integrity in the CIA Triad refers to:",
+    "options": [
+      "Ensuring data is available when needed",
+      "Ensuring data is accurate and has not been altered without authorization",
+      "Keeping data confidential and protected",
+      "Protecting against unauthorized access to data"
+    ],
+    "answer": "Ensuring data is accurate and has not been altered without authorization",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Ensuring data is accurate and has not been altered without authorization\". The other options (\"Ensuring data is available when needed\", \"Keeping data confidential and protected\") are incorrect in this context."
+  },
+  {
+    "id": 450,
+    "type": "mcq",
+    "question": "What protects the credit card information of individuals?",
+    "options": [
+      "FERPA",
+      "HIPAA",
+      "GDPR",
+      "PCI DSS"
+    ],
+    "answer": "PCI DSS",
+    "category": "Regulations",
+    "tags": [
+      "compliance",
+      "regulations"
+    ],
+    "explanation": "The correct answer is \"PCI DSS\". The other options (\"FERPA\", \"HIPAA\") are incorrect in this context."
+  },
+  {
+    "id": 451,
+    "type": "mcq",
+    "question": "Which command displays both configured DNS server information and the IP address resolution for a URL?",
+    "options": [
+      "Nslookup",
+      "Traceroute",
+      "Nmap",
+      "Ping"
+    ],
+    "answer": "Nslookup",
+    "category": "Network Commands",
+    "tags": [
+      "network-commands",
+      "cli"
+    ],
+    "explanation": "The correct answer is \"Nslookup\". The other options (\"Traceroute\", \"Nmap\") are incorrect in this context."
+  },
+  {
+    "id": 452,
+    "type": "mcq",
+    "question": "Which security mechanism ensures that data cannot be modified or altered during transmission?",
+    "options": [
+      "Access control",
+      "Two-factor authentication",
+      "Hashing",
+      "Encryption"
+    ],
+    "answer": "Hashing",
+    "category": "Security Mechanisms",
+    "tags": [
+      "security-mechanisms"
+    ],
+    "explanation": "The correct answer is \"Hashing\". The other options (\"Access control\", \"Two-factor authentication\") are incorrect in this context."
+  },
+  {
+    "id": 453,
+    "type": "mcq",
+    "question": "You recommend purchasing insurance and hiring another organization to maintain the web server. Which risk mitigation strategy is this?",
+    "options": [
+      "Risk Reduction",
+      "Risk Avoidance",
+      "Risk Transfer",
+      "Risk Acceptance"
+    ],
+    "answer": "Risk Transfer",
+    "category": "Risk Management",
+    "tags": [
+      "risk-management"
+    ],
+    "explanation": "The correct answer is \"Risk Transfer\". The other options (\"Risk Reduction\", \"Risk Avoidance\") are incorrect in this context."
+  },
+  {
+    "id": 454,
+    "type": "mcq",
+    "question": "You are working with the senior admin team to identify potential risks. Which phase of risk management are you in?",
+    "options": [
+      "Risk Assessment",
+      "Risk Identification",
+      "Risk Mitigation",
+      "Risk Monitoring"
+    ],
+    "answer": "Risk Identification",
+    "category": "Risk Management",
+    "tags": [
+      "risk-management"
+    ],
+    "explanation": "The correct answer is \"Risk Identification\". The other options (\"Risk Assessment\", \"Risk Mitigation\") are incorrect in this context."
+  },
+  {
+    "id": 455,
+    "type": "mcq",
+    "question": "What protects information about individuals that is stored by federal agencies?",
+    "options": [
+      "Privacy Act of 1974",
+      "FERPA",
+      "HIPAA",
+      "PCI DSS"
+    ],
+    "answer": "Privacy Act of 1974",
+    "category": "Regulations",
+    "tags": [
+      "compliance",
+      "regulations"
+    ],
+    "explanation": "The correct answer is \"Privacy Act of 1974\". The other options (\"FERPA\", \"HIPAA\") are incorrect in this context."
+  },
+  {
+    "id": 456,
+    "type": "mcq",
+    "question": "What protects the educational records of individuals?",
+    "options": [
+      "HIPAA",
+      "GDPR",
+      "PCI DSS",
+      "FERPA"
+    ],
+    "answer": "FERPA",
+    "category": "Regulations",
+    "tags": [
+      "compliance",
+      "regulations"
+    ],
+    "explanation": "The correct answer is \"FERPA\". The other options (\"HIPAA\", \"GDPR\") are incorrect in this context."
+  },
+  {
+    "id": 457,
+    "type": "mcq",
+    "question": "What protects the personal information of members of the European Union?",
+    "options": [
+      "HIPAA",
+      "FERPA",
+      "PCI DSS",
+      "GDPR"
+    ],
+    "answer": "GDPR",
+    "category": "Regulations",
+    "tags": [
+      "compliance",
+      "regulations"
+    ],
+    "explanation": "The correct answer is \"GDPR\". The other options (\"HIPAA\", \"FERPA\") are incorrect in this context."
+  },
+  {
+    "id": 458,
+    "type": "mcq",
+    "question": "What protects the health care information of individuals?",
+    "options": [
+      "PCI DSS",
+      "GDPR",
+      "HIPAA",
+      "FERPA"
+    ],
+    "answer": "HIPAA",
+    "category": "Regulations",
+    "tags": [
+      "compliance",
+      "regulations"
+    ],
+    "explanation": "The correct answer is \"HIPAA\". The other options (\"PCI DSS\", \"GDPR\") are incorrect in this context."
+  },
+  {
+    "id": 459,
+    "type": "mcq",
+    "question": "You need to connect two network switches without using an uplink port or any additional hardware. What type of cable should you use?",
+    "options": [
+      "Crossover cable",
+      "Straight-through cable",
+      "Serial cable",
+      "Fiber optic cable"
+    ],
+    "answer": "Crossover cable",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"Crossover cable\". The other options (\"Straight-through cable\", \"Serial cable\") are incorrect in this context."
+  },
+  {
+    "id": 460,
+    "type": "mcq",
+    "question": "What type of cable would be used to connect a router to a switch?",
+    "options": [
+      "Crossover cable",
+      "Coaxial cable",
+      "Straight-through cable",
+      "Serial cable"
+    ],
+    "answer": "Straight-through cable",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"Straight-through cable\". The other options (\"Crossover cable\", \"Coaxial cable\") are incorrect in this context."
+  },
+  {
+    "id": 461,
+    "type": "mcq",
+    "question": "Which of the following is a key characteristic of a static IP address?",
+    "options": [
+      "It is assigned by a DHCP server automatically.",
+      "It is used only in wireless networks.",
+      "It remains the same each time a device connects to the network.",
+      "It changes every time a device connects to the network."
+    ],
+    "answer": "It remains the same each time a device connects to the network.",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"It remains the same each time a device connects to the network.\". The other options (\"It is assigned by a DHCP server automatically.\", \"It is used only in wireless networks.\") are incorrect in this context."
+  },
+  {
+    "id": 462,
+    "type": "mcq",
+    "question": "A device on your network keeps receiving a different IP address every time it reconnects. What type of IP addressing is being used?",
+    "options": [
+      "Public IP addressing",
+      "Dynamic IP addressing",
+      "Static IP addressing",
+      "Manual IP addressing"
+    ],
+    "answer": "Dynamic IP addressing",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"Dynamic IP addressing\". The other options (\"Public IP addressing\", \"Static IP addressing\") are incorrect in this context."
+  },
+  {
+    "id": 463,
+    "type": "mcq",
+    "question": "You want to display your IP address, subnet mask, and default gateway. Which command will show this information?",
+    "options": [
+      "ipconfig /release",
+      "ping /ipconfig",
+      "ipconfig",
+      "netstat"
+    ],
+    "answer": "ipconfig",
+    "category": "Network Commands",
+    "tags": [
+      "network-commands",
+      "cli"
+    ],
+    "explanation": "The correct answer is \"ipconfig\". The other options (\"ipconfig /release\", \"ping /ipconfig\") are incorrect in this context."
+  },
+  {
+    "id": 464,
+    "type": "mcq",
+    "question": "Which topology is often used in wireless networks and connects devices to a central point?",
+    "options": [
+      "Mesh topology",
+      "Ring topology",
+      "Star topology",
+      "Bus topology"
+    ],
+    "answer": "Star topology",
+    "category": "Network Topologies",
+    "tags": [
+      "network-topologies"
+    ],
+    "explanation": "The correct answer is \"Star topology\". The other options (\"Mesh topology\", \"Ring topology\") are incorrect in this context."
+  },
+  {
+    "id": 465,
+    "type": "mcq",
+    "question": "In which network topology is data sent in one direction around a circular loop?",
+    "options": [
+      "Ring topology",
+      "Bus topology",
+      "Mesh topology",
+      "Star topology"
+    ],
+    "answer": "Ring topology",
+    "category": "Network Topologies",
+    "tags": [
+      "network-topologies"
+    ],
+    "explanation": "The correct answer is \"Ring topology\". The other options (\"Bus topology\", \"Mesh topology\") are incorrect in this context."
+  },
+  {
+    "id": 466,
+    "type": "mcq",
+    "question": "What is the key difference in the wiring of a straight-through and a crossover cable?",
+    "options": [
+      "Straight-through cables use a different color code standard than crossover cables.",
+      "Crossover cables use different connector types at each end.",
+      "A crossover cable swaps the transmit and receive wire pairs at one end.",
+      "The pinouts are identical for both cables."
+    ],
+    "answer": "A crossover cable swaps the transmit and receive wire pairs at one end.",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"A crossover cable swaps the transmit and receive wire pairs at one end.\". The other options (\"Straight-through cables use a different color code standard than crossover cables.\", \"Crossover cables use different connector types at each end.\") are incorrect in this context."
+  },
+  {
+    "id": 467,
+    "type": "mcq",
+    "question": "You need to configure a web server with a permanent IP address that will not change over time. Which type of IP address should you assign?",
+    "options": [
+      "Temporary IP address",
+      "Dynamic IP address",
+      "Static IP address",
+      "Private IP address"
+    ],
+    "answer": "Static IP address",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"Static IP address\". The other options (\"Temporary IP address\", \"Dynamic IP address\") are incorrect in this context."
+  },
+  {
+    "id": 468,
+    "type": "mcq",
+    "question": "A network administrator wants to configure a web server so that it always has the same IP address. Which type of IP addressing should they use?",
+    "options": [
+      "Dynamic IP address",
+      "Temporary IP address",
+      "Static IP address",
+      "Public IP address"
+    ],
+    "answer": "Static IP address",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"Static IP address\". The other options (\"Dynamic IP address\", \"Temporary IP address\") are incorrect in this context."
+  },
+  {
+    "id": 469,
+    "type": "mcq",
+    "question": "You want to check if your computer can reach the network gateway with IP address 192.168.1.1. What should you type?",
+    "options": [
+      "ping -r 192.168.1.1",
+      "ping -gateway 192.168.1.1",
+      "ipconfig 192.168.1.1",
+      "ping 192.168.1.1"
+    ],
+    "answer": "ping 192.168.1.1",
+    "category": "Network Commands",
+    "tags": [
+      "network-commands",
+      "cli"
+    ],
+    "explanation": "The correct answer is \"ping 192.168.1.1\". The other options (\"ping -r 192.168.1.1\", \"ping -gateway 192.168.1.1\") are incorrect in this context."
+  },
+  {
+    "id": 470,
+    "type": "mcq",
+    "question": "When would you use a crossover cable instead of a straight-through cable?",
+    "options": [
+      "To connect two similar devices, like two PCs or two switches.",
+      "To connect two different types of devices, like a PC and a router",
+      "To connect a PC to a switch",
+      "To connect a PC to a printer"
+    ],
+    "answer": "To connect two similar devices, like two PCs or two switches.",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"To connect two similar devices, like two PCs or two switches.\". The other options (\"To connect two different types of devices, like a PC and a router\", \"To connect a PC to a switch\") are incorrect in this context."
+  },
+  {
+    "id": 471,
+    "type": "mcq",
+    "question": "Which type of cable is used to connect a computer to a switch or hub?",
+    "options": [
+      "Fiber optic cable",
+      "Crossover cable",
+      "Straight-through cable",
+      "Coaxial cable"
+    ],
+    "answer": "Straight-through cable",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"Straight-through cable\". The other options (\"Fiber optic cable\", \"Crossover cable\") are incorrect in this context."
+  },
+  {
+    "id": 472,
+    "type": "mcq",
+    "question": "What does the ipconfig command do on a Windows computer?",
+    "options": [
+      "Displays the IP address configuration of the network interface.",
+      "Configures firewall settings.",
+      "Assigns a new IP address to the network.",
+      "Checks the speed of the network connection."
+    ],
+    "answer": "Displays the IP address configuration of the network interface.",
+    "category": "Network Commands",
+    "tags": [
+      "network-commands",
+      "cli"
+    ],
+    "explanation": "The correct answer is \"Displays the IP address configuration of the network interface.\". The other options (\"Configures firewall settings.\", \"Assigns a new IP address to the network.\") are incorrect in this context."
+  },
+  {
+    "id": 473,
+    "type": "mcq",
+    "question": "A user connected to a network that uses DHCP receives a new IP address every time they disconnect and reconnect. What type of IP address is being used?",
+    "options": [
+      "Reserved IP address",
+      "Static IP address",
+      "Dynamic IP address",
+      "Manual IP address"
+    ],
+    "answer": "Dynamic IP address",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"Dynamic IP address\". The other options (\"Reserved IP address\", \"Static IP address\") are incorrect in this context."
+  },
+  {
+    "id": 474,
+    "type": "mcq",
+    "question": "A small office is concerned about the network failing if the main cable breaks. Which topology should they avoid?",
+    "options": [
+      "Bus topology",
+      "Ring topology",
+      "Mesh topology",
+      "Star topology"
+    ],
+    "answer": "Bus topology",
+    "category": "Network Topologies",
+    "tags": [
+      "network-topologies"
+    ],
+    "explanation": "The correct answer is \"Bus topology\". The other options (\"Ring topology\", \"Mesh topology\") are incorrect in this context."
+  },
+  {
+    "id": 475,
+    "type": "mcq",
+    "question": "Your router's IP address is 192.168.0.1. Which command will help you check connectivity?",
+    "options": [
+      "ipconfig /check 192.168.0.1",
+      "ipconfig /ping 192.168.0.1",
+      "ping 192.168.0.1",
+      "netstat 192.168.0.1"
+    ],
+    "answer": "ping 192.168.0.1",
+    "category": "Network Commands",
+    "tags": [
+      "network-commands",
+      "cli"
+    ],
+    "explanation": "The correct answer is \"ping 192.168.0.1\". The other options (\"ipconfig /check 192.168.0.1\", \"ipconfig /ping 192.168.0.1\") are incorrect in this context."
+  },
+  {
+    "id": 476,
+    "type": "mcq",
+    "question": "Which color-coded wiring standard is commonly used for straight-through cables?",
+    "options": [
+      "TG568A on one end and no standard on the other",
+      "T568B on both ends",
+      "T568A on both ends",
+      "T568B on one end and T568A on the other"
+    ],
+    "answer": "T568B on both ends",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"T568B on both ends\". The other options (\"TG568A on one end and no standard on the other\", \"T568A on both ends\") are incorrect in this context."
+  },
+  {
+    "id": 477,
+    "type": "mcq",
+    "question": "In a ring topology, if one device fails, what happens to the network?",
+    "options": [
+      "The entire network is disrupted.",
+      "Traffic is automatically rerouted around the failed device.",
+      "The network continues to function normally.",
+      "Only the failed device is affected."
+    ],
+    "answer": "The entire network is disrupted.",
+    "category": "Network Topologies",
+    "tags": [
+      "network-topologies"
+    ],
+    "explanation": "The correct answer is \"The entire network is disrupted.\". The other options (\"Traffic is automatically rerouted around the failed device.\", \"The network continues to function normally.\") are incorrect in this context."
+  },
+  {
+    "id": 478,
+    "type": "mcq",
+    "question": "Which of the following statements is true regarding straight-through cables?",
+    "options": [
+      "They are used exclusively for fiber optic connections.",
+      "They are used to connect similar devices, such as computer to a computer.",
+      "They swap the transmit and receive pairs at one end.",
+      "They use the same wiring configuration on both ends."
+    ],
+    "answer": "They use the same wiring configuration on both ends.",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"They use the same wiring configuration on both ends.\". The other options (\"They are used exclusively for fiber optic connections.\", \"They are used to connect similar devices, such as computer to a computer.\") are incorrect in this context."
+  },
+  {
+    "id": 479,
+    "type": "mcq",
+    "question": "What happens if a device is set to obtain an IP address automatically?",
+    "options": [
+      "The device sends a request to the DHCP server to obtain an IP address dynamically.",
+      "The device uses a static IP address.",
+      "The device assigns itself an IP address from a predefined pool.",
+      "The device can only communicate within the local network."
+    ],
+    "answer": "The device sends a request to the DHCP server to obtain an IP address dynamically.",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"The device sends a request to the DHCP server to obtain an IP address dynamically.\". The other options (\"The device uses a static IP address.\", \"The device assigns itself an IP address from a predefined pool.\") are incorrect in this context."
+  },
+  {
+    "id": 480,
+    "type": "mcq",
+    "question": "Which protocol is responsible for dynamically assigning IP addresses in a network?",
+    "options": [
+      "FTP",
+      "HTTP",
+      "DNS",
+      "DHCP"
+    ],
+    "answer": "DHCP",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"DHCP\". The other options (\"FTP\", \"HTTP\") are incorrect in this context."
+  },
+  {
+    "id": 481,
+    "type": "mcq",
+    "question": "Which topology is most suitable for a small office with few devices and limited budget?",
+    "options": [
+      "Mesh topology",
+      "Star topology",
+      "Ring topology",
+      "Bus topology"
+    ],
+    "answer": "Bus topology",
+    "category": "Network Topologies",
+    "tags": [
+      "network-topologies"
+    ],
+    "explanation": "The correct answer is \"Bus topology\". The other options (\"Mesh topology\", \"Star topology\") are incorrect in this context."
+  },
+  {
+    "id": 482,
+    "type": "mcq",
+    "question": "An organization has a network where data travels in one direction around a loop, but if any device fails, the entire network becomes inoperable. Which topology are they using?",
+    "options": [
+      "Bus topology",
+      "Star topology",
+      "Ring topology",
+      "Mesh topology"
+    ],
+    "answer": "Ring topology",
+    "category": "Network Topologies",
+    "tags": [
+      "network-topologies"
+    ],
+    "explanation": "The correct answer is \"Ring topology\". The other options (\"Bus topology\", \"Star topology\") are incorrect in this context."
+  },
+  {
+    "id": 483,
+    "type": "mcq",
+    "question": "Which of the following is a characteristic of a star topology?",
+    "options": [
+      "Each device is connected to two other devices, forming a ring.",
+      "All devices are connected to a central hub or switch.",
+      "Devices are connected in a closed loop.",
+      "Devices are connected in a linear fashion."
+    ],
+    "answer": "All devices are connected to a central hub or switch.",
+    "category": "Network Topologies",
+    "tags": [
+      "network-topologies"
+    ],
+    "explanation": "The correct answer is \"All devices are connected to a central hub or switch.\". The other options (\"Each device is connected to two other devices, forming a ring.\", \"Devices are connected in a closed loop.\") are incorrect in this context."
+  },
+  {
+    "id": 484,
+    "type": "mcq",
+    "question": "You are setting up a home network and need to connect your computer directly to your router. Which cable type should you use?",
+    "options": [
+      "Fiber optic cable",
+      "Crossover cable",
+      "Coaxial cable",
+      "Straight-through cable"
+    ],
+    "answer": "Straight-through cable",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"Straight-through cable\". The other options (\"Fiber optic cable\", \"Crossover cable\") are incorrect in this context."
+  },
+  {
+    "id": 485,
+    "type": "mcq",
+    "question": "What is a key disadvantage of a bus topology?",
+    "options": [
+      "It is expensive to set up.",
+      "If the central hub fails, the entire network goes down.",
+      "If the main cable fails, the whole network is disrupted.",
+      "Devices must be manually configured to communicate."
+    ],
+    "answer": "If the main cable fails, the whole network is disrupted.",
+    "category": "Network Topologies",
+    "tags": [
+      "network-topologies"
+    ],
+    "explanation": "The correct answer is \"If the main cable fails, the whole network is disrupted.\". The other options (\"It is expensive to set up.\", \"If the central hub fails, the entire network goes down.\") are incorrect in this context."
+  },
+  {
+    "id": 486,
+    "type": "mcq",
+    "question": "A client cannot access a website. You decide to check if their computer can reach the default gateway at 192.168.1.1. Which command will you use?",
+    "options": [
+      "ipconfig 192.168.1.1",
+      "ping 192.168.1.1",
+      "ipconfig /renew 192.168.1.1",
+      "netstat 192.168.1.1"
+    ],
+    "answer": "ping 192.168.1.1",
+    "category": "Network Commands",
+    "tags": [
+      "network-commands",
+      "cli"
+    ],
+    "explanation": "The correct answer is \"ping 192.168.1.1\". The other options (\"ipconfig 192.168.1.1\", \"ipconfig /renew 192.168.1.1\") are incorrect in this context."
+  },
+  {
+    "id": 487,
+    "type": "mcq",
+    "question": "All computers are connected to a central switch. If one computer fails, the network is unaffected, but if the switch fails, the entire network goes down. Which topology are they using?",
+    "options": [
+      "Star topology",
+      "Bus topology",
+      "Ring topology",
+      "Mesh topology"
+    ],
+    "answer": "Star topology",
+    "category": "Network Topologies",
+    "tags": [
+      "network-topologies"
+    ],
+    "explanation": "The correct answer is \"Star topology\". The other options (\"Bus topology\", \"Ring topology\") are incorrect in this context."
+  },
+  {
+    "id": 488,
+    "type": "mcq",
+    "question": "What is the main disadvantage of using a static IP address in a large organization?",
+    "options": [
+      "It requires manual configuration for each device.",
+      "It cannot be used for servers.",
+      "It is slower than dynamic IP addressing.",
+      "It changes frequently and causes conflicts."
+    ],
+    "answer": "It requires manual configuration for each device.",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"It requires manual configuration for each device.\". The other options (\"It cannot be used for servers.\", \"It is slower than dynamic IP addressing.\") are incorrect in this context."
+  },
+  {
+    "id": 489,
+    "type": "mcq",
+    "question": "A hospital needs a network that connects departments through a central point and allows easy addition or removal of devices. Which topology is most suitable?",
+    "options": [
+      "Mesh topology",
+      "Ring topology",
+      "Bus topology",
+      "Star topology"
+    ],
+    "answer": "Star topology",
+    "category": "Network Topologies",
+    "tags": [
+      "network-topologies"
+    ],
+    "explanation": "The correct answer is \"Star topology\". The other options (\"Mesh topology\", \"Ring topology\") are incorrect in this context."
+  },
+  {
+    "id": 490,
+    "type": "mcq",
+    "question": "What does the ping command do?",
+    "options": [
+      "Opens a port for a network service.",
+      "Checks the network connectivity between your device and another device.",
+      "Checks for packet loss in the network.",
+      "Changes the IP address of a device."
+    ],
+    "answer": "Checks the network connectivity between your device and another device.",
+    "category": "Network Commands",
+    "tags": [
+      "network-commands",
+      "cli"
+    ],
+    "explanation": "The correct answer is \"Checks the network connectivity between your device and another device.\". The other options (\"Opens a port for a network service.\", \"Checks for packet loss in the network.\") are incorrect in this context."
+  },
+  {
+    "id": 491,
+    "type": "mcq",
+    "question": "You are helping set up a peer-to-peer connection between two laptops using an Ethernet cable. What type of cable would you most likely use?",
+    "options": [
+      "Crossover cable",
+      "USB cable",
+      "Straight-through cable",
+      "Coaxial cable"
+    ],
+    "answer": "Crossover cable",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"Crossover cable\". The other options (\"USB cable\", \"Straight-through cable\") are incorrect in this context."
+  },
+  {
+    "id": 492,
+    "type": "mcq",
+    "question": "A university wants to connect all LANs with the highest redundancy and fault tolerance. Which topology should they use?",
+    "options": [
+      "Star topology",
+      "Bus topology",
+      "Mesh topology",
+      "Ring topology"
+    ],
+    "answer": "Mesh topology",
+    "category": "Network Topologies",
+    "tags": [
+      "network-topologies"
+    ],
+    "explanation": "The correct answer is \"Mesh topology\". The other options (\"Star topology\", \"Bus topology\") are incorrect in this context."
+  },
+  {
+    "id": 493,
+    "type": "mcq",
+    "question": "Which of the following devices would typically require a crossover cable for a direct connection?",
+    "options": [
+      "Computer to switch",
+      "Router to modem",
+      "Switch to switch",
+      "Computer to printer"
+    ],
+    "answer": "Switch to switch",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"Switch to switch\". The other options (\"Computer to switch\", \"Router to modem\") are incorrect in this context."
+  },
+  {
+    "id": 494,
+    "type": "mcq",
+    "question": "You want each printer to have a permanent IP address. What type of IP addressing should you use?",
+    "options": [
+      "Static IP address",
+      "Dynamic IP address",
+      "Public IP address",
+      "Automatic IP address"
+    ],
+    "answer": "Static IP address",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"Static IP address\". The other options (\"Dynamic IP address\", \"Public IP address\") are incorrect in this context."
+  },
+  {
+    "id": 495,
+    "type": "mcq",
+    "question": "In which situation would a static IP address be preferable over a dynamic IP address?",
+    "options": [
+      "For a device that frequently moves between different networks.",
+      "For public Wi-Fi access points.",
+      "For a home computer that connects to the internet periodically.",
+      "For a device that needs to be easily located on a network, such as a web server."
+    ],
+    "answer": "For a device that needs to be easily located on a network, such as a web server.",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"For a device that needs to be easily located on a network, such as a web server.\". The other options (\"For a device that frequently moves between different networks.\", \"For public Wi-Fi access points.\") are incorrect in this context."
+  },
+  {
+    "id": 496,
+    "type": "mcq",
+    "question": "In which topology do all devices share a single communication line or cable?",
+    "options": [
+      "Mesh topology",
+      "Bus topology",
+      "Ring topology",
+      "Star topology"
+    ],
+    "answer": "Bus topology",
+    "category": "Network Topologies",
+    "tags": [
+      "network-topologies"
+    ],
+    "explanation": "The correct answer is \"Bus topology\". The other options (\"Mesh topology\", \"Ring topology\") are incorrect in this context."
+  },
+  {
+    "id": 497,
+    "type": "mcq",
+    "question": "Which network topology connects each device to every other device in the network?",
+    "options": [
+      "Ring topology",
+      "Mesh topology",
+      "Bus topology",
+      "Star topology"
+    ],
+    "answer": "Mesh topology",
+    "category": "Network Topologies",
+    "tags": [
+      "network-topologies"
+    ],
+    "explanation": "The correct answer is \"Mesh topology\". The other options (\"Ring topology\", \"Bus topology\") are incorrect in this context."
+  },
+  {
+    "id": 498,
+    "type": "mcq",
+    "question": "A software company wants a topology where all devices are connected in sequence along a single cable, with minimal cost. Which topology should they choose?",
+    "options": [
+      "Bus topology",
+      "Mesh topology",
+      "Ring topology",
+      "Star topology"
+    ],
+    "answer": "Bus topology",
+    "category": "Network Topologies",
+    "tags": [
+      "network-topologies"
+    ],
+    "explanation": "The correct answer is \"Bus topology\". The other options (\"Mesh topology\", \"Ring topology\") are incorrect in this context."
+  },
+  {
+    "id": 499,
+    "type": "mcq",
+    "question": "Which IP address is the loopback address, often used for testing the local network interface?",
+    "options": [
+      "127.0.0.1",
+      "192.168.1.1",
+      "8.8.8.8",
+      "10.0.0.1"
+    ],
+    "answer": "127.0.0.1",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"127.0.0.1\". The other options (\"192.168.1.1\", \"8.8.8.8\") are incorrect in this context."
+  },
+  {
+    "id": 500,
+    "type": "mcq",
+    "question": "A network technician needs to check the subnet mask assigned to their computer. Which command should they use?",
+    "options": [
+      "tracert",
+      "netstat",
+      "ping",
+      "ipconfig"
+    ],
+    "answer": "ipconfig",
+    "category": "Network Commands",
+    "tags": [
+      "network-commands",
+      "cli"
+    ],
+    "explanation": "The correct answer is \"ipconfig\". The other options (\"tracert\", \"netstat\") are incorrect in this context."
+  },
+  {
+    "id": 501,
+    "type": "mcq",
+    "question": "Which of the following is a typical cost-related aspect of static IP addresses compared to dynamic ones?",
+    "options": [
+      "IP addresses are usually free to obtain",
+      "Dynamic IP addresses are always more expensive than static IPs",
+      "Static IP addresses are often more expensive",
+      "Static IP addresses decrease overall network costs"
+    ],
+    "answer": "Static IP addresses are often more expensive",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"Static IP addresses are often more expensive\". The other options (\"IP addresses are usually free to obtain\", \"Dynamic IP addresses are always more expensive than static IPs\") are incorrect in this context."
+  },
+  {
+    "id": 502,
+    "type": "mcq",
+    "question": "A manager wants to share a folder with the accounting team with password protection. What is the best way to secure access?",
+    "options": [
+      "Encrypt the folder and send the decryption key to the team",
+      "Create a shared folder with password protection and assign specific users access",
+      "Hide the folder from the network",
+      "Email the folder to each accounting team member"
+    ],
+    "answer": "Create a shared folder with password protection and assign specific users access",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"Create a shared folder with password protection and assign specific users access\". The other options (\"Encrypt the folder and send the decryption key to the team\", \"Hide the folder from the network\") are incorrect in this context."
+  },
+  {
+    "id": 503,
+    "type": "mcq",
+    "question": "A user runs the ping command but the result shows 'Request timed out.' What does this indicate?",
+    "options": [
+      "The local computer is misconfigured.",
+      "The remote server is not reachable, possibly offline or disconnected.",
+      "The DNS server is down",
+      "The server is online but unreachable due to a firewall"
+    ],
+    "answer": "The remote server is not reachable, possibly offline or disconnected.",
+    "category": "Network Commands",
+    "tags": [
+      "network-commands",
+      "cli"
+    ],
+    "explanation": "The correct answer is \"The remote server is not reachable, possibly offline or disconnected.\". The other options (\"The local computer is misconfigured.\", \"The DNS server is down\") are incorrect in this context."
+  },
+  {
+    "id": 504,
+    "type": "mcq",
+    "question": "A user's home devices have different IP addresses each time they reconnect to the Wi-Fi. What type of IP address configuration is being used?",
+    "options": [
+      "Dynamic IP address",
+      "Manual IP configuration",
+      "Loopback IP address",
+      "Static IP address"
+    ],
+    "answer": "Dynamic IP address",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"Dynamic IP address\". The other options (\"Manual IP configuration\", \"Loopback IP address\") are incorrect in this context."
+  },
+  {
+    "id": 505,
+    "type": "mcq",
+    "question": "What is the role of the default gateway in a network?",
+    "options": [
+      "It assigns IP addresses to devices on the network",
+      "It translates domain names to IP addresses",
+      "It resolves IP addresses into MAC addresses",
+      "It routes traffic from the local network to other networks, such as the internet"
+    ],
+    "answer": "It routes traffic from the local network to other networks, such as the internet",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"It routes traffic from the local network to other networks, such as the internet\". The other options (\"It assigns IP addresses to devices on the network\", \"It translates domain names to IP addresses\") are incorrect in this context."
+  },
+  {
+    "id": 506,
+    "type": "mcq",
+    "question": "A family has several smart home devices that do not need to be accessed from outside the home. Which type of IP address setup is best?",
+    "options": [
+      "Private IP address",
+      "Dynamic IP address",
+      "Public IP address",
+      "Static IP address"
+    ],
+    "answer": "Private IP address",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"Private IP address\". The other options (\"Dynamic IP address\", \"Public IP address\") are incorrect in this context."
+  },
+  {
+    "id": 507,
+    "type": "mcq",
+    "question": "The network in a small office suddenly stops working. The office uses a switch to connect all devices to the router. What is the most likely cause?",
+    "options": [
+      "The router has assigned duplicate IP addresses",
+      "The internet service provider is down",
+      "The Ethernet cables are unplugged from the computers",
+      "The switch has failed"
+    ],
+    "answer": "The switch has failed",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"The switch has failed\". The other options (\"The router has assigned duplicate IP addresses\", \"The internet service provider is down\") are incorrect in this context."
+  },
+  {
+    "id": 508,
+    "type": "mcq",
+    "question": "You are setting up a wired network using a combination of routers and switches. What type of cable would you use to connect the computers to the switch and the switch to the router?",
+    "options": [
+      "Coaxial cable",
+      "Crossover Ethernet Cable",
+      "Fiber optic cable",
+      "Straight-through Ethernet cable"
+    ],
+    "answer": "Straight-through Ethernet cable",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"Straight-through Ethernet cable\". The other options (\"Coaxial cable\", \"Crossover Ethernet Cable\") are incorrect in this context."
+  },
+  {
+    "id": 509,
+    "type": "mcq",
+    "question": "A user receives an 'Access Denied' message when trying to access a shared folder, but other users can access it. What should the network administrator check?",
+    "options": [
+      "The user's permission settings on the shared folder",
+      "The availability of the cloud storage service",
+      "The server's physical connection to the network",
+      "The user's connection to the internet"
+    ],
+    "answer": "The user's permission settings on the shared folder",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"The user's permission settings on the shared folder\". The other options (\"The availability of the cloud storage service\", \"The server's physical connection to the network\") are incorrect in this context."
+  },
+  {
+    "id": 510,
+    "type": "mcq",
+    "question": "A user needs to know the IP address of their default gateway to troubleshoot an internet connection problem. Which command should they run?",
+    "options": [
+      "ipconfig",
+      "netstat",
+      "ping localhost",
+      "tracert"
+    ],
+    "answer": "ipconfig",
+    "category": "Network Commands",
+    "tags": [
+      "network-commands",
+      "cli"
+    ],
+    "explanation": "The correct answer is \"ipconfig\". The other options (\"netstat\", \"ping localhost\") are incorrect in this context."
+  },
+  {
+    "id": 511,
+    "type": "mcq",
+    "question": "You are setting up a web server that needs to be consistently accessible over the internet using the same IP address. Which type is most suitable?",
+    "options": [
+      "Private IP address",
+      "Loopback IP address",
+      "Static IP address",
+      "Dynamic IP address"
+    ],
+    "answer": "Static IP address",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"Static IP address\". The other options (\"Private IP address\", \"Loopback IP address\") are incorrect in this context."
+  },
+  {
+    "id": 512,
+    "type": "mcq",
+    "question": "Employees report that accessing files from the shared folder is slow when multiple users access it simultaneously. What could be the cause?",
+    "options": [
+      "The folder sharing feature is disabled.",
+      "The network cable connecting the server to the switch is faulty.",
+      "The server hosting the shared folder is experiencing high traffic and bandwidth limitations",
+      "The folder is too large to be shared over the network"
+    ],
+    "answer": "The server hosting the shared folder is experiencing high traffic and bandwidth limitations",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"The server hosting the shared folder is experiencing high traffic and bandwidth limitations\". The other options (\"The folder sharing feature is disabled.\", \"The network cable connecting the server to the switch is faulty.\") are incorrect in this context."
+  },
+  {
+    "id": 513,
+    "type": "mcq",
+    "question": "A company wants to assign a permanent, fixed IP address to one of its servers. Which type should they use?",
+    "options": [
+      "A floating IP address",
+      "Dynamic IP address",
+      "A temporary IP address",
+      "A static IP address"
+    ],
+    "answer": "A static IP address",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"A static IP address\". The other options (\"A floating IP address\", \"Dynamic IP address\") are incorrect in this context."
+  },
+  {
+    "id": 514,
+    "type": "mcq",
+    "question": "A medium-sized office needs to connect 20 computers to the network, but the router only has four LAN ports. How can this be configured?",
+    "options": [
+      "Use four routers to connect all the computers",
+      "Connect all the computers wirelessly to the router",
+      "Use a second router to expand the network",
+      "Connect a switch to the router and plug all computers into the switch"
+    ],
+    "answer": "Connect a switch to the router and plug all computers into the switch",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"Connect a switch to the router and plug all computers into the switch\". The other options (\"Use four routers to connect all the computers\", \"Connect all the computers wirelessly to the router\") are incorrect in this context."
+  },
+  {
+    "id": 515,
+    "type": "mcq",
+    "question": "Branch offices need to communicate with a central data center using a fixed IP address. Which type of IP address should they use?",
+    "options": [
+      "Local IP address",
+      "Static IP address",
+      "Public IP address",
+      "Dynamic IP address"
+    ],
+    "answer": "Static IP address",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"Static IP address\". The other options (\"Local IP address\", \"Public IP address\") are incorrect in this context."
+  },
+  {
+    "id": 516,
+    "type": "mcq",
+    "question": "Your router uses a service that automatically assigns IP addresses to devices without requiring manual configuration. What is this service?",
+    "options": [
+      "DNS (Domain Name System)",
+      "NAT (Network Address Translation)",
+      "IPAM (IP Address Management)",
+      "DHCP (Dynamic Host Configuration Protocol)"
+    ],
+    "answer": "DHCP (Dynamic Host Configuration Protocol)",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"DHCP (Dynamic Host Configuration Protocol)\". The other options (\"DNS (Domain Name System)\", \"NAT (Network Address Translation)\") are incorrect in this context."
+  },
+  {
+    "id": 517,
+    "type": "mcq",
+    "question": "Why might static IP addresses be less secure than dynamic IP addresses in some situations?",
+    "options": [
+      "Static IP addresses are more difficult to manage",
+      "Static IP addresses cannot be encrypted",
+      "Static IP addresses can easily be guessed or targeted for attacks",
+      "Static IP addresses are not supported by all internet service providers"
+    ],
+    "answer": "Static IP addresses can easily be guessed or targeted for attacks",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"Static IP addresses can easily be guessed or targeted for attacks\". The other options (\"Static IP addresses are more difficult to manage\", \"Static IP addresses cannot be encrypted\") are incorrect in this context."
+  },
+  {
+    "id": 518,
+    "type": "mcq",
+    "question": "A manager wants to share a folder with employees connected to the same local network. What is the most appropriate way to share the folder?",
+    "options": [
+      "Create individual email accounts for each employee and email the folder to them",
+      "Upload the folder to a cloud service and share the link with the employees",
+      "Copy the folder to each employee's computer using a USB drive",
+      "Enable folder sharing in the operating system and give network users access"
+    ],
+    "answer": "Enable folder sharing in the operating system and give network users access",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"Enable folder sharing in the operating system and give network users access\". The other options (\"Create individual email accounts for each employee and email the folder to them\", \"Upload the folder to a cloud service and share the link with the employees\") are incorrect in this context."
+  },
+  {
+    "id": 519,
+    "type": "mcq",
+    "question": "Your home router assigns different IP addresses to devices that connect to it at different times, automatically. What type of IP address is being used?",
+    "options": [
+      "A manual IP address",
+      "A dynamic IP address",
+      "Static IP address",
+      "A permanent IP address"
+    ],
+    "answer": "A dynamic IP address",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"A dynamic IP address\". The other options (\"A manual IP address\", \"Static IP address\") are incorrect in this context."
+  },
+  {
+    "id": 520,
+    "type": "mcq",
+    "question": "A user is unable to access the internet though connected through a switch. Other computers on the same switch work fine. Which is the most likely cause?",
+    "options": [
+      "The computer's IP address is conflicting with another device",
+      "The Ethernet cable to the user's computer is faulty",
+      "The switch is not working",
+      "The router is misconfigured"
+    ],
+    "answer": "The Ethernet cable to the user's computer is faulty",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"The Ethernet cable to the user's computer is faulty\". The other options (\"The computer's IP address is conflicting with another device\", \"The switch is not working\") are incorrect in this context."
+  },
+  {
+    "id": 521,
+    "type": "mcq",
+    "question": "A company wants to expand its network to accommodate 10 additional computers. All router ports are in use. What is the best solution?",
+    "options": [
+      "Install a second router and connect it to the network",
+      "Replace the current router with a larger one that has more ports",
+      "Connect a switch to the router and then connect the additional computers to the switch",
+      "Use Wi-Fi to connect the new computers without any changes to the router"
+    ],
+    "answer": "Connect a switch to the router and then connect the additional computers to the switch",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"Connect a switch to the router and then connect the additional computers to the switch\". The other options (\"Install a second router and connect it to the network\", \"Replace the current router with a larger one that has more ports\") are incorrect in this context."
+  },
+  {
+    "id": 522,
+    "type": "mcq",
+    "question": "A user hosts an online service from home using a dynamic IP address. Their IP address changes, making the service inaccessible. What can they do to prevent this?",
+    "options": [
+      "Switch to a static IP address",
+      "Use a VPN",
+      "Restart the service frequently",
+      "Disable DHCP on the router"
+    ],
+    "answer": "Switch to a static IP address",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"Switch to a static IP address\". The other options (\"Use a VPN\", \"Restart the service frequently\") are incorrect in this context."
+  },
+  {
+    "id": 523,
+    "type": "mcq",
+    "question": "A user wants to check the IP address configuration of their computer, including IP address, subnet mask, and default gateway. Which command should they run?",
+    "options": [
+      "netstat",
+      "tracert",
+      "ipconfig",
+      "ping"
+    ],
+    "answer": "ipconfig",
+    "category": "Network Commands",
+    "tags": [
+      "network-commands",
+      "cli"
+    ],
+    "explanation": "The correct answer is \"ipconfig\". The other options (\"netstat\", \"tracert\") are incorrect in this context."
+  },
+  {
+    "id": 524,
+    "type": "mcq",
+    "question": "A user wants to test if their local network adapter is functioning properly by sending data packets to itself. Which command should be used?",
+    "options": [
+      "ping 127.0.0.1",
+      "tracert 8.8.8.8",
+      "192.168.1.1",
+      "ipconfig /all"
+    ],
+    "answer": "ping 127.0.0.1",
+    "category": "Network Commands",
+    "tags": [
+      "network-commands",
+      "cli"
+    ],
+    "explanation": "The correct answer is \"ping 127.0.0.1\". The other options (\"tracert 8.8.8.8\", \"192.168.1.1\") are incorrect in this context."
+  },
+  {
+    "id": 525,
+    "type": "mcq",
+    "question": "The finance department needs to share a folder with operations, but sensitive files should only be accessible to finance. How should this be set up?",
+    "options": [
+      "Share the folder with both departments and restrict access to the entire folder",
+      "Use encryption software to encrypt the sensitive files before sharing",
+      "Email sensitive files to finance team members and share the rest with operations",
+      "Create subfolders with specific permissions for finance on sensitive data, and shared permissions for general files"
+    ],
+    "answer": "Create subfolders with specific permissions for finance on sensitive data, and shared permissions for general files",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"Create subfolders with specific permissions for finance on sensitive data, and shared permissions for general files\". The other options (\"Share the folder with both departments and restrict access to the entire folder\", \"Use encryption software to encrypt the sensitive files before sharing\") are incorrect in this context."
+  },
+  {
+    "id": 526,
+    "type": "mcq",
+    "question": "A small startup needs internet connectivity with a limited budget. They don't need consistent IP addresses. Which IP address type is most appropriate?",
+    "options": [
+      "Static IP address",
+      "Dynamic IP address",
+      "Reserved IP address",
+      "Private IP address"
+    ],
+    "answer": "Dynamic IP address",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"Dynamic IP address\". The other options (\"Static IP address\", \"Reserved IP address\") are incorrect in this context."
+  },
+  {
+    "id": 527,
+    "type": "mcq",
+    "question": "You are troubleshooting a network issue and want to check if your computer can reach another device by sending packets of data to it. Which command would you use?",
+    "options": [
+      "ping",
+      "route",
+      "nslookup",
+      "ipconfig"
+    ],
+    "answer": "ping",
+    "category": "Network Commands",
+    "tags": [
+      "network-commands",
+      "cli"
+    ],
+    "explanation": "The correct answer is \"ping\". The other options (\"route\", \"nslookup\") are incorrect in this context."
+  },
+  {
+    "id": 528,
+    "type": "mcq",
+    "question": "A gaming enthusiast wants to host a game server from home so friends can always connect to the same IP address. What should he use?",
+    "options": [
+      "Use a dynamic IP address",
+      "Restart the router frequently",
+      "Use a private IP address",
+      "Use a static IP address"
+    ],
+    "answer": "Use a static IP address",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"Use a static IP address\". The other options (\"Use a dynamic IP address\", \"Restart the router frequently\") are incorrect in this context."
+  },
+  {
+    "id": 529,
+    "type": "mcq",
+    "question": "An employee is unable to access a shared folder on the network, but other employees can. What is the most likely cause?",
+    "options": [
+      "The employee's computer has a firewall blocking the connection",
+      "The shared folder is not properly configured",
+      "The employee's computer is not connected to the network",
+      "The employee is using the wrong username and password"
+    ],
+    "answer": "The employee is using the wrong username and password",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"The employee is using the wrong username and password\". The other options (\"The employee's computer has a firewall blocking the connection\", \"The shared folder is not properly configured\") are incorrect in this context."
+  },
+  {
+    "id": 530,
+    "type": "mcq",
+    "question": "A department head wants certain sensitive files in a shared folder accessible only by themselves. How should permissions be configured?",
+    "options": [
+      "Set full access for all users",
+      "Remove the sensitive files from the shared folder entirely",
+      "Set specific permissions on sensitive files so only the department head can access them",
+      "Use read-only access for all users"
+    ],
+    "answer": "Set specific permissions on sensitive files so only the department head can access them",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"Set specific permissions on sensitive files so only the department head can access them\". The other options (\"Set full access for all users\", \"Remove the sensitive files from the shared folder entirely\") are incorrect in this context."
+  },
+  {
+    "id": 531,
+    "type": "mcq",
+    "question": "A company wants to connect two offices so that employees can share files and resources across both networks. What is the best way?",
+    "options": [
+      "Connect the two switches using an Ethernet cable",
+      "Connect the two routers using a crossover Ethernet cable",
+      "Use Wi-Fi to connect the two offices",
+      "Use a second router to bridge the two networks"
+    ],
+    "answer": "Connect the two routers using a crossover Ethernet cable",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"Connect the two routers using a crossover Ethernet cable\". The other options (\"Connect the two switches using an Ethernet cable\", \"Use Wi-Fi to connect the two offices\") are incorrect in this context."
+  },
+  {
+    "id": 532,
+    "type": "mcq",
+    "question": "Which of the following is an advantage of using dynamic IP addresses?",
+    "options": [
+      "The same IP address is retained forever",
+      "Provides faster internet speeds",
+      "More secure for long-term use",
+      "Easier to configure and manage"
+    ],
+    "answer": "Easier to configure and manage",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"Easier to configure and manage\". The other options (\"The same IP address is retained forever\", \"Provides faster internet speeds\") are incorrect in this context."
+  },
+  {
+    "id": 533,
+    "type": "mcq",
+    "question": "Which type of IP address is commonly used by ISPs for home internet connections?",
+    "options": [
+      "Static IP address",
+      "Private IP address",
+      "Dynamic IP address",
+      "IPv6"
+    ],
+    "answer": "Dynamic IP address",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"Dynamic IP address\". The other options (\"Static IP address\", \"Private IP address\") are incorrect in this context."
+  },
+  {
+    "id": 534,
+    "type": "mcq",
+    "question": "You want to access a surveillance camera remotely, but the dynamic IP changes frequently. What is the most suitable IP address for this scenario?",
+    "options": [
+      "Dynamic IP address",
+      "Localhost IP address",
+      "Static IP address",
+      "Private IP address"
+    ],
+    "answer": "Static IP address",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"Static IP address\". The other options (\"Dynamic IP address\", \"Localhost IP address\") are incorrect in this context."
+  },
+  {
+    "id": 535,
+    "type": "mcq",
+    "question": "A business is setting up a web server accessible to clients globally, and the server must always have the same IP address. Which type is best?",
+    "options": [
+      "Dynamic IP address",
+      "Static IP address",
+      "Public IP address",
+      "Private address"
+    ],
+    "answer": "Static IP address",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"Static IP address\". The other options (\"Dynamic IP address\", \"Public IP address\") are incorrect in this context."
+  },
+  {
+    "id": 536,
+    "type": "mcq",
+    "question": "Which of the following is a disadvantage of using static IP addresses?",
+    "options": [
+      "They require more configuration and management",
+      "They are less reliable for hosting servers",
+      "The IP address can change automatically",
+      "Static IP addresses are not accessible over the internet"
+    ],
+    "answer": "They require more configuration and management",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"They require more configuration and management\". The other options (\"They are less reliable for hosting servers\", \"The IP address can change automatically\") are incorrect in this context."
+  },
+  {
+    "id": 537,
+    "type": "mcq",
+    "question": "A small office has five computers that need to connect to the internet and communicate with each other. How should the network devices be configured?",
+    "options": [
+      "Connect the router to the ISP and use wireless connections for all computers",
+      "Connect all computers directly to the router using Ethernet cables",
+      "Connect all computers to the switch using Ethernet cables, and connect the switch to the router",
+      "Connect each computer to the internet using its own modem"
+    ],
+    "answer": "Connect all computers to the switch using Ethernet cables, and connect the switch to the router",
+    "category": "Networking",
+    "tags": [
+      "networking"
+    ],
+    "explanation": "The correct answer is \"Connect all computers to the switch using Ethernet cables, and connect the switch to the router\". The other options (\"Connect the router to the ISP and use wireless connections for all computers\", \"Connect all computers directly to the router using Ethernet cables\") are incorrect in this context."
+  },
+  {
+    "id": 538,
+    "type": "mcq",
+    "question": "You discover that two computers have the same IP address, causing a conflict. What should you do?",
+    "options": [
+      "Restart both computers",
+      "Reboot the router",
+      "Disable the firewall on the router",
+      "Change the IP address of one of the computers"
+    ],
+    "answer": "Change the IP address of one of the computers",
+    "category": "IP Addressing",
+    "tags": [
+      "ip-addressing"
+    ],
+    "explanation": "The correct answer is \"Change the IP address of one of the computers\". The other options (\"Restart both computers\", \"Reboot the router\") are incorrect in this context."
+  },
+  {
+    "id": 539,
+    "type": "mcq",
+    "question": "The accounting department receives an email with a hyperlink pointing to an unknown party for a financial regulation webinar. What type of cybersecurity threat should you investigate?",
+    "options": [
+      "Vishing",
+      "Spear Phishing",
+      "Smishing",
+      "Ransomware"
+    ],
+    "answer": "Spear Phishing",
+    "category": "Cybersecurity Threats",
+    "tags": [
+      "cybersecurity-threats"
+    ],
+    "explanation": "The correct answer is \"Spear Phishing\". The other options (\"Vishing\", \"Smishing\") are incorrect in this context."
+  },
+  {
+    "id": 540,
+    "type": "mcq",
+    "question": "You need to allow employees to access your company's secure network from their homes. Which type of security should you implement?",
+    "options": [
+      "RIP",
+      "VPN",
+      "MP",
+      "IDS"
+    ],
+    "answer": "VPN",
+    "category": "Security Mechanisms",
+    "tags": [
+      "security-mechanisms"
+    ],
+    "explanation": "The correct answer is \"VPN\". The other options (\"RIP\", \"MP\") are incorrect in this context."
+  },
+  {
+    "id": 541,
+    "type": "mcq",
+    "question": "You need to transfer configuration files to a router across an unsecured network. Which protocol should you use to encrypt the files in transit?",
+    "options": [
+      "telnet",
+      "ssh",
+      "tftp",
+      "http"
+    ],
+    "answer": "ssh",
+    "category": "Security Mechanisms",
+    "tags": [
+      "security-mechanisms"
+    ],
+    "explanation": "The correct answer is \"ssh\". The other options (\"telnet\", \"tftp\") are incorrect in this context."
+  },
+  {
+    "id": 542,
+    "type": "mcq",
+    "question": "Your home network has slowed down and an unknown host is attached. What should you do to prevent this specific host from attaching again?",
+    "options": [
+      "Change the network SSID",
+      "Implement MAC address filtering",
+      "Block the host IP address",
+      "Create an IP access control list"
+    ],
+    "answer": "Implement MAC address filtering",
+    "category": "Network Security",
+    "tags": [
+      "network-security"
+    ],
+    "explanation": "The correct answer is \"Implement MAC address filtering\". The other options (\"Change the network SSID\", \"Block the host IP address\") are incorrect in this context."
+  },
+  {
+    "id": 543,
+    "type": "mcq",
+    "question": "You need to filter the websites available to employees on the company network. Which type of device should you deploy?",
+    "options": [
+      "Proxy Server",
+      "Honey Pot",
+      "IDS",
+      "IPS"
+    ],
+    "answer": "Proxy Server",
+    "category": "Network Security",
+    "tags": [
+      "network-security"
+    ],
+    "explanation": "The correct answer is \"Proxy Server\". The other options (\"Honey Pot\", \"IDS\") are incorrect in this context."
+  },
+  {
+    "id": 544,
+    "type": "mcq",
+    "question": "An online shopping store's website keeps crashing after being restarted. You suspect a cyberattack. Which type should you investigate?",
+    "options": [
+      "Ransomware",
+      "Social Engineering",
+      "Spear Phishing",
+      "Denial of Service (DoS)"
+    ],
+    "answer": "Denial of Service (DoS)",
+    "category": "Cybersecurity Threats",
+    "tags": [
+      "cybersecurity-threats"
+    ],
+    "explanation": "The correct answer is \"Denial of Service (DoS)\". The other options (\"Ransomware\", \"Social Engineering\") are incorrect in this context."
+  },
+  {
+    "id": 545,
+    "type": "mcq",
+    "question": "What is the purpose of a hypervisor?",
+    "options": [
+      "It creates and runs virtual machines",
+      "It provides and services a gateway between users and the internet",
+      "It monitors and logs network traffic for malicious packets",
+      "It provides and monitors firewall services for cloud computing"
+    ],
+    "answer": "It creates and runs virtual machines",
+    "category": "Virtualization",
+    "tags": [
+      "virtualization"
+    ],
+    "explanation": "The correct answer is \"It creates and runs virtual machines\". The other options (\"It provides and services a gateway between users and the internet\", \"It monitors and logs network traffic for malicious packets\") are incorrect in this context."
+  },
+  {
+    "id": 546,
+    "type": "mcq",
+    "question": "You issue a 'netstat -l' command to display all TCP ports in the listening state. What does the listening state indicate?",
+    "options": [
+      "Remote and disconnected and the ports are closing",
+      "The state of the connection on the ports is unknown",
+      "The ports are actively connected to another system or process",
+      "The ports are open on the system and are waiting for connections"
+    ],
+    "answer": "The ports are open on the system and are waiting for connections",
+    "category": "Network Commands",
+    "tags": [
+      "network-commands",
+      "cli"
+    ],
+    "explanation": "The correct answer is \"The ports are open on the system and are waiting for connections\". The other options (\"Remote and disconnected and the ports are closing\", \"The state of the connection on the ports is unknown\") are incorrect in this context."
+  },
+  {
+    "id": 547,
+    "type": "mcq",
+    "question": "What enables the network security team to keep track of OS versions, security updates and patches on end user devices?",
+    "options": [
+      "Security Policies and Procedures",
+      "Asset Management",
+      "Business Continuity Planning",
+      "Incident Management"
+    ],
+    "answer": "Asset Management",
+    "category": "Security Management",
+    "tags": [
+      "security-management"
+    ],
+    "explanation": "The correct answer is \"Asset Management\". The other options (\"Security Policies and Procedures\", \"Business Continuity Planning\") are incorrect in this context."
+  },
+  {
+    "id": 548,
+    "type": "mcq",
+    "question": "Your IEM system alerts you that users are connecting to an unusual URL. What should you do first?",
+    "options": [
+      "Submit the URL to the threat intelligence portal for analysis",
+      "Visit the URL to determine whether the website is legitimate",
+      "Ask users why they visited the website",
+      "Block the URL by placing it on the network block list"
+    ],
+    "answer": "Submit the URL to the threat intelligence portal for analysis",
+    "category": "Incident Response",
+    "tags": [
+      "incident-response"
+    ],
+    "explanation": "The correct answer is \"Submit the URL to the threat intelligence portal for analysis\". The other options (\"Visit the URL to determine whether the website is legitimate\", \"Ask users why they visited the website\") are incorrect in this context."
+  },
+  {
+    "id": 549,
+    "type": "mcq",
+    "question": "A corporation hires cyber criminals to create a prolonged presence on a competitor's network to steal or sabotage sensitive data. Which type of attack does this describe?",
+    "options": [
+      "Man-in-the-Middle",
+      "DDOS",
+      "Ransomware",
+      "APT (Advanced Persistent Threat)"
+    ],
+    "answer": "APT (Advanced Persistent Threat)",
+    "category": "Cybersecurity Threats",
+    "tags": [
+      "cybersecurity-threats"
+    ],
+    "explanation": "The correct answer is \"APT (Advanced Persistent Threat)\". The other options (\"Man-in-the-Middle\", \"DDOS\") are incorrect in this context."
+  },
+  {
+    "id": 550,
+    "type": "mcq",
+    "question": "You are reviewing SIEM output and see a valid incident with malicious files detected by IDS. What should you do next?",
+    "options": [
+      "Escalate the situation immediately",
+      "Update the documentation to include the new alert information",
+      "Log the alert and watch for a second occurrence",
+      "Prepare notes to present at the weekly cybersecurity team meeting"
+    ],
+    "answer": "Escalate the situation immediately",
+    "category": "Incident Response",
+    "tags": [
+      "incident-response"
+    ],
+    "explanation": "The correct answer is \"Escalate the situation immediately\". The other options (\"Update the documentation to include the new alert information\", \"Log the alert and watch for a second occurrence\") are incorrect in this context."
+  },
+  {
+    "id": 551,
+    "type": "mcq",
+    "question": "You just completed a full scan of a Windows 10 PC. Where should you go to view the scan results?",
+    "options": [
+      "Windows Application Logs",
+      "Windows Task Manager",
+      "Windows System Logs",
+      "Windows Security"
+    ],
+    "answer": "Windows Security",
+    "category": "Security Tools",
+    "tags": [
+      "security-tools"
+    ],
+    "explanation": "The correct answer is \"Windows Security\". The other options (\"Windows Application Logs\", \"Windows Task Manager\") are incorrect in this context."
+  },
+  {
+    "id": 552,
+    "type": "mcq",
+    "question": "A hacker gained root access to a Linux server by accessing it as a guest and using a program to bypass the root password. Which type of endpoint attack is this?",
+    "options": [
+      "Buffer Overflow",
+      "Privilege Escalation",
+      "DDOS",
+      "Brute Force"
+    ],
+    "answer": "Privilege Escalation",
+    "category": "Cybersecurity Threats",
+    "tags": [
+      "cybersecurity-threats"
+    ],
+    "explanation": "The correct answer is \"Privilege Escalation\". The other options (\"Buffer Overflow\", \"DDOS\") are incorrect in this context."
+  },
+  {
+    "id": 553,
+    "type": "mcq",
+    "question": "To do online banking, a user enters a password then enters a 5-digit code sent to their smartphone. What type of authentication does this describe?",
+    "options": [
+      "Multifactor Authentication",
+      "Radius",
+      "Triple",
+      "VPN"
+    ],
+    "answer": "Multifactor Authentication",
+    "category": "Authentication",
+    "tags": [
+      "authentication"
+    ],
+    "explanation": "The correct answer is \"Multifactor Authentication\". The other options (\"Radius\", \"Triple\") are incorrect in this context."
+  },
+  {
+    "id": 554,
+    "type": "mcq",
+    "question": "Employees report the company's intranet site is no longer accepting login info. You notice misspellings on the site, but it functions normally via IP address. What should you do?",
+    "options": [
+      "Restore a backup copy of the authentication database",
+      "Update the web server software to the latest version",
+      "Take the company web portal offline immediately",
+      "Verify the accuracy of the entry for the site in the local DNS server"
+    ],
+    "answer": "Verify the accuracy of the entry for the site in the local DNS server",
+    "category": "Network Security",
+    "tags": [
+      "network-security"
+    ],
+    "explanation": "The correct answer is \"Verify the accuracy of the entry for the site in the local DNS server\". The other options (\"Restore a backup copy of the authentication database\", \"Update the web server software to the latest version\") are incorrect in this context."
+  },
+  {
+    "id": 555,
+    "type": "mcq",
+    "question": "You observe that the DNS server is sending messages with warning severity in the syslog. What do these messages indicate?",
+    "options": [
+      "An error condition is occurring that must be addressed immediately",
+      "The DNS server is unusable due to a severe malfunction and is shutting down",
+      "A condition exists that will cause errors in the future if the issue is not fixed",
+      "The server has a hardware error that does not require immediate attention"
+    ],
+    "answer": "A condition exists that will cause errors in the future if the issue is not fixed",
+    "category": "Network Security",
+    "tags": [
+      "network-security"
+    ],
+    "explanation": "The correct answer is \"A condition exists that will cause errors in the future if the issue is not fixed\". The other options (\"An error condition is occurring that must be addressed immediately\", \"The DNS server is unusable due to a severe malfunction and is shutting down\") are incorrect in this context."
+  },
+  {
+    "id": 556,
+    "type": "mcq",
+    "question": "Which wireless encryption technology requires AES to secure home wireless networks?",
+    "options": [
+      "TKIP",
+      "WPA3",
+      "WEP",
+      "WPA2"
+    ],
+    "answer": "WPA2",
+    "category": "Network Security",
+    "tags": [
+      "network-security"
+    ],
+    "explanation": "The correct answer is \"WPA2\". The other options (\"TKIP\", \"WPA3\") are incorrect in this context."
+  },
+  {
+    "id": 557,
+    "type": "mcq",
+    "question": "What does hashing provide for data communication?",
+    "options": [
+      "Origin Authentication",
+      "Data Integrity",
+      "Data Non-Repudiation",
+      "Data Encryption"
+    ],
+    "answer": "Data Integrity",
+    "category": "Security Mechanisms",
+    "tags": [
+      "security-mechanisms"
+    ],
+    "explanation": "The correct answer is \"Data Integrity\". The other options (\"Origin Authentication\", \"Data Non-Repudiation\") are incorrect in this context."
+  },
+  {
+    "id": 558,
+    "type": "mcq",
+    "question": "Which activity is an example of an exploit attempting to gain user credentials?",
+    "options": [
+      "Obtaining a directory listing of files located on the web database server",
+      "Installing a backdoor in order to enable two-way communication with the device",
+      "Sending an email with a link to a fictitious web portal login page",
+      "Executing a remote port scan of all the enterprise registered IP addresses"
+    ],
+    "answer": "Sending an email with a link to a fictitious web portal login page",
+    "category": "Cybersecurity Threats",
+    "tags": [
+      "cybersecurity-threats"
+    ],
+    "explanation": "The correct answer is \"Sending an email with a link to a fictitious web portal login page\". The other options (\"Obtaining a directory listing of files located on the web database server\", \"Installing a backdoor in order to enable two-way communication with the device\") are incorrect in this context."
+  },
+  {
+    "id": 559,
+    "type": "mcq",
+    "question": "You need to implement a multifactor authentication system for physical access to a building, currently using only a fingerprint scan. What additional factor should you add?",
+    "options": [
+      "Facial Recognition",
+      "Voiceprint Analysis",
+      "Retinal Scan",
+      "ID Card"
+    ],
+    "answer": "ID Card",
+    "category": "Authentication",
+    "tags": [
+      "authentication"
+    ],
+    "explanation": "The correct answer is \"ID Card\". The other options (\"Facial Recognition\", \"Voiceprint Analysis\") are incorrect in this context."
+  },
+  {
+    "id": 560,
+    "type": "mcq",
+    "question": "A network administrator discovered that a public IP address has been able to access the company's private internal network. What should be done?",
+    "options": [
+      "Update the IP address range for all computers on the internal network",
+      "Have all users renew their DHCP address",
+      "Block external IP addresses from the private network segment",
+      "Update security software on all clients currently connected to the private network"
+    ],
+    "answer": "Block external IP addresses from the private network segment",
+    "category": "Network Security",
+    "tags": [
+      "network-security"
+    ],
+    "explanation": "The correct answer is \"Block external IP addresses from the private network segment\". The other options (\"Update the IP address range for all computers on the internal network\", \"Have all users renew their DHCP address\") are incorrect in this context."
+  },
+  {
+    "id": 561,
+    "type": "mcq",
+    "question": "Which command displays both the configured DNS server information and the IP address resolution for a URL?",
+    "options": [
+      "nslookup",
+      "traceroute",
+      "ping",
+      "NMap"
+    ],
+    "answer": "nslookup",
+    "category": "Network Commands",
+    "tags": [
+      "network-commands",
+      "cli"
+    ],
+    "explanation": "The correct answer is \"nslookup\". The other options (\"traceroute\", \"ping\") are incorrect in this context."
+  },
+  {
+    "id": 562,
+    "type": "mcq",
+    "question": "Which encryption type is used to secure WiFi networks?",
+    "options": [
+      "RISA (Rivest Shamir Adleman)",
+      "Triple Data Encryption Standard (Triple DES)",
+      "Advanced Encryption Standard (AES)",
+      "Data Encryption Standard"
+    ],
+    "answer": "Advanced Encryption Standard (AES)",
+    "category": "Network Security",
+    "tags": [
+      "network-security"
+    ],
+    "explanation": "The correct answer is \"Advanced Encryption Standard (AES)\". The other options (\"RISA (Rivest Shamir Adleman)\", \"Triple Data Encryption Standard (Triple DES)\") are incorrect in this context."
+  },
+  {
+    "id": 563,
+    "type": "mcq",
+    "question": "You analyze a Mac console output showing SSH login events. Based on the output, which event has occurred?",
+    "options": [
+      "A user is attempting a brute force attack",
+      "A user has failed to establish an encrypted connection via a terminal",
+      "A user is a victim of SYN flood attack",
+      "A user has established an encrypted connection via a terminal application"
+    ],
+    "answer": "A user has established an encrypted connection via a terminal application",
+    "category": "Security Analysis",
+    "tags": [
+      "security-analysis"
+    ],
+    "explanation": "The correct answer is \"A user has established an encrypted connection via a terminal application\". The other options (\"A user is attempting a brute force attack\", \"A user has failed to establish an encrypted connection via a terminal\") are incorrect in this context."
+  },
+  {
+    "id": 564,
+    "type": "mcq",
+    "question": "What security assessment ensures that IT systems where PII data is available, accurate, confidential, and accessible only by authorized personnel?",
+    "options": [
+      "Risk Framing",
+      "Information Assurance",
+      "Cyber Kill Chain",
+      "Workflow Management"
+    ],
+    "answer": "Information Assurance",
+    "category": "Security Management",
+    "tags": [
+      "security-management"
+    ],
+    "explanation": "The correct answer is \"Information Assurance\". The other options (\"Risk Framing\", \"Cyber Kill Chain\") are incorrect in this context."
+  },
+  {
+    "id": 565,
+    "type": "mcq",
+    "question": "You find a USB Flash drive on the floor of the computer lab. You connect it and antivirus warns you of a malware infection. What type of social engineering attack is this?",
+    "options": [
+      "Phishing",
+      "Baiting",
+      "Vishing",
+      "Whaling"
+    ],
+    "answer": "Baiting",
+    "category": "Cybersecurity Threats",
+    "tags": [
+      "cybersecurity-threats"
+    ],
+    "explanation": "The correct answer is \"Baiting\". The other options (\"Phishing\", \"Vishing\") are incorrect in this context."
+  },
+  {
+    "id": 566,
+    "type": "mcq",
+    "question": "In the Diamond Model for intrusion analysis, what does the Capability node represent?",
+    "options": [
+      "Malware tools and techniques used by the intruder during the attack.",
+      "IP addresses, domain names and email addresses of the attack source",
+      "Network assets, critical processes and customer data stored on the network",
+      "People or organization initiating the intrusion in order to achieve a goal"
+    ],
+    "answer": "Malware tools and techniques used by the intruder during the attack.",
+    "category": "Security Analysis",
+    "tags": [
+      "security-analysis"
+    ],
+    "explanation": "The correct answer is \"Malware tools and techniques used by the intruder during the attack.\". The other options (\"IP addresses, domain names and email addresses of the attack source\", \"Network assets, critical processes and customer data stored on the network\") are incorrect in this context."
+  },
+  {
+    "id": 567,
+    "type": "mcq",
+    "question": "You need to transfer configuration files to a router across an unsecured network. Which protocol should you use to encrypt the files in transit? (v2)",
+    "options": [
+      "ssh",
+      "http",
+      "tftp",
+      "telnet"
+    ],
+    "answer": "ssh",
+    "category": "Security Mechanisms",
+    "tags": [
+      "security-mechanisms"
+    ],
+    "explanation": "The correct answer is \"ssh\". The other options (\"http\", \"tftp\") are incorrect in this context."
+  },
+  {
+    "id": 568,
+    "type": "mcq",
+    "question": "You need to allow employees to access your company's secure network from their homes. Which type of security should you implement? (v2)",
+    "options": [
+      "MP",
+      "IDS",
+      "VPN",
+      "RIP"
+    ],
+    "answer": "VPN",
+    "category": "Security Mechanisms",
+    "tags": [
+      "security-mechanisms"
+    ],
+    "explanation": "The correct answer is \"VPN\". The other options (\"MP\", \"IDS\") are incorrect in this context."
+  },
+  {
+    "id": 569,
+    "type": "mcq",
+    "question": "Your home network has slowed down and you notice an unknown host attached. What should you do to prevent this specific host from attaching again? (v2)",
+    "options": [
+      "Change the network SSID",
+      "Implement MAC address filtering",
+      "Create an IP access control list",
+      "Block the host IP address"
+    ],
+    "answer": "Implement MAC address filtering",
+    "category": "Network Security",
+    "tags": [
+      "network-security"
+    ],
+    "explanation": "The correct answer is \"Implement MAC address filtering\". The other options (\"Change the network SSID\", \"Create an IP access control list\") are incorrect in this context."
+  },
+  {
+    "id": 570,
+    "type": "mcq",
+    "question": "The accounting department receives an email with a hyperlink pointing to an unknown party for a financial regulation webinar. What type of cybersecurity threat should you investigate? (v2)",
+    "options": [
+      "Ransomware",
+      "Smishing",
+      "Vishing",
+      "Spear Phishing"
+    ],
+    "answer": "Spear Phishing",
+    "category": "Cybersecurity Threats",
+    "tags": [
+      "cybersecurity-threats"
+    ],
+    "explanation": "The correct answer is \"Spear Phishing\". The other options (\"Ransomware\", \"Smishing\") are incorrect in this context."
+  },
+  {
+    "id": 571,
+    "type": "mcq",
+    "question": "What protects information about individuals that is stored by federal agencies? (v2)",
+    "options": [
+      "Privacy Act of 1974",
+      "FERPA",
+      "HIPAA",
+      "PCI DSS"
+    ],
+    "answer": "Privacy Act of 1974",
+    "category": "Regulations",
+    "tags": [
+      "compliance",
+      "regulations"
+    ],
+    "explanation": "The correct answer is \"Privacy Act of 1974\". The other options (\"FERPA\", \"HIPAA\") are incorrect in this context."
+  },
+  {
+    "id": 572,
+    "type": "mcq",
+    "question": "What protects the health care information of individuals? (v2)",
+    "options": [
+      "FERPA",
+      "PCI DSS",
+      "HIPAA",
+      "GDPR"
+    ],
+    "answer": "HIPAA",
+    "category": "Regulations",
+    "tags": [
+      "compliance",
+      "regulations"
+    ],
+    "explanation": "The correct answer is \"HIPAA\". The other options (\"FERPA\", \"PCI DSS\") are incorrect in this context."
+  },
+  {
+    "id": 573,
+    "type": "mcq",
+    "question": "Which command displays both configured DNS server information and the IP address resolution for a URL? (v2)",
+    "options": [
+      "Traceroute",
+      "Nmap",
+      "Ping",
+      "Nslookup"
+    ],
+    "answer": "Nslookup",
+    "category": "Network Commands",
+    "tags": [
+      "network-commands",
+      "cli"
+    ],
+    "explanation": "The correct answer is \"Nslookup\". The other options (\"Traceroute\", \"Nmap\") are incorrect in this context."
+  },
+  {
+    "id": 574,
+    "type": "mcq",
+    "question": "You are working with the senior admin team to identify potential risks. Which phase of risk management are you in? (v2)",
+    "options": [
+      "Risk Assessment",
+      "Risk Identification",
+      "Risk Monitoring",
+      "Risk Mitigation"
+    ],
+    "answer": "Risk Identification",
+    "category": "Risk Management",
+    "tags": [
+      "risk-management"
+    ],
+    "explanation": "The correct answer is \"Risk Identification\". The other options (\"Risk Assessment\", \"Risk Monitoring\") are incorrect in this context."
+  },
+  {
+    "id": 575,
+    "type": "mcq",
+    "question": "What protects the personal information of members of the European Union? (v2)",
+    "options": [
+      "HIPAA",
+      "PCI DSS",
+      "GDPR",
+      "FERPA"
+    ],
+    "answer": "GDPR",
+    "category": "Regulations",
+    "tags": [
+      "compliance",
+      "regulations"
+    ],
+    "explanation": "The correct answer is \"GDPR\". The other options (\"HIPAA\", \"PCI DSS\") are incorrect in this context."
+  },
+  {
+    "id": 576,
+    "type": "mcq",
+    "question": "Which security mechanism ensures that data cannot be modified or altered during transmission? (v2)",
+    "options": [
+      "Access control",
+      "Two-factor authentication",
+      "Hashing",
+      "Encryption"
+    ],
+    "answer": "Hashing",
+    "category": "Security Mechanisms",
+    "tags": [
+      "security-mechanisms"
+    ],
+    "explanation": "The correct answer is \"Hashing\". The other options (\"Access control\", \"Two-factor authentication\") are incorrect in this context."
+  },
+  {
+    "id": 577,
+    "type": "mcq",
+    "question": "What protects the educational records of individuals? (v2)",
+    "options": [
+      "FERPA",
+      "PCI DSS",
+      "GDPR",
+      "HIPAA"
+    ],
+    "answer": "FERPA",
+    "category": "Regulations",
+    "tags": [
+      "compliance",
+      "regulations"
+    ],
+    "explanation": "The correct answer is \"FERPA\". The other options (\"PCI DSS\", \"GDPR\") are incorrect in this context."
+  },
+  {
+    "id": 578,
+    "type": "mcq",
+    "question": "You recommend purchasing insurance and hiring another organization to maintain the web server. Which risk mitigation strategy is this? (v2)",
+    "options": [
+      "Risk Acceptance",
+      "Risk Reduction",
+      "Risk Transfer",
+      "Risk Avoidance"
+    ],
+    "answer": "Risk Transfer",
+    "category": "Risk Management",
+    "tags": [
+      "risk-management"
+    ],
+    "explanation": "The correct answer is \"Risk Transfer\". The other options (\"Risk Acceptance\", \"Risk Reduction\") are incorrect in this context."
+  },
+  {
+    "id": 579,
+    "type": "mcq",
+    "question": "What protects the credit card information of individuals? (v2)",
+    "options": [
+      "FERPA",
+      "PCI DSS",
+      "HIPAA",
+      "GDPR"
+    ],
+    "answer": "PCI DSS",
+    "category": "Regulations",
+    "tags": [
+      "compliance",
+      "regulations"
+    ],
+    "explanation": "The correct answer is \"PCI DSS\". The other options (\"FERPA\", \"HIPAA\") are incorrect in this context."
+  },
+  {
+    "id": 580,
+    "type": "mcq",
+    "question": "[MATCH] 'Data should be accessed and read by authorized users only.' — Which CIA Triad component does this describe?",
+    "options": [
+      "Integrity",
+      "Availability",
+      "Authentication",
+      "Confidentiality"
+    ],
+    "answer": "Confidentiality",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Confidentiality\". The other options (\"Integrity\", \"Availability\") are incorrect in this context."
+  },
+  {
+    "id": 581,
+    "type": "mcq",
+    "question": "[MATCH] 'Ensuring that data is accessible to users when needed.' — Which CIA Triad component does this describe?",
+    "options": [
+      "Confidentiality",
+      "Integrity",
+      "Availability",
+      "Authorization"
+    ],
+    "answer": "Availability",
+    "category": "CIA Triad",
+    "tags": [
+      "cia-triad",
+      "security-fundamentals"
+    ],
+    "explanation": "The correct answer is \"Availability\". The other options (\"Confidentiality\", \"Integrity\") are incorrect in this context."
+  },
+  {
+    "id": 582,
+    "type": "mcq",
+    "question": "[MATCH] 'Removing or blocking infected systems from the network.' — Which worm response action is this?",
+    "options": [
+      "Treatment",
+      "Inoculation",
+      "Quarantine",
+      "Containment"
+    ],
+    "answer": "Quarantine",
+    "category": "Incident Response",
+    "tags": [
+      "incident-response"
+    ],
+    "explanation": "The correct answer is \"Quarantine\". The other options (\"Treatment\", \"Inoculation\") are incorrect in this context."
+  },
+  {
+    "id": 583,
+    "type": "mcq",
+    "question": "[MATCH] 'Patching uninfected systems to deprive the worm of more available targets.' — Which worm response action is this?",
+    "options": [
+      "Treatment",
+      "Quarantine",
+      "Containment",
+      "Inoculation"
+    ],
+    "answer": "Inoculation",
+    "category": "Incident Response",
+    "tags": [
+      "incident-response"
+    ],
+    "explanation": "The correct answer is \"Inoculation\". The other options (\"Treatment\", \"Quarantine\") are incorrect in this context."
+  },
+  {
+    "id": 584,
+    "type": "mcq",
+    "question": "[MATCH] 'Compartmentalizing and segmenting the network to limit the spread of a worm to areas already infected.' — Which worm response action is this?",
+    "options": [
+      "Treatment",
+      "Quarantine",
+      "Containment",
+      "Inoculation"
+    ],
+    "answer": "Containment",
+    "category": "Incident Response",
+    "tags": [
+      "incident-response"
+    ],
+    "explanation": "The correct answer is \"Containment\". The other options (\"Treatment\", \"Quarantine\") are incorrect in this context."
+  },
+  {
+    "id": 585,
+    "type": "mcq",
+    "question": "[MATCH] 'Averts the occurrence of an event.' — What type of security measure is this?",
+    "options": [
+      "Detective Measures",
+      "Corrective Measures",
+      "Deterrent Measures",
+      "Preventive Measures"
+    ],
+    "answer": "Preventive Measures",
+    "category": "Security Management",
+    "tags": [
+      "security-management"
+    ],
+    "explanation": "The correct answer is \"Preventive Measures\". The other options (\"Detective Measures\", \"Corrective Measures\") are incorrect in this context."
+  },
+  {
+    "id": 586,
+    "type": "mcq",
+    "question": "[MATCH] 'Restores a system after an event.' — What type of security measure is this?",
+    "options": [
+      "Preventive Measures",
+      "Corrective Measures",
+      "Detective Measures",
+      "Deterrent Measures"
+    ],
+    "answer": "Corrective Measures",
+    "category": "Security Management",
+    "tags": [
+      "security-management"
+    ],
+    "explanation": "The correct answer is \"Corrective Measures\". The other options (\"Preventive Measures\", \"Detective Measures\") are incorrect in this context."
+  },
+  {
+    "id": 587,
+    "type": "mcq",
+    "question": "[MATCH] 'Records information about software installation and operating system updates.' — Which Windows log type is this?",
+    "options": [
+      "Application Logs",
+      "Security Logs",
+      "System Logs",
+      "Setup Logs"
+    ],
+    "answer": "Setup Logs",
+    "category": "Security Tools",
+    "tags": [
+      "security-tools"
+    ],
+    "explanation": "The correct answer is \"Setup Logs\". The other options (\"Application Logs\", \"Security Logs\") are incorrect in this context."
+  },
+  {
+    "id": 588,
+    "type": "mcq",
+    "question": "[MATCH] 'Lists events generated by the operation of hardware, drivers, and processes.' — Which Windows log type is this?",
+    "options": [
+      "Application Logs",
+      "Setup Logs",
+      "System Logs",
+      "Security Logs"
+    ],
+    "answer": "System Logs",
+    "category": "Security Tools",
+    "tags": [
+      "security-tools"
+    ],
+    "explanation": "The correct answer is \"System Logs\". The other options (\"Application Logs\", \"Setup Logs\") are incorrect in this context."
+  },
+  {
+    "id": 589,
+    "type": "mcq",
+    "question": "[MATCH] 'Records the success or failure of audit policy events.' — Which Windows log type is this?",
+    "options": [
+      "Application Logs",
+      "Setup Logs",
+      "System Logs",
+      "Security Logs"
+    ],
+    "answer": "Security Logs",
+    "category": "Security Tools",
+    "tags": [
+      "security-tools"
+    ],
+    "explanation": "The correct answer is \"Security Logs\". The other options (\"Application Logs\", \"Setup Logs\") are incorrect in this context."
+  },
+  {
+    "id": 590,
+    "type": "mcq",
+    "question": "[MATCH] 'An action that causes a negative impact.' — Which cybersecurity term does this define?",
+    "options": [
+      "Risk",
+      "Vulnerability",
+      "Asset",
+      "Threat"
+    ],
+    "answer": "Threat",
+    "category": "Security Management",
+    "tags": [
+      "security-management"
+    ],
+    "explanation": "The correct answer is \"Threat\". The other options (\"Risk\", \"Vulnerability\") are incorrect in this context."
+  },
+  {
+    "id": 591,
+    "type": "mcq",
+    "question": "[MATCH] 'The potential for loss, damage, or destruction.' — Which cybersecurity term does this define?",
+    "options": [
+      "Threat",
+      "Asset",
+      "Vulnerability",
+      "Risk"
+    ],
+    "answer": "Risk",
+    "category": "Security Management",
+    "tags": [
+      "security-management"
+    ],
+    "explanation": "The correct answer is \"Risk\". The other options (\"Threat\", \"Asset\") are incorrect in this context."
+  },
+  {
+    "id": 592,
+    "type": "mcq",
+    "question": "[MATCH] 'A weakness that potentially exposes organizations to cyberattacks.' — Which cybersecurity term does this define?",
+    "options": [
+      "Threat",
+      "Risk",
+      "Asset",
+      "Vulnerability"
+    ],
+    "answer": "Vulnerability",
+    "category": "Security Management",
+    "tags": [
+      "security-management"
+    ],
+    "explanation": "The correct answer is \"Vulnerability\". The other options (\"Threat\", \"Risk\") are incorrect in this context."
+  },
+  {
+    "id": 593,
+    "type": "mcq",
+    "question": "[MATCH] 'Reports the case and cost of the incident and the steps to prevent future incidents.' — Which incident response phase is this?",
+    "options": [
+      "Preparation",
+      "Containment, Eradication, and Recovery",
+      "Detection Analysis",
+      "Post-incident Activity and Preparation"
+    ],
+    "answer": "Post-incident Activity and Preparation",
+    "category": "Incident Response",
+    "tags": [
+      "incident-response"
+    ],
+    "explanation": "The correct answer is \"Post-incident Activity and Preparation\". The other options (\"Preparation\", \"Containment, Eradication, and Recovery\") are incorrect in this context."
+  },
+  {
+    "id": 594,
+    "type": "mcq",
+    "question": "[MATCH] 'Evaluates incident indicators to determine whether they are legitimate attacks and alerts the organization.' — Which incident response phase is this?",
+    "options": [
+      "Preparation",
+      "Post-incident Activity",
+      "Containment, Eradication, and Recovery",
+      "Detection Analysis"
+    ],
+    "answer": "Detection Analysis",
+    "category": "Incident Response",
+    "tags": [
+      "incident-response"
+    ],
+    "explanation": "The correct answer is \"Detection Analysis\". The other options (\"Preparation\", \"Post-incident Activity\") are incorrect in this context."
+  },
+  {
+    "id": 595,
+    "type": "mcq",
+    "question": "[MATCH] 'Establishes an incident response capability to ensure that organizational assets are sufficiently secure.' — Which incident response phase is this?",
+    "options": [
+      "Detection Analysis",
+      "Post-incident Activity",
+      "Containment, Eradication, and Recovery",
+      "Preparation"
+    ],
+    "answer": "Preparation",
+    "category": "Incident Response",
+    "tags": [
+      "incident-response"
+    ],
+    "explanation": "The correct answer is \"Preparation\". The other options (\"Detection Analysis\", \"Post-incident Activity\") are incorrect in this context."
+  },
+  {
+    "id": 596,
+    "type": "mcq",
+    "question": "[MATCH] 'NMap' — Which vulnerability management step does this tool support?",
+    "options": [
+      "Remediating",
+      "Discovering",
+      "Reporting",
+      "Prioritizing"
+    ],
+    "answer": "Prioritizing",
+    "category": "Security Tools",
+    "tags": [
+      "security-tools"
+    ],
+    "explanation": "The correct answer is \"Prioritizing\". The other options (\"Remediating\", \"Discovering\") are incorrect in this context."
+  },
+  {
+    "id": 597,
+    "type": "mcq",
+    "question": "[MATCH] 'Patch Management Software / Windows Auto Update and Patch' — Which vulnerability management step does this tool support?",
+    "options": [
+      "Discovering",
+      "Prioritizing",
+      "Reporting",
+      "Remediating"
+    ],
+    "answer": "Remediating",
+    "category": "Security Tools",
+    "tags": [
+      "security-tools"
+    ],
+    "explanation": "The correct answer is \"Remediating\". The other options (\"Discovering\", \"Prioritizing\") are incorrect in this context."
+  },
+  {
+    "id": 598,
+    "type": "mcq",
+    "question": "[MATCH] 'Threat actors flood the DHCP server with DHCP requests to use up all available IP addresses that the legitimate DHCP server can issue.' — Which attack is this?",
+    "options": [
+      "DHCP Rogue Attack",
+      "DNS Amplification Attack",
+      "DHCP Starvation Attack",
+      "DNS Spoofing Attack"
+    ],
+    "answer": "DHCP Starvation Attack",
+    "category": "Cybersecurity Threats",
+    "tags": [
+      "cybersecurity-threats"
+    ],
+    "explanation": "The correct answer is \"DHCP Starvation Attack\". The other options (\"DHCP Rogue Attack\", \"DNS Amplification Attack\") are incorrect in this context."
+  },
+  {
+    "id": 599,
+    "type": "mcq",
+    "question": "[MATCH] 'Threat actors use publicly accessible open DNS servers to flood a target with DNS response traffic.' — Which attack is this?",
+    "options": [
+      "DHCP Rogue Attack",
+      "DNS Spoofing Attack",
+      "DHCP Starvation Attack",
+      "DNS Amplification Attack"
+    ],
+    "answer": "DNS Amplification Attack",
+    "category": "Cybersecurity Threats",
+    "tags": [
+      "cybersecurity-threats"
+    ],
+    "explanation": "The correct answer is \"DNS Amplification Attack\". The other options (\"DHCP Rogue Attack\", \"DNS Spoofing Attack\") are incorrect in this context."
+  },
+  {
+    "id": 600,
+    "type": "mcq",
+    "question": "[MATCH] 'Threat actors change the A record for your domain's IP address to point to a predetermined address of their choice.' — Which attack is this?",
+    "options": [
+      "DHCP Rogue Attack",
+      "DNS Amplification Attack",
+      "DHCP Starvation Attack",
+      "DNS Spoofing Attack"
+    ],
+    "answer": "DNS Spoofing Attack",
+    "category": "Cybersecurity Threats",
+    "tags": [
+      "cybersecurity-threats"
+    ],
+    "explanation": "The correct answer is \"DNS Spoofing Attack\". The other options (\"DHCP Rogue Attack\", \"DNS Amplification Attack\") are incorrect in this context."
+  },
+  {
+    "id": 601,
+    "type": "mcq",
+    "question": "[MATCH] 'Threat actors send emails carefully designed to get a single recipient within an organization to unknowingly install malware.' — Which attack is this?",
+    "options": [
+      "Phishing",
+      "Smishing",
+      "Vishing",
+      "Spear Phishing"
+    ],
+    "answer": "Spear Phishing",
+    "category": "Cybersecurity Threats",
+    "tags": [
+      "cybersecurity-threats"
+    ],
+    "explanation": "The correct answer is \"Spear Phishing\". The other options (\"Phishing\", \"Smishing\") are incorrect in this context."
+  },
+  {
+    "id": 602,
+    "type": "mcq",
+    "question": "[MATCH] 'Threat actors create fraudulent text messages to try to lure victims into revealing account information or installing malware.' — Which attack is this?",
+    "options": [
+      "Phishing",
+      "Spear Phishing",
+      "Vishing",
+      "Smishing"
+    ],
+    "answer": "Smishing",
+    "category": "Cybersecurity Threats",
+    "tags": [
+      "cybersecurity-threats"
+    ],
+    "explanation": "The correct answer is \"Smishing\". The other options (\"Phishing\", \"Spear Phishing\") are incorrect in this context."
+  },
+  {
+    "id": 603,
+    "type": "mcq",
+    "question": "[MATCH] 'Threat actors use voice calls to manipulate an individual into releasing confidential data.' — Which attack is this?",
+    "options": [
+      "Phishing",
+      "Spear Phishing",
+      "Smishing",
+      "Vishing"
+    ],
+    "answer": "Vishing",
+    "category": "Cybersecurity Threats",
+    "tags": [
+      "cybersecurity-threats"
+    ],
+    "explanation": "The correct answer is \"Vishing\". The other options (\"Phishing\", \"Spear Phishing\") are incorrect in this context."
+  },
+  {
+    "id": 604,
+    "type": "mcq",
+    "question": "[MATCH] 'An error may occur if the situation is not remedied.' — Which syslog severity level is this?",
+    "options": [
+      "Level 1 (Alert)",
+      "Level 5 (Notice)",
+      "Level 6 (Informational)",
+      "Level 4 (Warning)"
+    ],
+    "answer": "Level 4 (Warning)",
+    "category": "Security Tools",
+    "tags": [
+      "security-tools"
+    ],
+    "explanation": "The correct answer is \"Level 4 (Warning)\". The other options (\"Level 1 (Alert)\", \"Level 5 (Notice)\") are incorrect in this context."
+  },
+  {
+    "id": 605,
+    "type": "mcq",
+    "question": "[MATCH] 'Unusual event but not an error.' — Which syslog severity level is this?",
+    "options": [
+      "Level 1 (Alert)",
+      "Level 4 (Warning)",
+      "Level 6 (Informational)",
+      "Level 5 (Notice)"
+    ],
+    "answer": "Level 5 (Notice)",
+    "category": "Security Tools",
+    "tags": [
+      "security-tools"
+    ],
+    "explanation": "The correct answer is \"Level 5 (Notice)\". The other options (\"Level 1 (Alert)\", \"Level 4 (Warning)\") are incorrect in this context."
+  },
+  {
+    "id": 606,
+    "type": "mcq",
+    "question": "[MATCH] 'Normal operation. The situation requires no intervention.' — Which syslog severity level is this?",
+    "options": [
+      "Level 1 (Alert)",
+      "Level 4 (Warning)",
+      "Level 5 (Notice)",
+      "Level 6 (Informational)"
+    ],
+    "answer": "Level 6 (Informational)",
+    "category": "Security Tools",
+    "tags": [
+      "security-tools"
+    ],
+    "explanation": "The correct answer is \"Level 6 (Informational)\". The other options (\"Level 1 (Alert)\", \"Level 4 (Warning)\") are incorrect in this context."
+  },
+  {
+    "id": 607,
+    "type": "mcq",
+    "question": "[MATCH] Is a Web server typically located in a company's DMZ (Demilitarized Zone)?",
+    "options": [
+      "No, web servers are always internal",
+      "No, web servers are behind the internal firewall",
+      "No, web servers are only in the cloud",
+      "Yes, web servers are typically in the DMZ"
+    ],
+    "answer": "Yes, web servers are typically in the DMZ",
+    "category": "Network Security",
+    "tags": [
+      "network-security"
+    ],
+    "explanation": "The correct answer is \"Yes, web servers are typically in the DMZ\". The other options (\"No, web servers are always internal\", \"No, web servers are behind the internal firewall\") are incorrect in this context."
+  },
+  {
+    "id": 608,
+    "type": "mcq",
+    "question": "[MATCH] Is a Directory server (e.g., Active Directory) typically located in a company's DMZ?",
+    "options": [
+      "Yes, directory servers are exposed to the public",
+      "Yes, directory servers need external access",
+      "Yes, directory servers are always in the DMZ",
+      "No, directory servers are kept in the internal network"
+    ],
+    "answer": "No, directory servers are kept in the internal network",
+    "category": "Network Security",
+    "tags": [
+      "network-security"
+    ],
+    "explanation": "The correct answer is \"No, directory servers are kept in the internal network\". The other options (\"Yes, directory servers are exposed to the public\", \"Yes, directory servers need external access\") are incorrect in this context."
+  },
+  {
+    "id": 609,
+    "type": "mcq",
+    "question": "[MATCH] Is a Print server typically located in a company's DMZ?",
+    "options": [
+      "Yes, print servers need to be in the DMZ",
+      "Yes, print servers are public-facing",
+      "Yes, print servers require external access",
+      "No, print servers are kept in the internal network"
+    ],
+    "answer": "No, print servers are kept in the internal network",
+    "category": "Network Security",
+    "tags": [
+      "network-security"
+    ],
+    "explanation": "The correct answer is \"No, print servers are kept in the internal network\". The other options (\"Yes, print servers need to be in the DMZ\", \"Yes, print servers are public-facing\") are incorrect in this context."
+  },
+  {
+    "id": 610,
+    "type": "mcq",
+    "question": "[MATCH] True or False: 'ss (socket statistics) is the Linux equivalent of netstat.'",
+    "options": [
+      "False — ss is a Windows-only tool",
+      "False — ss is used for DNS lookups",
+      "False — ss is part of the Nmap suite",
+      "True — ss is the modern Linux replacement for netstat"
+    ],
+    "answer": "True — ss is the modern Linux replacement for netstat",
+    "category": "Security Tools",
+    "tags": [
+      "security-tools"
+    ],
+    "explanation": "The correct answer is \"True — ss is the modern Linux replacement for netstat\". The other options (\"False — ss is a Windows-only tool\", \"False — ss is used for DNS lookups\") are incorrect in this context."
+  },
+  {
+    "id": 611,
+    "type": "mcq",
+    "question": "[MATCH] True or False: 'netstat runs in a GUI environment.'",
+    "options": [
+      "True — netstat has a built-in GUI",
+      "True — netstat opens a graphical window",
+      "True — netstat requires a desktop environment",
+      "False — netstat is a command-line tool"
+    ],
+    "answer": "False — netstat is a command-line tool",
+    "category": "Security Tools",
+    "tags": [
+      "security-tools"
+    ],
+    "explanation": "The correct answer is \"False — netstat is a command-line tool\". The other options (\"True — netstat has a built-in GUI\", \"True — netstat opens a graphical window\") are incorrect in this context."
+  },
+  {
+    "id": 612,
+    "type": "mcq",
+    "question": "[MATCH] True or False: 'netstat shows active and waiting ports for connections.'",
+    "options": [
+      "False — netstat only shows closed ports",
+      "False — netstat only displays IP addresses",
+      "False — netstat cannot display port states",
+      "True — netstat displays both active and waiting connection ports"
+    ],
+    "answer": "True — netstat displays both active and waiting connection ports",
+    "category": "Security Tools",
+    "tags": [
+      "security-tools"
+    ],
+    "explanation": "The correct answer is \"True — netstat displays both active and waiting connection ports\". The other options (\"False — netstat only shows closed ports\", \"False — netstat only displays IP addresses\") are incorrect in this context."
+  },
+  {
+    "id": 613,
+    "type": "mcq",
+    "question": "[MATCH] 'Firewalls, IDS and IPS, and Log Analyzers.' — What type of threat do these countermeasures address?",
+    "options": [
+      "Natural Disasters",
+      "Supply-Chain Disruptions",
+      "Employee Errors",
+      "Cyberattacks"
+    ],
+    "answer": "Cyberattacks",
+    "category": "Network Security",
+    "tags": [
+      "network-security"
+    ],
+    "explanation": "The correct answer is \"Cyberattacks\". The other options (\"Natural Disasters\", \"Supply-Chain Disruptions\") are incorrect in this context."
+  },
+  {
+    "id": 614,
+    "type": "mcq",
+    "question": "[MATCH] 'Alternate sources and inventory management.' — What type of threat do these countermeasures address?",
+    "options": [
+      "Natural Disasters",
+      "Cyberattacks",
+      "Employee Errors",
+      "Supply-Chain Disruptions"
+    ],
+    "answer": "Supply-Chain Disruptions",
+    "category": "Security Management",
+    "tags": [
+      "security-management"
+    ],
+    "explanation": "The correct answer is \"Supply-Chain Disruptions\". The other options (\"Natural Disasters\", \"Cyberattacks\") are incorrect in this context."
+  },
+  {
+    "id": 615,
+    "type": "mcq",
+    "question": "[MATCH] 'Standard procedures and training.' — What type of threat do these countermeasures address?",
+    "options": [
+      "Natural Disasters",
+      "Cyberattacks",
+      "Supply-Chain Disruptions",
+      "Employee Errors"
+    ],
+    "answer": "Employee Errors",
+    "category": "Security Management",
+    "tags": [
+      "security-management"
+    ],
+    "explanation": "The correct answer is \"Employee Errors\". The other options (\"Natural Disasters\", \"Cyberattacks\") are incorrect in this context."
+  },
+  {
+    "id": 616,
+    "type": "mcq",
+    "question": "[MATCH] 'Scans networks for open ports, service versions, and operating system information.' — Which tool does this describe?",
+    "options": [
+      "netstat",
+      "nslookup",
+      "Wireshark",
+      "NMap"
+    ],
+    "answer": "NMap",
+    "category": "Network Commands",
+    "tags": [
+      "network-commands",
+      "cli"
+    ],
+    "explanation": "The correct answer is \"NMap\". The other options (\"netstat\", \"nslookup\") are incorrect in this context."
+  },
+  {
+    "id": 617,
+    "type": "mcq",
+    "question": "[MATCH] 'Performs DNS queries to obtain domain name or IP address mapping information.' — Which tool does this describe?",
+    "options": [
+      "netstat",
+      "NMap",
+      "Wireshark",
+      "nslookup"
+    ],
+    "answer": "nslookup",
+    "category": "Network Commands",
+    "tags": [
+      "network-commands",
+      "cli"
+    ],
+    "explanation": "The correct answer is \"nslookup\". The other options (\"netstat\", \"NMap\") are incorrect in this context."
   }
 ]
