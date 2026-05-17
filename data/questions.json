@@ -348,6 +348,23 @@
   {
     "id": 18,
     "type": "mcq",
+    "question": "You are completing a college admissions application online. When navigating to the next page in the application, the website becomes unresponsive and appears to crash. You attempt to refresh the Admissions page, but you get a generic browser error and cannot access your application. What part of the CIA Triad has been compromised?",
+    "options": [
+      "Availability",
+      "Integrity",
+      "Confidentiality"
+    ],
+    "answer": "Availability",
+    "category": "Security Principles",
+    "tags": [
+      "cia-triad",
+      "availability"
+    ],
+    "explanation": "Availability is compromised because the application is no longer accessible. Confidentiality is not affected (no data breach), and integrity is not affected (no data modification)."
+  },
+  {
+    "id": 19,
+    "type": "mcq",
     "question": "While downloading an app that appears legitimate, you accidentally install malware that contains a keylogger. Which element of the CIA Triad has been compromised?",
     "options": [
       "Confidentiality",
@@ -364,7 +381,7 @@
     "explanation": "A keylogger captures private or personal information, compromising confidentiality. Availability remains intact (system accessible), and integrity is unaffected (no unauthorized changes)."
   },
   {
-    "id": 19,
+    "id": 20,
     "type": "mcq",
     "question": "What can an administrator conclude for a rule based on this firewall log?",
     "options": [
@@ -382,7 +399,7 @@
     "explanation": "The log shows multiple Deny entries from 203.0.113.x, confirming that inbound traffic from that network is denied. Not all ICMP is blocked (one Allow ICMP exists), and no outbound traffic to 172.x.x.x private networks is shown."
   },
   {
-    "id": 20,
+    "id": 21,
     "type": "mcq",
     "question": "An attacker has launched a DoS attack on a target server. The attack prevents the server from responding to client requests because it is waiting to close half-open Layer 4 sessions with the attacker's computer. Which type of attack is this?",
     "options": [
@@ -401,7 +418,7 @@
     "explanation": "In a SYN flood attack, the attacker overwhelms a server with TCP SYN requests, leaving half-open connections that prevent the server from responding to legitimate client requests."
   },
   {
-    "id": 21,
+    "id": 22,
     "type": "mcq",
     "question": "Which attack involves an attacker setting up a rogue server on the network which provides network hosts with incorrect IP address configuration information?",
     "options": [
@@ -420,7 +437,7 @@
     "explanation": "In DHCP spoofing, an attacker responds to client DHCP requests and provides incorrect IP address information such as the wrong default gateway or DNS server."
   },
   {
-    "id": 22,
+    "id": 23,
     "type": "mcq",
     "question": "An attacker has connected a laptop to a wireless network and attempts to lease all available IP addresses from the DHCP server. Which type of attack is occurring?",
     "options": [
@@ -439,7 +456,7 @@
     "explanation": "In a DHCP Starvation attack, an attacker attempts to lease all available IP addresses from the DHCP server, denying legitimate clients from obtaining an IP address."
   },
   {
-    "id": 23,
+    "id": 24,
     "type": "mcq",
     "question": "A business has 25 employees. There are 10 employees in the administration and training departments and the five remaining employees fulfill the role of outside sales. Data from each department needs to be isolated from the others by default. All employees work in the same building. What type of networks should be set up to accommodate the needs of this business?",
     "options": [
@@ -458,7 +475,7 @@
     "explanation": "VLANs allow the business to use a single switch split into three groups by ports, creating three separate networks for isolation. A DMZ does not provide the required segmentation."
   },
   {
-    "id": 24,
+    "id": 25,
     "type": "mcq",
     "question": "A security administrator tells an associate to set up two VPCs. What will be set up?",
     "options": [
@@ -477,7 +494,7 @@
     "explanation": "VPC stands for Virtual Private Cloud, which is a virtualized network in the cloud. VPNs create secure tunnels, and security groups protect networks but are not VPCs themselves."
   },
   {
-    "id": 25,
+    "id": 26,
     "type": "drag_and_drop",
     "question": "Match each firewall type to its correct description.",
     "items": {
@@ -500,7 +517,7 @@
     "explanation": "Stateful firewalls track connection state; stateless firewalls inspect each packet independently; next-generation firewalls (NGFW) operate at the application layer."
   },
   {
-    "id": 26,
+    "id": 27,
     "type": "mcq",
     "question": "An IT company is learning about new types of cyber attacks that might be used against its customers. The IT company sets up a decoy network site as a potential target to attract attackers and gather information about the new threats. What is the term used to describe the decoy site?",
     "options": [
@@ -519,7 +536,7 @@
     "explanation": "A honeypot is a safe network site used to lure attackers and study their hacking attempts. A DMZ allows external access to services while protecting internal networks."
   },
   {
-    "id": 27,
+    "id": 28,
     "type": "mcq",
     "question": "When setting up a home network, which security benefit does SSID cloaking provide?",
     "options": [
@@ -538,7 +555,7 @@
     "explanation": "SSID cloaking disables SSID broadcasting, requiring clients to manually configure the known SSID. It does not restrict devices, reduce encryption needs, or hide traffic contents."
   },
   {
-    "id": 28,
+    "id": 29,
     "type": "msq",
     "question": "Which two network vulnerability assessment tools are used to scan networks? (Choose 2)",
     "options": [
@@ -560,7 +577,7 @@
     "explanation": "Nessus scans for vulnerabilities; Wireshark is a protocol analyzer. Metasploit is for exploitation, and OpenSSL is a cryptography tool, not a network scanner."
   },
   {
-    "id": 29,
+    "id": 30,
     "type": "mcq",
     "question": "A company is working on a disaster recovery plan. They decide that it would be more secure to subscribe to a cloud service application for their file storage and backups. Which type of cloud service do they need?",
     "options": [
@@ -579,7 +596,7 @@
     "explanation": "SaaS (Software as a Service) provides web-based applications including file storage and backups. IaaS provides infrastructure, PaaS provides platforms for development."
   },
   {
-    "id": 30,
+    "id": 31,
     "type": "msq",
     "question": "An app a user has installed has many known security flaws. A security administrator wants the device the user has to be restored to the previous restore point, taken before the app was installed. What will change about the device? (Choose two)",
     "options": [
@@ -601,7 +618,7 @@
     "explanation": "Restore points roll back apps and registry settings but do not affect user files or reset the operating system entirely."
   },
   {
-    "id": 31,
+    "id": 32,
     "type": "mcq",
     "question": "What is used to locate potential vulnerabilities in a computer system?",
     "options": [
@@ -620,7 +637,7 @@
     "explanation": "Penetration testing actively tests systems for vulnerabilities. Kill chains list attack steps, authentication verifies identity, and vulnerability databases contain known vulnerabilities but do not test for them."
   },
   {
-    "id": 32,
+    "id": 33,
     "type": "mcq",
     "question": "You are required to keep track of file access. Which type of auditing should be implemented?",
     "options": [
@@ -639,7 +656,7 @@
     "explanation": "Object Access auditing tracks attempts to access files and other objects. Process Tracking tracks program activation, and Directory Services tracks Active Directory object access."
   },
   {
-    "id": 33,
+    "id": 34,
     "type": "mcq",
     "question": "What is the term to describe a weakness in a computer device, system, or network?",
     "options": [
@@ -657,7 +674,7 @@
     "explanation": "A vulnerability is a weakness. A threat is a potential danger, an exploit is code that takes advantage of a vulnerability, and an attack is an actual harmful act."
   },
   {
-    "id": 34,
+    "id": 35,
     "type": "mcq",
     "question": "What is spyware?",
     "options": [
@@ -675,7 +692,7 @@
     "explanation": "Spyware collects user information. Hiding inside useful programs describes a trojan; self-replication describes a worm; virus protection describes antivirus software."
   },
   {
-    "id": 35,
+    "id": 36,
     "type": "mcq",
     "question": "You are completing a college admissions application online. When navigating to the next page in the application, the website becomes unresponsive and appears to crash. You attempt to refresh the Admissions page, but you get a generic browser error and cannot access your application. What part of the CIA Triad has been compromised?",
     "options": [
@@ -692,7 +709,7 @@
     "explanation": "The inability to access the application indicates a loss of availability."
   },
   {
-    "id": 36,
+    "id": 37,
     "type": "mcq",
     "question": "Which cybersecurity framework serves as a guide and provides best practices for improving information security and properly conducting cybersecurity risk management?",
     "options": [
@@ -711,7 +728,7 @@
     "explanation": "NIST Cybersecurity Framework provides a blueprint for cybersecurity risk management. ISO/IEC 27001 focuses on ISMS, CIS Controls list security controls, and COBIT focuses on IT governance."
   },
   {
-    "id": 37,
+    "id": 38,
     "type": "mcq",
     "question": "In which type of attack is a DNS entry manipulated to redirect a website request to a malicious one?",
     "options": [
@@ -730,7 +747,7 @@
     "explanation": "In a pharming attack, DNS entries are manipulated to redirect legitimate website requests to malicious ones. Watering hole infects trusted sites, spear phishing targets individuals, and whaling targets prominent individuals."
   },
   {
-    "id": 38,
+    "id": 39,
     "type": "mcq",
     "question": "An organization is revising its network security architecture. They want to include a device or service that will enhance security by hiding their corporate IP address and by acting as a go-between for internal users and the Internet. Which type of device or service does the organization require?",
     "options": [
@@ -749,7 +766,7 @@
     "explanation": "A proxy server sits between internal users and the internet, hiding internal IP addresses. IDS monitors for malicious activity, VPNs create secure tunnels, and RADIUS handles authentication."
   },
   {
-    "id": 39,
+    "id": 40,
     "type": "mcq",
     "question": "True or False: You can use netstat to examine UDP packets over IPv6.",
     "options": [
@@ -766,7 +783,7 @@
     "explanation": "Netstat can examine UDP packets over IPv6 protocol. The statement is true."
   },
   {
-    "id": 40,
+    "id": 41,
     "type": "mcq",
     "question": "Which type of encryption algorithm uses a pre-shared key to encrypt and decrypt data?",
     "options": [
@@ -783,7 +800,7 @@
     "explanation": "Symmetric encryption uses a single pre-shared key for both encryption and decryption. Asymmetric uses key pairs, Diffie-Hellman is a key exchange protocol."
   },
   {
-    "id": 41,
+    "id": 42,
     "type": "mcq",
     "question": "Which compliance act provides a framework for US federal agencies and contractors to adhere to in order to protect their data?",
     "options": [
@@ -802,7 +819,7 @@
     "explanation": "FISMA (Federal Information Security Modernization Act) mandates US federal agencies and contractors to protect their information systems. FERPA protects student records, HIPAA protects healthcare privacy, and GDPR is for EU data protection."
   },
   {
-    "id": 42,
+    "id": 43,
     "type": "drag_and_drop",
     "question": "Move each potential threat on the left to the correct mitigation strategy on the right.",
     "items": {
@@ -825,7 +842,7 @@
     "explanation": "Natural disasters are mitigated by hardened facilities and alternate sites; cyberattacks by firewalls, IDS/IPS, and log analyzers; supply-chain disruptions by alternate sources and inventory management; employee errors by standard procedures and training."
   },
   {
-    "id": 43,
+    "id": 44,
     "type": "mcq",
     "question": "A fire occurred in the data center of your organization. Which document will security staff consult after the fire?",
     "options": [
@@ -844,7 +861,7 @@
     "explanation": "A Disaster Recovery Plan defines how to react to destructive events. Information Security Policy defines security rules, Preventive Controls Specification deals with prevention, and RPO identifies acceptable data loss limits."
   },
   {
-    "id": 44,
+    "id": 45,
     "type": "msq",
     "question": "Which security-related tasks and items are part of security governance? (Choose two)",
     "options": [
@@ -866,7 +883,7 @@
     "explanation": "Security governance includes meeting regulatory compliance requirements and defining security roles and responsibilities. Hiring IT staff and nepotism are not part of security governance."
   },
   {
-    "id": 45,
+    "id": 46,
     "type": "mcq",
     "question": "Which entity creates digital certificates by binding a public key to a confirmed identity?",
     "options": [
@@ -885,7 +902,7 @@
     "explanation": "A Certificate Authority (CA) creates digital certificates by tying a public key to a confirmed identity. Diffie-Hellman is an encryption algorithm, FIPS sets standards, and code signing verifies code integrity."
   },
   {
-    "id": 46,
+    "id": 47,
     "type": "mcq",
     "question": "A security team needs to be able to switch out nonfunctional hardware pieces for functional ones as quickly as possible. Which replacement is an example of using a hot spare?",
     "options": [
@@ -904,7 +921,7 @@
     "explanation": "A hot spare automatically takes over without physical interaction, such as a spare drive in RAID. Cold spares require manual intervention, like replacing a failed switch or power supply."
   },
   {
-    "id": 47,
+    "id": 48,
     "type": "drag_and_drop",
     "question": "Match each syslog severity level to the recommended action.",
     "items": {
@@ -928,7 +945,7 @@
     "explanation": "Alert (Level 1) requires immediate correction; Warning (Level 4) indicates possible future error; Notice (Level 5) records unusual but non-error events; Informational (Level 6) logs normal operations."
   },
   {
-    "id": 48,
+    "id": 49,
     "type": "mcq",
     "question": "Which Linux command is used to change the root directory?",
     "options": [
@@ -947,7 +964,7 @@
     "explanation": "chroot changes the root directory for a process. sudo runs commands with superuser privileges, chmod changes file permissions, and su switches user accounts."
   },
   {
-    "id": 49,
+    "id": 50,
     "type": "msq",
     "question": "Which three options are standards that enable the exchange of cyber threat intelligence (CTI) in an automated, consistent, and machine-readable format? (Choose 3)",
     "options": [
@@ -972,7 +989,7 @@
     "explanation": "CybOX, STIX, and TAXII are standards for exchanging cyber threat intelligence. Cisco Talos and FireEye Helix are commercial threat intelligence services, not standards."
   },
   {
-    "id": 50,
+    "id": 51,
     "type": "mcq",
     "question": "Which type of physical attack involves entry into a restricted building or area?",
     "options": [
@@ -991,7 +1008,7 @@
     "explanation": "Tailgating involves following an authorized person into a restricted area. Spear phishing and whaling are social engineering attacks via email; vishing is voice-based phishing."
   },
   {
-    "id": 51,
+    "id": 52,
     "type": "mcq",
     "question": "After performing a vulnerability scan, you discover that over half of the company end-user computing devices are not at the current level of client operating system software. Which mitigation strategy is appropriate to address the risks associated with outdated client operating system software?",
     "options": [
@@ -1010,7 +1027,7 @@
     "explanation": "Patch management directly addresses outdated software. Email security, firewalls, and permissions policies do not solve the underlying issue of missing OS updates."
   },
   {
-    "id": 52,
+    "id": 53,
     "type": "mcq",
     "question": "Which option represents an external source of risk to an organization?",
     "options": [
@@ -1028,7 +1045,7 @@
     "explanation": "Natural disasters are external sources of risk. Lack of encryption, failure to update documentation, and obsolete hardware are internal sources of risk."
   },
   {
-    "id": 53,
+    "id": 54,
     "type": "mcq",
     "question": "Which attack method requires the use of a phone to obtain personal or sensitive information?",
     "options": [
@@ -1047,7 +1064,7 @@
     "explanation": "Vishing (voice phishing) uses phone calls to obtain sensitive information. Whaling and spear phishing are email-based, and pharming involves DNS manipulation."
   },
   {
-    "id": 54,
+    "id": 55,
     "type": "mcq",
     "question": "You need to revise the search list on your DNS server by using nslookup. What should you do?",
     "options": [
@@ -1066,7 +1083,7 @@
     "explanation": "The set schlist command allows modifications to the DNS search list. set querytype' and set type' change resource record types, and set search adds domain names to requests."
   },
   {
-    "id": 55,
+    "id": 56,
     "type": "mcq",
     "question": "Which part of the CIA Triad is exploited when shoulder surfing occurs?",
     "options": [
@@ -1085,7 +1102,7 @@
     "explanation": "Shoulder surfing compromises confidentiality because sensitive data is observed or stolen. Availability and integrity remain intact, and authorization is part of AAA, not the CIA Triad."
   },
   {
-    "id": 56,
+    "id": 57,
     "type": "mcq",
     "question": "What classification of security alert is the greatest threat to an organization because it represents undetected exploits?",
     "options": [
@@ -1104,7 +1121,7 @@
     "explanation": "A false negative means a threat exists but was not detected, leaving the organization vulnerable to undetected exploits. This is the greatest threat because no alert triggers, and attackers continue operating unnoticed."
   },
   {
-    "id": 57,
+    "id": 58,
     "type": "mcq",
     "question": "You are working with the senior admin team to identify potential risks. Which phase of risk management are you in?",
     "options": [
@@ -1122,7 +1139,7 @@
     "explanation": "Identifying risks is the first phase where potential threats and vulnerabilities are recognized. Mitigation, assessment, and monitoring come after identification."
   },
   {
-    "id": 58,
+    "id": 59,
     "type": "mcq",
     "question": "While conducting a risk evaluation at your company, you identify risks related to the web server located at the office. The risks involve hardware and software failure as well as web service interruption caused by cyber-attacks. You recommend purchasing insurance and hiring another organization to maintain the web server and mitigate risks. Which risk mitigation strategy is this an example of?",
     "options": [
@@ -1140,7 +1157,7 @@
     "explanation": "Risk transfer shifts the financial or operational impact of a risk to a third party (insurance or another organization). Avoidance eliminates the risk, acceptance tolerates it, and reduction lessens it."
   },
   {
-    "id": 59,
+    "id": 60,
     "type": "msq",
     "question": "Which three authentication factors are valid for use in a multi-factor authentication scenario? (Choose three)",
     "options": [
@@ -1164,7 +1181,7 @@
     "explanation": "The three standard authentication factors are: Something you know (password/PIN), something you have (token/smartphone), and something you are (biometric). Something you do, see, or earn are not standard factors."
   },
   {
-    "id": 60,
+    "id": 61,
     "type": "mcq",
     "question": "Which command displays both configured DNS server information and the IP address resolution for a URL?",
     "options": [
@@ -1183,7 +1200,7 @@
     "explanation": "nslookup queries DNS servers to resolve hostnames to IP addresses and displays configured DNS server information. Ping tests connectivity, traceroute traces route, nmap scans ports."
   },
   {
-    "id": 61,
+    "id": 62,
     "type": "mcq",
     "question": "Which data type is protected through hard disk encryption?",
     "options": [
@@ -1202,17 +1219,16 @@
     "explanation": "Hard disk encryption protects data stored on the disk (data at rest). Data in transit is protected by TLS/SSL, data in use/process is in RAM."
   },
   {
-    "id": 62,
-    "type": "mcq",
+    "id": 63,
+    "type": "drag_and_drop",
     "question": "Match each compliance regulation with the data it protects.",
-    "options": [
-      "GDPR \u2192 Personal information of EU members",
-      "HIPAA \u2192 Healthcare information",
-      "PCI DSS \u2192 Credit card information",
-      "FERPA \u2192 Educational records",
-      "FISMA \u2192 Federal agency information"
-    ],
-    "answer": "GDPR \u2192 Personal information of EU members; HIPAA \u2192 Healthcare information; PCI DSS \u2192 Credit card information; FERPA \u2192 Educational records; FISMA \u2192 Federal agency information",
+    "answer": {
+      "GDPR": "Personal information of EU members",
+      "HIPAA": "Healthcare information",
+      "PCI DSS": "Credit card information",
+      "FERPA": "Educational records",
+      "FISMA": "Federal agency information"
+    },
     "category": "Compliance",
     "tags": [
       "compliance",
@@ -1222,18 +1238,24 @@
       "ferpa",
       "fisma"
     ],
-    "explanation": "GDPR protects EU personal data; HIPAA protects healthcare information; PCI DSS protects credit card data; FERPA protects student education records; FISMA protects federal agency information."
+    "explanation": "GDPR protects EU personal data; HIPAA protects healthcare information; PCI DSS protects credit card data; FERPA protects student education records; FISMA protects federal agency information.",
+    "items": {
+      "GDPR": "Personal information of EU members",
+      "HIPAA": "Healthcare information",
+      "PCI DSS": "Credit card information",
+      "FERPA": "Educational records",
+      "FISMA": "Federal agency information"
+    }
   },
   {
-    "id": 63,
-    "type": "mcq",
+    "id": 64,
+    "type": "drag_and_drop",
     "question": "Match each CIA Triad component to its correct description.",
-    "options": [
-      "Integrity \u2192 Data should never be altered or compromised",
-      "Confidentiality \u2192 Data accessed only by authorized users",
-      "Availability \u2192 Data accessible when needed"
-    ],
-    "answer": "Integrity \u2192 Data should never be altered or compromised; Confidentiality \u2192 Data accessed only by authorized users; Availability \u2192 Data accessible when needed",
+    "answer": {
+      "Integrity": "Data should never be altered or compromised",
+      "Confidentiality": "Data accessed only by authorized users",
+      "Availability": "Data accessible when needed"
+    },
     "category": "Security Principles",
     "tags": [
       "cia-triad",
@@ -1241,28 +1263,38 @@
       "confidentiality",
       "availability"
     ],
-    "explanation": "Integrity ensures data accuracy and prevents unauthorized modification; Confidentiality ensures only authorized users access data; Availability ensures data is accessible when needed."
+    "explanation": "Integrity ensures data accuracy; Confidentiality ensures only authorized users access data; Availability ensures data is accessible when needed.",
+    "items": {
+      "Integrity": "Data should never be altered or compromised",
+      "Confidentiality": "Data accessed only by authorized users",
+      "Availability": "Data accessible when needed"
+    }
   },
   {
-    "id": 64,
-    "type": "mcq",
+    "id": 65,
+    "type": "drag_and_drop",
     "question": "Match each mitigation strategy to its correct action.",
-    "options": [
-      "Treatment \u2192 Clean and patch infected systems",
-      "Quarantine \u2192 Remove or block infected systems from the network",
-      "Inoculation \u2192 Patch unexpected systems to deprive the worm of targets",
-      "Containment \u2192 Compartmentalize and segment the network"
-    ],
-    "answer": "Treatment \u2192 Clean and patch infected systems; Quarantine \u2192 Remove or block infected systems; Inoculation \u2192 Patch unexpected systems to deprive worm of targets; Containment \u2192 Compartmentalize and segment the network",
+    "answer": {
+      "Treatment": "Clean and patch infected systems",
+      "Quarantine": "Remove or block infected systems from the network",
+      "Inoculation": "Patch unexpected systems to deprive the worm of targets",
+      "Containment": "Compartmentalize and segment the network"
+    },
     "category": "Incident Response",
     "tags": [
       "mitigation",
       "incident-response"
     ],
-    "explanation": "Treatment cleans infected systems; Quarantine isolates infected systems; Inoculation patches to remove targets; Containment segments the network to limit spread."
+    "explanation": "Treatment cleans infected systems; Quarantine isolates them; Inoculation patches uninfected systems; Containment segments the network to limit spread.",
+    "items": {
+      "Treatment": "Clean and patch infected systems",
+      "Quarantine": "Remove or block infected systems from the network",
+      "Inoculation": "Patch unexpected systems to deprive the worm of targets",
+      "Containment": "Compartmentalize and segment the network"
+    }
   },
   {
-    "id": 65,
+    "id": 66,
     "type": "msq",
     "question": "Which two private IPv4 addresses would be blocked on the internet to prevent security and performance issues? (Choose two)",
     "options": [
@@ -1284,7 +1316,7 @@
     "explanation": "RFC 1918 private addresses (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) should be blocked at internet borders. 169.254.0.0/16 is link-local. The question shows examples from 172.18.100.78 and 192.168.189.x."
   },
   {
-    "id": 66,
+    "id": 67,
     "type": "mcq",
     "question": "The employees in the accounting department of a company receive an email about the latest federal accounting regulations. The email contains a hyperlink to register for a webinar hosted by a government agency. As a security officer, you notice the hyperlink points to an unknown party. Which type of cybersecurity threat should you investigate?",
     "options": [
@@ -1302,7 +1334,7 @@
     "explanation": "Spear phishing targets specific individuals or departments with personalized emails containing malicious links. Ransomware encrypts files, vishing uses phone calls, smishing uses SMS."
   },
   {
-    "id": 67,
+    "id": 68,
     "type": "mcq",
     "question": "You need to transfer configuration files to a router across an unsecured network. Which protocol should you use to encrypt the files in transit?",
     "options": [
@@ -1321,7 +1353,7 @@
     "explanation": "SSH provides encrypted communication for secure file transfer. HTTP, Telnet, and TFTP send data in cleartext."
   },
   {
-    "id": 68,
+    "id": 69,
     "type": "mcq",
     "question": "You need to allow employees to access your company's secure network from their homes. Which type of security should you implement?",
     "options": [
@@ -1339,7 +1371,7 @@
     "explanation": "A VPN (Virtual Private Network) creates an encrypted tunnel for secure remote access. IDS monitors for intrusions, BYOD is a device policy, DNS resolves domain names."
   },
   {
-    "id": 69,
+    "id": 70,
     "type": "mcq",
     "question": "Your home network seems to have slowed down considerably. You look at the home router GUI and notice that an unknown host is attached to the network. What should you do to prevent this specific host from attaching to the network again?",
     "options": [
@@ -1357,7 +1389,7 @@
     "explanation": "Blocking the specific IP address prevents that host from reconnecting. MAC filtering requires listing allowed MACs, changing SSID affects all devices, IP ACLs are more complex."
   },
   {
-    "id": 70,
+    "id": 71,
     "type": "msq",
     "question": "What are two natural disasters that would cause a company to implement a disaster recovery plan? (Choose two)",
     "options": [
@@ -1378,7 +1410,7 @@
     "explanation": "Floods and volcanic eruptions are natural disasters requiring disaster recovery plans. Hazardous spills and nuclear contamination are man-made or industrial disasters."
   },
   {
-    "id": 71,
+    "id": 72,
     "type": "mcq",
     "question": "A cybersecurity analyst is investigating an unknown executable file discovered on a Linux desktop computer. The analyst enters the following command in a terminal: 'ls -l'. What is the purpose of this command?",
     "options": [
@@ -1397,7 +1429,7 @@
     "explanation": "'ls -l' lists files with detailed information including permissions, ownership, size, and modification time. It does not navigate, delete, or execute the file."
   },
   {
-    "id": 72,
+    "id": 73,
     "type": "mcq",
     "question": "True or false: A security analyst may use a disgruntled employee's network credentials to monitor behavior.",
     "options": [
@@ -1413,7 +1445,7 @@
     "explanation": "Using another employee's credentials without authorization is unethical and often illegal, even for monitoring. Proper monitoring should use authorized accounts with oversight."
   },
   {
-    "id": 73,
+    "id": 74,
     "type": "mcq",
     "question": "A security analyst may access employee data on a company server, if authorized. (True/False)",
     "options": [
@@ -1429,7 +1461,7 @@
     "explanation": "If properly authorized (by policy, management, or role requirements), a security analyst may access employee data for legitimate security purposes."
   },
   {
-    "id": 74,
+    "id": 75,
     "type": "mcq",
     "question": "Your organization's system alerts you that users are connecting to an unusual URL. You need to determine whether the URL is malicious and what type of threat it represents. What should you do?",
     "options": [
@@ -1447,7 +1479,7 @@
     "explanation": "Threat intelligence portals provide reputation data and analysis without risking exposure. Visiting the URL could be dangerous; blocking without analysis doesn't identify the threat."
   },
   {
-    "id": 75,
+    "id": 76,
     "type": "mcq",
     "question": "Which activity by an adversary is an example of an exploit attempting to gain user credentials?",
     "options": [
@@ -1465,7 +1497,7 @@
     "explanation": "A fake login page phishes for credentials. Port scans find open ports, backdoors enable persistence, directory listings expose file structure\u2014none directly steal credentials."
   },
   {
-    "id": 76,
+    "id": 77,
     "type": "mcq",
     "question": "A security analyst discovers that a hacker was able to gain root access to an enterprise Linux server. The hacker accessed the server as a guest, used a program to bypass the root password, and then killed essential server processes as the root user. Which type of endpoint attack is this?",
     "options": [
@@ -1483,7 +1515,7 @@
     "explanation": "Privilege escalation occurs when an attacker gains higher privileges (guest to root). Brute force guesses passwords, buffer overflow corrupts memory, DDoS overwhelms services."
   },
   {
-    "id": 77,
+    "id": 78,
     "type": "mcq",
     "question": "A system on your network is experiencing slower than usual response times. To gather information, you issue 'netstat - I' to display all TCP ports in the listening state. What does the listening state indicate about these ports?",
     "options": [
@@ -1501,7 +1533,7 @@
     "explanation": "A listening (LISTEN) port means the system is waiting for incoming client connections. ESTABLISHED indicates active connections, CLOSING indicates disconnection."
   },
   {
-    "id": 78,
+    "id": 79,
     "type": "mcq",
     "question": "A security analyst may share sensitive data with unauthorized users. (True/False)",
     "options": [
@@ -1517,41 +1549,49 @@
     "explanation": "Sharing sensitive data with unauthorized users violates confidentiality policies, data protection laws, and professional ethics. This is never permissible."
   },
   {
-    "id": 79,
-    "type": "mcq",
+    "id": 80,
+    "type": "drag_and_drop",
     "question": "Match each log type to its correct description.",
-    "options": [
-      "Setup logs \u2192 Record software installation and OS updates",
-      "System logs \u2192 Events generated by hardware, drivers, and processes",
-      "Security logs \u2192 Success or failure of audit policy events"
-    ],
-    "answer": "Setup logs \u2192 Record software installation and OS updates; System logs \u2192 Events generated by hardware, drivers, processes; Security logs \u2192 Success/failure of audit policy events",
+    "answer": {
+      "Setup logs": "Record software installation and OS updates",
+      "System logs": "Events generated by hardware, drivers, and processes",
+      "Security logs": "Success or failure of audit policy events"
+    },
     "category": "Logging",
     "tags": [
       "logging",
       "event-logs"
     ],
-    "explanation": "Setup logs track installations; System logs record hardware/driver/process events; Security logs record audit policy successes and failures (logins, object access)."
+    "explanation": "Setup logs track installations; System logs record hardware/driver/process events; Security logs record audit policy successes and failures.",
+    "items": {
+      "Setup logs": "Record software installation and OS updates",
+      "System logs": "Events generated by hardware, drivers, and processes",
+      "Security logs": "Success or failure of audit policy events"
+    }
   },
   {
-    "id": 80,
-    "type": "mcq",
+    "id": 81,
+    "type": "drag_and_drop",
     "question": "Match each incident response phase to its correct activity.",
-    "options": [
-      "Containment, eradication, recovery \u2192 Mitigate impact after incident",
-      "Detection and analysis \u2192 Evaluate indicators to determine if legitimate attack and alert organization",
-      "Preparation \u2192 Establish incident response capability to ensure assets are secure"
-    ],
-    "answer": "Containment/eradication/recovery \u2192 Mitigate impact after incident; Detection/analysis \u2192 Evaluate indicators and alert; Preparation \u2192 Establish capability",
+    "answer": {
+      "Containment, eradication, recovery": "Mitigate impact after incident",
+      "Detection and analysis": "Evaluate indicators to determine if legitimate attack and alert organization",
+      "Preparation": "Establish incident response capability to ensure assets are secure"
+    },
     "category": "Incident Response",
     "tags": [
       "incident-response",
       "nist"
     ],
-    "explanation": "NIST IR phases: Preparation (establish capability), Detection & Analysis (identify and verify incidents), Containment/Eradication/Recovery (stop and restore)."
+    "explanation": "Preparation establishes capability; Detection & Analysis identifies incidents; Containment/Eradication/Recovery mitigates impact.",
+    "items": {
+      "Containment, eradication, recovery": "Mitigate impact after incident",
+      "Detection and analysis": "Evaluate indicators to determine if legitimate attack and alert organization",
+      "Preparation": "Establish incident response capability to ensure assets are secure"
+    }
   },
   {
-    "id": 81,
+    "id": 82,
     "type": "mcq",
     "question": "Which activity is an example of active reconnaissance performed during a penetration test?",
     "options": [
@@ -1570,7 +1610,7 @@
     "explanation": "Active reconnaissance directly interacts with target systems (e.g., port scanning). WHOIS, social media, and HTTP source code are passive reconnaissance (no direct interaction)."
   },
   {
-    "id": 82,
+    "id": 83,
     "type": "mcq",
     "question": "What is the purpose of a hypervisor?",
     "options": [
@@ -1589,7 +1629,7 @@
     "explanation": "A hypervisor creates and manages virtual machines (VMs) on physical hardware. Gateways, IDS/IPS, and firewalls are separate security functions."
   },
   {
-    "id": 83,
+    "id": 84,
     "type": "mcq",
     "question": "What does hashing provide for data communication?",
     "options": [
@@ -1607,7 +1647,7 @@
     "explanation": "Hashing ensures data integrity by detecting changes. Non-repudiation uses digital signatures, encryption provides confidentiality, authentication verifies identity."
   },
   {
-    "id": 84,
+    "id": 85,
     "type": "mcq",
     "question": "Which wireless encryption technology requires WPA2-AES to secure home wireless networks?",
     "options": [
@@ -1626,16 +1666,15 @@
     "explanation": "WPA2 with AES is the recommended encryption for home wireless networks. TKIP is older/weaker, WEP is broken, WPA is outdated."
   },
   {
-    "id": 85,
-    "type": "mcq",
+    "id": 86,
+    "type": "drag_and_drop",
     "question": "Match each term to its correct definition.",
-    "options": [
-      "Asset \u2192 People, property, or data",
-      "Risk \u2192 Potential for loss, damage, or destruction",
-      "Threat \u2192 Action that causes negative impact",
-      "Vulnerability \u2192 Weakness that potentially exposes organizations to cyber attacks"
-    ],
-    "answer": "Asset \u2192 People, property, or data; Risk \u2192 Potential for loss, damage, destruction; Threat \u2192 Action causing negative impact; Vulnerability \u2192 Weakness exposing to cyber attacks",
+    "answer": {
+      "Asset": "People, property, or data",
+      "Risk": "Potential for loss, damage, or destruction",
+      "Threat": "Action that causes negative impact",
+      "Vulnerability": "Weakness that potentially exposes organizations to cyber attacks"
+    },
     "category": "Cybersecurity Fundamentals",
     "tags": [
       "terminology",
@@ -1644,10 +1683,16 @@
       "threat",
       "vulnerability"
     ],
-    "explanation": "Asset is what you protect; Risk is potential loss; Threat is a harmful action; Vulnerability is a weakness. This is foundational risk management terminology."
+    "explanation": "Asset is what you protect; Risk is potential loss; Threat is a harmful action; Vulnerability is a weakness.",
+    "items": {
+      "Asset": "People, property, or data",
+      "Risk": "Potential for loss, damage, or destruction",
+      "Threat": "Action that causes negative impact",
+      "Vulnerability": "Weakness that potentially exposes organizations to cyber attacks"
+    }
   },
   {
-    "id": 86,
+    "id": 87,
     "type": "mcq",
     "question": "What enables the network security team to keep track of operating system versions, security updates, and patches on end users' devices?",
     "options": [
@@ -1665,7 +1710,7 @@
     "explanation": "Asset management tracks hardware and software inventory, including OS versions and patch levels."
   },
   {
-    "id": 87,
+    "id": 88,
     "type": "mcq",
     "question": "You are a security technician. You just completed a full scan of a Windows 10 PC. Where should you go to view the scan result?",
     "options": [
@@ -1684,7 +1729,7 @@
     "explanation": "Windows Security (formerly Windows Defender Security Center) displays antivirus/antimalware scan results. Application/System logs show other events; Task Manager shows processes."
   },
   {
-    "id": 88,
+    "id": 89,
     "type": "msq",
     "question": "You work for a community healthcare organization using an electronic health record system. You have implemented physical and technical safeguards required by HIPAA. You need to prove the system is compliant with those safeguards. Which two approaches should you use to verify compliance? (Choose two)",
     "options": [
@@ -1707,7 +1752,7 @@
     "explanation": "Penetration testing actively finds vulnerabilities; IT auditing reviews controls and documentation. Logoff implementation is a safeguard itself, training addresses personnel."
   },
   {
-    "id": 89,
+    "id": 90,
     "type": "mcq",
     "question": "You are monitoring the syslog server and observe that the DNS server is sending messages with a warning severity. What do these messages indicate about the operation of the DNS server?",
     "options": [
@@ -1726,7 +1771,7 @@
     "explanation": "Syslog Warning (Level 4) indicates a condition that may cause future errors if not addressed. Emergencies/Errors require immediate action, Info/Notice are normal."
   },
   {
-    "id": 90,
+    "id": 91,
     "type": "mcq",
     "question": "A corporation hires experienced cyber criminals to create a prolonged and in-depth presence on the network of a competitor to steal or sabotage sensitive data. Which type of attack does this scenario describe?",
     "options": [
@@ -1744,7 +1789,7 @@
     "explanation": "APTs involve long-term, stealthy presence for espionage or data theft. DDoS overwhelms, ransomware encrypts, MITM intercepts communications."
   },
   {
-    "id": 91,
+    "id": 92,
     "type": "msq",
     "question": "What are two disadvantages of public vulnerability databases? (Choose two)",
     "options": [
@@ -1765,7 +1810,7 @@
     "explanation": "Public databases have publication delays, allowing attackers to exploit unpatched vulnerabilities. Attackers also study them to adjust evasion techniques."
   },
   {
-    "id": 92,
+    "id": 93,
     "type": "mcq",
     "question": "After an administrator installs an operating system update on a laptop, the laptop user can no longer print to their wireless printer. What should solve the issue?",
     "options": [
@@ -1784,7 +1829,7 @@
     "explanation": "OS updates may break existing drivers. Installing updated printer drivers restores functionality. Firmware updates and patches are less direct solutions."
   },
   {
-    "id": 93,
+    "id": 94,
     "type": "mcq",
     "question": "Customers of an online shopping store complain they cannot visit the website. As an IT technician, you restart the website. After 30 minutes, the website crashes again. You suspect a cyber attack. Which type of cybersecurity threat should you investigate?",
     "options": [
@@ -1802,15 +1847,14 @@
     "explanation": "Repeated crashes after restart indicate a DoS/DDoS attack overwhelming the website. Spear phishing targets credentials, ransomware encrypts files, social engineering manipulates people."
   },
   {
-    "id": 94,
-    "type": "mcq",
+    "id": 95,
+    "type": "drag_and_drop",
     "question": "Match each control type to its correct action.",
-    "options": [
-      "Detective measures \u2192 Discover unwanted events",
-      "Preventive measures \u2192 Avert the occurrence of an event",
-      "Corrective measures \u2192 Restore a system after an event"
-    ],
-    "answer": "Detective measures \u2192 Discover unwanted events; Preventive measures \u2192 Avert occurrence; Corrective measures \u2192 Restore after event",
+    "answer": {
+      "Detective measures": "Discover unwanted events",
+      "Preventive measures": "Avert the occurrence of an event",
+      "Corrective measures": "Restore a system after an event"
+    },
     "category": "Security Controls",
     "tags": [
       "controls",
@@ -1818,10 +1862,15 @@
       "preventive",
       "corrective"
     ],
-    "explanation": "Detective controls discover incidents (logs, alarms); Preventive controls stop incidents (firewalls, locks); Corrective controls restore systems (backups, DR)."
+    "explanation": "Detective controls discover incidents; Preventive controls stop them; Corrective controls restore systems.",
+    "items": {
+      "Detective measures": "Discover unwanted events",
+      "Preventive measures": "Avert the occurrence of an event",
+      "Corrective measures": "Restore a system after an event"
+    }
   },
   {
-    "id": 95,
+    "id": 96,
     "type": "msq",
     "question": "You are reviewing company remote access procedures and notice Telnet is being used to connect to a corporate database server to check inventory levels. Which two actions should you take immediately? (Choose two)",
     "options": [
@@ -1843,7 +1892,7 @@
     "explanation": "Telnet sends credentials in clear text. Disable it and implement encrypted SSH. Secure passwords don't solve clear-text transmission; HTTP is also insecure."
   },
   {
-    "id": 96,
+    "id": 97,
     "type": "mcq",
     "question": "Several employees complain that the company intranet site is no longer accepting their login information. You attempt to connect using the URL and notice some misspellings on the page. What should you do?",
     "options": [
@@ -1862,7 +1911,7 @@
     "explanation": "Misspellings suggest possible DNS poisoning or misconfiguration. Verify DNS records point to the correct server. Restarting server or resetting passwords doesn't address DNS issues."
   },
   {
-    "id": 97,
+    "id": 98,
     "type": "mcq",
     "question": "Which kind of attack intercepts and alters data sent between two hosts?",
     "options": [
@@ -1880,7 +1929,7 @@
     "explanation": "Man-in-the-middle attacks intercept and potentially alter communications. Dictionary attacks crack passwords, phishing steals credentials, SQL injection attacks databases."
   },
   {
-    "id": 98,
+    "id": 99,
     "type": "mcq",
     "question": "A data manager needs to organize data at a small consulting firm by sensitivity and value. What data management task is the manager practicing?",
     "options": [
@@ -1898,7 +1947,7 @@
     "explanation": "Data classification categorizes data by sensitivity, value, and whether data is compliant with regulations. Data retention is the time data has to be kept to satisfy legal requirements. Data exfiltration is unauthorized transfer. Data governance is a set of policies for managing data."
   },
   {
-    "id": 99,
+    "id": 100,
     "type": "drag_and_drop",
     "question": "Match each cybersecurity term to its correct definition.",
     "items": {
@@ -1924,7 +1973,7 @@
     "explanation": "Threat: A potential malicious attack. Attack vector: A pathway used to illegally access a system. Exploit: An attack that takes advantage of a weakness. Vulnerability: A weakness that can be compromised."
   },
   {
-    "id": 100,
+    "id": 101,
     "type": "mcq",
     "question": "Which term describes a pathway that is used to illegally access a computer system?",
     "options": [
@@ -1940,24 +1989,6 @@
       "pathway"
     ],
     "explanation": "An attack vector is a pathway or method used by a hacker to illegally access a network or computer. Botnet is a network of infected devices, cryptographic attack targets encryption, firewall is a barrier."
-  },
-  {
-    "id": 101,
-    "type": "mcq",
-    "question": "Which term describes a pathway that is used to illegally access a computer system?",
-    "options": [
-      "Attack vector",
-      "Cryptographic attack",
-      "Botnet",
-      "Firewall"
-    ],
-    "answer": "Attack vector",
-    "category": "Cybersecurity Fundamentals",
-    "tags": [
-      "attack-vector",
-      "fundamentals"
-    ],
-    "explanation": "An attack vector is a pathway or method used by a hacker to illegally access a network or computer in an attempt to exploit system vulnerabilities."
   },
   {
     "id": 102,
@@ -1997,17 +2028,25 @@
   },
   {
     "id": 104,
-    "type": "matching",
-    "question": "A security team is perusing through cybersecurity frameworks. Match each question to the correct cybersecurity framework.\nWhich cybersecurity framework helps businesses with risk management as it relates to security? -> ___\nWhich cybersecurity framework provides assistance on building an ISMS? -> ___\nWhich cybersecurity framework helps a business with its overall cybersecurity posture? -> ___",
-    "options": [],
-    "answer": "Which cybersecurity framework helps businesses with risk management as it relates to security? -> NIST Cybersecurity Framework | Which cybersecurity framework provides assistance on building an ISMS? -> ISO/IEC 27000 | Which cybersecurity framework helps a business with its overall cybersecurity posture? -> CIS Critical Security Controls",
+    "type": "drag_and_drop",
+    "question": "A security team is perusing through cybersecurity frameworks. Match each question to the correct cybersecurity framework.",
+    "answer": {
+      "Which cybersecurity framework helps businesses with risk management as it relates to security?": "NIST Cybersecurity Framework",
+      "Which cybersecurity framework provides assistance on building an ISMS?": "ISO/IEC 27000",
+      "Which cybersecurity framework helps a business with its overall cybersecurity posture?": "CIS Critical Security Controls"
+    },
     "category": "Frameworks",
     "tags": [
       "nist",
       "iso27000",
       "cis"
     ],
-    "explanation": "NIST CSF helps with risk management; ISO/IEC 27000 guides ISMS; CIS Controls improve overall cybersecurity posture."
+    "explanation": "NIST CSF helps with risk management; ISO/IEC 27000 guides ISMS; CIS Controls improve overall cybersecurity posture.",
+    "items": {
+      "Which cybersecurity framework helps businesses with risk management as it relates to security?": "NIST Cybersecurity Framework",
+      "Which cybersecurity framework provides assistance on building an ISMS?": "ISO/IEC 27000",
+      "Which cybersecurity framework helps a business with its overall cybersecurity posture?": "CIS Critical Security Controls"
+    }
   },
   {
     "id": 105,
@@ -2152,10 +2191,13 @@
   },
   {
     "id": 113,
-    "type": "matching",
-    "question": "Match each insider threat scenario to its correct type.\nAn employee steals confidential technical specifications for personal gain. -> ___\nAn employee takes home a storage drive without authorization, which is then stolen. -> ___\nAn employee gives their credentials to an attacker in a spear phishing attack. -> ___",
-    "options": [],
-    "answer": "Steals for personal gain -> Malicious insider | Takes home drive without authorization -> Negligent insider | Gives credentials to attacker -> Compromised insider",
+    "type": "drag_and_drop",
+    "question": "Match each insider threat scenario to its correct type.",
+    "answer": {
+      "An employee steals confidential technical specifications for a product for personal gain.": "Malicious insider",
+      "An employee takes home a storage drive without authorization, which is then stolen from the employee's vehicle.": "Negligent insider",
+      "An employee gives their credentials to an attacker in a spear phishing attack, and the attacker uses the credentials to launch further attacks.": "Compromised insider"
+    },
     "category": "Security Threats",
     "tags": [
       "insider-threat",
@@ -2163,7 +2205,12 @@
       "negligent",
       "compromised"
     ],
-    "explanation": "Malicious insiders act for personal gain; negligent insiders cause harm unintentionally; compromised insiders are victims of social engineering."
+    "explanation": "Malicious insiders act for personal gain; negligent insiders cause harm unintentionally; compromised insiders are victims of social engineering.",
+    "items": {
+      "An employee steals confidential technical specifications for a product for personal gain.": "Malicious insider",
+      "An employee takes home a storage drive without authorization, which is then stolen from the employee's vehicle.": "Negligent insider",
+      "An employee gives their credentials to an attacker in a spear phishing attack, and the attacker uses the credentials to launch further attacks.": "Compromised insider"
+    }
   },
   {
     "id": 114,
@@ -2370,17 +2417,29 @@
   },
   {
     "id": 125,
-    "type": "matching",
-    "question": "Match each aspect of device management with its description.\nShould read 'You're up to date.' -> ___\nInstalls a new version of a program. -> ___\nEnsure that hardware runs at maximum capability. -> ___\nInstructions written into hardware. -> ___\nFixes an application flaw or security vulnerability. -> ___",
-    "options": [],
-    "answer": "You're up to date -> Windows update | Installs new version -> Application update | Hardware capability -> Device drivers | Instructions in hardware -> Firmware | Fixes flaw/vulnerability -> Patch",
+    "type": "drag_and_drop",
+    "question": "Match each aspect of device management with its description.",
+    "answer": {
+      "Should read 'You're up to date.'": "Windows update",
+      "Installs a new version of a program.": "Application update",
+      "Ensure that hardware runs at their maximum feature capability.": "Device drivers",
+      "Instructions written into hardware.": "Firmware",
+      "Fixes an application flaw or a security vulnerability.": "Patch"
+    },
     "category": "Security Operations",
     "tags": [
       "patch",
       "firmware",
       "device-management"
     ],
-    "explanation": "Windows update keeps OS current; application updates install new versions; device drivers optimize hardware; firmware is hardware instructions; patches fix flaws."
+    "explanation": "Windows update keeps OS current; application updates install new versions; device drivers optimize hardware; firmware is hardware instructions; patches fix flaws.",
+    "items": {
+      "Should read 'You're up to date.'": "Windows update",
+      "Installs a new version of a program.": "Application update",
+      "Ensure that hardware runs at their maximum feature capability.": "Device drivers",
+      "Instructions written into hardware.": "Firmware",
+      "Fixes an application flaw or a security vulnerability.": "Patch"
+    }
   },
   {
     "id": 126,
@@ -2421,16 +2480,28 @@
   },
   {
     "id": 128,
-    "type": "matching",
-    "question": "Move each event to the correct event type.\nA storage device runs low on free space. -> ___\nA network driver loads successfully. -> ___\nA user logs into the system. -> ___\nA service fails to load during startup. -> ___\nA user unsuccessfully tries to access a network drive. -> ___",
-    "options": [],
-    "answer": "Storage device low on space -> Warning | Network driver loads successfully -> Information | User logs into system -> Success audit | Service fails to load -> Error | User unsuccessfully tries to access drive -> Failure audit",
+    "type": "drag_and_drop",
+    "question": "Move each event from the list on the left to the correct event type on the right.",
+    "answer": {
+      "A storage device runs low on free space.": "Warning",
+      "A network driver loads successfully.": "Information",
+      "A user logs into the system.": "Success audit",
+      "A service fails to load during startup.": "Error",
+      "A user unsuccessfully tries to access a network drive.": "Failure audit"
+    },
     "category": "Monitoring & Logging",
     "tags": [
       "event-log",
       "windows-events"
     ],
-    "explanation": "Warning = possible future problem; Information = successful operation; Success audit = successful access; Error = significant problem; Failure audit = failed access attempt."
+    "explanation": "Warning = possible future problem; Information = successful operation; Success audit = successful access attempt; Error = significant problem; Failure audit = failed access attempt.",
+    "items": {
+      "A storage device runs low on free space.": "Warning",
+      "A network driver loads successfully.": "Information",
+      "A user logs into the system.": "Success audit",
+      "A service fails to load during startup.": "Error",
+      "A user unsuccessfully tries to access a network drive.": "Failure audit"
+    }
   },
   {
     "id": 129,
@@ -3014,10 +3085,14 @@
   },
   {
     "id": 161,
-    "type": "matching",
-    "question": "Move each network monitoring tool to the correct description.\nSoftware tools used for collecting security data, detecting threats, and investigating/analyzing threats. -> ___\nSoftware tools that collect data and use workflows to automate incident investigations. -> ___\nMonitoring tools that intercept and store network data. -> ___\nA protocol that enables network administrators to monitor and manage network performance. -> ___",
-    "options": [],
-    "answer": "Collecting security data/detecting threats -> SIEM | Automating incident investigations -> SOAR | Intercept and store network data -> Packet Capture | Monitor network performance protocol -> SNMP",
+    "type": "drag_and_drop",
+    "question": "Move each network monitoring tool from the list on the left to the correct description on the right.",
+    "answer": {
+      "SIEM": "Software tools used for collecting security data, detecting threats, and investigating/analyzing threats.",
+      "SOAR": "Software tools that are used for collecting data and analyzing threats and then using workflows to automate incident investigations to handle the threat.",
+      "Packet Capture": "Monitoring tools that intercept and store network data.",
+      "SNMP": "A protocol that enables network administrators to monitor and manage network performance."
+    },
     "category": "Monitoring & Logging",
     "tags": [
       "siem",
@@ -3025,7 +3100,13 @@
       "snmp",
       "packet-capture"
     ],
-    "explanation": "SIEM collects and detects; SOAR automates response; Packet Capture intercepts data; SNMP monitors network performance."
+    "explanation": "SIEM collects and detects threats; SOAR automates incident response; Packet Capture intercepts network data; SNMP monitors network performance.",
+    "items": {
+      "SIEM": "Software tools used for collecting security data, detecting threats, and investigating/analyzing threats.",
+      "SOAR": "Software tools that are used for collecting data and analyzing threats and then using workflows to automate incident investigations to handle the threat.",
+      "Packet Capture": "Monitoring tools that intercept and store network data.",
+      "SNMP": "A protocol that enables network administrators to monitor and manage network performance."
+    }
   },
   {
     "id": 162,
@@ -3120,16 +3201,30 @@
   },
   {
     "id": 167,
-    "type": "matching",
-    "question": "Match each level of the Pyramid of Pain with the amount of pain caused to the attacker.\nTrivial -> ___\nEasy -> ___\nSimple -> ___\nAnoying -> ___\nChallenging -> ___\nTough -> ___",
-    "options": [],
-    "answer": "Trivial -> Hash values | Easy -> IP addresses | Simple -> Domain names | Annoying -> Network/Host artifacts | Challenging -> Tools | Tough -> TTPs",
+    "type": "drag_and_drop",
+    "question": "Match each level of the Pyramid of Pain with the amount of pain caused to the attacker when thwarted.",
+    "answer": {
+      "Trivial": "Hash values",
+      "Easy": "IP addresses",
+      "Simple": "Domain names",
+      "Annoying": "Network/Host artifacts",
+      "Challenging": "Tools",
+      "Tough": "TTPs"
+    },
     "category": "Incident Response",
     "tags": [
       "pyramid-of-pain",
       "threat-intelligence"
     ],
-    "explanation": "The Pyramid of Pain levels from bottom (trivial) to top (tough): Hash values, IP Addresses, Domain Names, Network/Host Artifacts, Tools, TTPs."
+    "explanation": "The Pyramid of Pain levels from bottom to top: Hash values (Trivial), IP Addresses (Easy), Domain Names (Simple), Network/Host Artifacts (Annoying), Tools (Challenging), TTPs (Tough).",
+    "items": {
+      "Trivial": "Hash values",
+      "Easy": "IP addresses",
+      "Simple": "Domain names",
+      "Annoying": "Network/Host artifacts",
+      "Challenging": "Tools",
+      "Tough": "TTPs"
+    }
   },
   {
     "id": 168,
@@ -3151,29 +3246,47 @@
   },
   {
     "id": 169,
-    "type": "matching",
-    "question": "Match each NIST incident response component to its description.\nDetails the purpose, objectives, and scope for incident response. -> ___\nDetails the organizational approach, strategies, and resources for incident response. -> ___\nIncludes comprehensive and detailed standard operating procedures (SOPs). -> ___",
-    "options": [],
-    "answer": "Purpose, objectives, scope -> Incident Response Policy | Organizational approach/strategies/resources -> Incident Response Plan | Comprehensive SOPs -> Incident Response Procedures",
+    "type": "drag_and_drop",
+    "question": "Match each NIST incident response component to its description.",
+    "answer": {
+      "Details the purpose, objectives, and scope for incident response and includes the prioritization of incidents and performance measures.": "Incident Response Policy",
+      "Details the organizational approach, strategies, and resources for incident response and includes how the team will communicate with internal and external parties.": "Incident Response Plan",
+      "Includes comprehensive and detailed standard operating procedures (SOPs) to be followed during an incident.": "Incident Response Procedures"
+    },
     "category": "Incident Response",
     "tags": [
       "nist",
       "incident-response-policy"
     ],
-    "explanation": "NIST defines Policy (purpose/scope), Plan (approach/resources), and Procedures (detailed SOPs)."
+    "explanation": "Incident Response Policy covers purpose/scope; Incident Response Plan covers organizational approach; Incident Response Procedures covers detailed SOPs.",
+    "items": {
+      "Details the purpose, objectives, and scope for incident response and includes the prioritization of incidents and performance measures.": "Incident Response Policy",
+      "Details the organizational approach, strategies, and resources for incident response and includes how the team will communicate with internal and external parties.": "Incident Response Plan",
+      "Includes comprehensive and detailed standard operating procedures (SOPs) to be followed during an incident.": "Incident Response Procedures"
+    }
   },
   {
     "id": 170,
-    "type": "matching",
-    "question": "Match each NIST Incident Response Life Cycle phase to the correct example activity.\nEstablish the incident response team. -> ___\nDetermine if an incident has occurred. -> ___\nValidate the IP address of the attacking host. -> ___\nHold a lessons learned meeting. -> ___",
-    "options": [],
-    "answer": "Establish incident response team -> Preparation Phase | Determine if incident occurred -> Detection & Analysis Phase | Validate attacking host IP -> Containment, Eradication, and Recovery Phase | Lessons learned meeting -> Post-incident Activity Phase",
+    "type": "drag_and_drop",
+    "question": "According to NIST, the Incident Response Life Cycle consists of four phases. Move each phase from the list on the left to the correct example activity on the right.",
+    "answer": {
+      "Establish the incident response team.": "Preparation Phase",
+      "Determine if an incident has occurred.": "Detection & Analysis Phase",
+      "Validate the IP address of the attacking host.": "Containment, Eradication, and Recovery Phase",
+      "Hold a lessons learned meeting.": "Post-incident Activity Phase"
+    },
     "category": "Incident Response",
     "tags": [
       "nist",
       "incident-response-lifecycle"
     ],
-    "explanation": "NIST IR phases: Preparation, Detection & Analysis, Containment/Eradication/Recovery, Post-Incident Activity."
+    "explanation": "NIST IR phases: Preparation (establish team), Detection & Analysis (determine incidents), Containment/Eradication/Recovery (validate and act), Post-Incident Activity (lessons learned).",
+    "items": {
+      "Establish the incident response team.": "Preparation Phase",
+      "Determine if an incident has occurred.": "Detection & Analysis Phase",
+      "Validate the IP address of the attacking host.": "Containment, Eradication, and Recovery Phase",
+      "Hold a lessons learned meeting.": "Post-incident Activity Phase"
+    }
   },
   {
     "id": 171,
@@ -3268,10 +3381,13 @@
   },
   {
     "id": 176,
-    "type": "matching",
-    "question": "Match each security control to its type.\nA failed disk is replaced and the backup is restored. -> ___\nNew biometric door locks are installed. -> ___\nSurveillance cameras are installed around the building perimeter. -> ___",
-    "options": [],
-    "answer": "Failed disk replaced/backup restored -> Corrective control | Biometric door locks -> Preventive control | Surveillance cameras -> Detective control",
+    "type": "drag_and_drop",
+    "question": "Match each security control to its type.",
+    "answer": {
+      "A failed disk is replaced and the backup is restored.": "Corrective control",
+      "New biometric door locks are installed.": "Preventive control",
+      "Surveillance cameras are installed around the building perimeter.": "Detective control"
+    },
     "category": "Security Operations",
     "tags": [
       "security-controls",
@@ -3279,7 +3395,12 @@
       "preventive",
       "detective"
     ],
-    "explanation": "Corrective controls fix failures; preventive controls stop unauthorized access; detective controls identify threats."
+    "explanation": "Corrective controls fix failures; preventive controls stop unauthorized access; detective controls identify security threats.",
+    "items": {
+      "A failed disk is replaced and the backup is restored.": "Corrective control",
+      "New biometric door locks are installed.": "Preventive control",
+      "Surveillance cameras are installed around the building perimeter.": "Detective control"
+    }
   },
   {
     "id": 177,
