@@ -2314,7 +2314,10 @@
       "Cracking",
       "Jailbreaking"
     ],
-    "answer": "Rooting, Jailbreaking",
+    "answer": [
+      "Rooting",
+      "Jailbreaking"
+    ],
     "category": "Security Threats",
     "tags": [
       "privilege-escalation",
@@ -2369,7 +2372,10 @@
       "Your sensitive files are on a private network",
       "Their device is locked with a PIN or password"
     ],
-    "answer": "Their device was scanned with the latest antivirus/anti-malware, Your sensitive files are on a private network",
+    "answer": [
+      "Their device was scanned with the latest antivirus/anti-malware",
+      "Your sensitive files are on a private network"
+    ],
     "category": "Wireless Security",
     "tags": [
       "guest-network",
@@ -2387,7 +2393,10 @@
       "Firewalls",
       "SIEM"
     ],
-    "answer": "Wireshark, SIEM",
+    "answer": [
+      "Wireshark",
+      "SIEM"
+    ],
     "category": "Monitoring & Logging",
     "tags": [
       "wireshark",
@@ -2713,7 +2722,11 @@
       "Indicators of compromise",
       "Tools, techniques, and procedures"
     ],
-    "answer": "Reputation information, Indicators of compromise, Tools, techniques, and procedures",
+    "answer": [
+      "Reputation information",
+      "Indicators of compromise",
+      "Tools, techniques, and procedures"
+    ],
     "category": "Monitoring & Logging",
     "tags": [
       "threat-intelligence",
@@ -2912,7 +2925,10 @@
       "To ensure that documentation is updated when systems are installed or modified",
       "To ensure that configuration changes are made without an analysis of security implications"
     ],
-    "answer": "To ensure that modifications to systems do not negatively impact security, To ensure that documentation is updated when systems are installed or modified",
+    "answer": [
+      "To ensure that modifications to systems do not negatively impact security",
+      "To ensure that documentation is updated when systems are installed or modified"
+    ],
     "category": "Risk Management",
     "tags": [
       "change-management",
@@ -2930,7 +2946,10 @@
       "Set up an IPS",
       "Update antimalware"
     ],
-    "answer": "Block excessive requests from the same IP address, Set up an IPS",
+    "answer": [
+      "Block excessive requests from the same IP address",
+      "Set up an IPS"
+    ],
     "category": "Security Operations",
     "tags": [
       "dos",
@@ -3684,7 +3703,11 @@
       "On the Install the printer driver page, select the printer manufacturer and model, and then click next",
       "Click the Start button and open Device Manager."
     ],
-    "answer": "In the Add Printer wizard, click Add a local printer., On Choose a printer port, select Use an existing port, and then select the recommended port., On the Install the printer driver page, select the printer manufacturer and model, and then click next",
+    "answer": [
+      "In the Add Printer wizard, click Add a local printer.",
+      "On Choose a printer port, select Use an existing port, and then select the recommended port.",
+      "On the Install the printer driver page, select the printer manufacturer and model, and then click next"
+    ],
     "category": "General IT Security",
     "tags": [
       "printer-installation",
@@ -3739,7 +3762,10 @@
       "From Control Panel, use Sync Center.",
       "From Control Panel, use Ease of Access."
     ],
-    "answer": "Click the network icon in the notification area., From Control Panel, use Network and Sharing Center.",
+    "answer": [
+      "Click the network icon in the notification area.",
+      "From Control Panel, use Network and Sharing Center."
+    ],
     "category": "General IT Security",
     "tags": [
       "wireless",
@@ -3757,7 +3783,10 @@
       "Right-click the device, and then click Enable.",
       "Right-click the printer and choose Remove device."
     ],
-    "answer": "Open the Devices and Printers window., Right-click the printer and choose Remove device.",
+    "answer": [
+      "Open the Devices and Printers window.",
+      "Right-click the printer and choose Remove device."
+    ],
     "category": "General IT Security",
     "tags": [
       "printer-removal",
