@@ -2306,7 +2306,7 @@
   },
   {
     "id": 119,
-    "type": "multi-select",
+    "type": "msq",
     "question": "Which options are examples of privilege escalation attacks? (Choose two)",
     "options": [
       "Trespassing",
@@ -2361,7 +2361,7 @@
   },
   {
     "id": 122,
-    "type": "multi-select",
+    "type": "msq",
     "question": "Your friend wants to use your home Wi-Fi. What are two potential security checks to verify before allowing their device on your network? (Choose 2)",
     "options": [
       "Their device is the latest model",
@@ -2379,7 +2379,7 @@
   },
   {
     "id": 123,
-    "type": "multi-select",
+    "type": "msq",
     "question": "Which options are network security monitoring tools? (Choose two)",
     "options": [
       "SPAN",
@@ -2704,7 +2704,7 @@
   },
   {
     "id": 140,
-    "type": "multi-select",
+    "type": "msq",
     "question": "Which types of data do threat intelligence platforms collect? (Choose three)",
     "options": [
       "Incident response capability",
@@ -2904,7 +2904,7 @@
   },
   {
     "id": 151,
-    "type": "multi-select",
+    "type": "msq",
     "question": "What are the goals of an information security change management policy? (Choose two)",
     "options": [
       "To ensure that the proposed changes eliminate any future potential threats",
@@ -2922,7 +2922,7 @@
   },
   {
     "id": 152,
-    "type": "multi-select",
+    "type": "msq",
     "question": "During security testing, a DoS vulnerability is discovered. What actions can be taken to mitigate the vulnerability? (Choose two)",
     "options": [
       "Set up MFA",
@@ -3676,7 +3676,7 @@
   },
   {
     "id": 192,
-    "type": "multi-select",
+    "type": "msq",
     "question": "Which of the following steps will you take to install a local printer? Choose all that apply.",
     "options": [
       "In the Add Printer wizard, click Add a local printer.",
@@ -3730,7 +3730,7 @@
   },
   {
     "id": 195,
-    "type": "multi-select",
+    "type": "msq",
     "question": "You want to connect to a wireless access point. Which two actions should you perform to view a list of available networks? (Choose two)",
     "options": [
       "Click the network icon in the notification area.",
@@ -3749,7 +3749,7 @@
   },
   {
     "id": 196,
-    "type": "multi-select",
+    "type": "msq",
     "question": "Which of the following steps will you take to remove a printer? Choose all that apply.",
     "options": [
       "Open the Devices and Printers window.",
