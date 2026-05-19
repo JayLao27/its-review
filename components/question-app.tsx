@@ -177,6 +177,25 @@ export function QuestionApp({ questions }: QuestionAppProps) {
     }
   };
 
+  const start50Test = () => {
+    const shuffled = [...questions]
+      .map((q) => ({ q, r: Math.random() }))
+      .sort((a, b) => a.r - b.r)
+      .map((x) => x.q)
+      .slice(0, 50);
+    setExternalQuestions(shuffled);
+    setCurrentIndex(0);
+    setIsShuffled(false);
+  };
+
+  const startFullTest = () => {
+    const max = Math.min(600, questions.length);
+    const items = questions.slice(0, max);
+    setExternalQuestions(items);
+    setCurrentIndex(0);
+    setIsShuffled(false);
+  };
+
   
 
   const toggleShuffle = () => {
@@ -700,7 +719,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
           </Button>
           <Button
             type="button"
-            className="rounded-none border border-primary/50 bg-primary/10 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-primary hover:bg-primary/20 hover:text-primary"
+            className="rounded-none border border-primary/  50 bg-primary/10 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-primary hover:bg-primary/20 hover:text-primary"
             onClick={goNext}
             disabled={
               currentIndex >= filteredQuestions.length - 1 ||
@@ -1158,12 +1177,14 @@ export function QuestionApp({ questions }: QuestionAppProps) {
                 <span className="hidden sm:inline">Download PDF</span>
               </Button>
             </a>
-            <a href="/test">
-              <Button type="button" className="h-10 rounded-md border border-primary/50 bg-primary/10 px-3 text-sm font-medium text-primary hover:bg-primary/20 hover:text-primary">
-                <span className="hidden sm:inline">Start Test</span>
-                <span className="sm:hidden">Test</span>
-              </Button>
-            </a>
+            <Button type="button" onClick={start50Test} className="h-10 rounded-md border border-primary/50 bg-primary/10 px-3 text-sm font-medium text-primary hover:bg-primary/20 hover:text-primary">
+              <span className="hidden sm:inline">50 Test</span>
+              <span className="sm:hidden">50</span>
+            </Button>
+            <Button type="button" onClick={startFullTest} className="h-10 rounded-md border border-primary/50 bg-primary/10 px-3 text-sm font-medium text-primary hover:bg-primary/20 hover:text-primary">
+              <span className="hidden sm:inline">Full Test</span>
+              <span className="sm:hidden">Full</span>
+            </Button>
             
             <Button
               type="button"
