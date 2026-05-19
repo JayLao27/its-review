@@ -17,8 +17,48 @@ type UserAnswer =
 
 type Phase = "intro" | "test" | "results";
 
+const STORAGE_KEY = "test-mode-progress";
+
+interface StoredProgress {
+  answers: Record<string, UserAnswer>;
+  currentIndex: number;
+  testQuestions: NormalizedQuestionItem[];
+  phase: Phase;
+  timestamp: number;
+}
+
 function optionLabel(i: number) {
   return String.fromCharCode(65 + i);
+}
+
+function saveProgress(
+  answers: Record<string, UserAnswer>,
+  currentIndex: number,
+  testQuestions: NormalizedQuestionItem[],
+  phase: Phase
+) {
+  const progress: StoredProgress = {
+    answers,
+    currentIndex,
+    testQuestions,
+    phase,
+    timestamp: Date.now(),
+  };
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+}
+
+function loadProgress(): StoredProgress | null {
+  const stored = localStorage.getItem(STORAGE_KEY);
+  if (!stored) return null;
+  try {
+    return JSON.parse(stored);
+  } catch {
+    return null;
+  }
+}
+
+function clearProgress() {
+  localStorage.removeItem(STORAGE_KEY);
 }
 
 function shuffle<T>(arr: T[]): T[] {
@@ -69,6 +109,7 @@ export function TestMode({ questions, onExit }: TestModeProps) {
   const [tabSwitchCount, setTabSwitchCount] = useState(0);
   const [showTabWarning, setShowTabWarning] = useState(false);
   const [isDark, setIsDark] = useState(true);
+  const [showRestorePrompt, setShowRestorePrompt] = useState(false);
   const warningDismissed = useRef(false);
 
   // Sync dark mode with document on mount, then apply on toggle
@@ -80,6 +121,21 @@ export function TestMode({ questions, onExit }: TestModeProps) {
     document.documentElement.classList.toggle("dark", isDark);
     document.documentElement.style.colorScheme = isDark ? "dark" : "light";
   }, [isDark]);
+
+  // Load saved progress on mount
+  useEffect(() => {
+    const saved = loadProgress();
+    if (saved) {
+      setShowRestorePrompt(true);
+    }
+  }, []);
+
+  // Save progress whenever answers, currentIndex, testQuestions, or phase changes (during test)
+  useEffect(() => {
+    if (phase === "test" && testQuestions.length > 0) {
+      saveProgress(answers, currentIndex, testQuestions, phase);
+    }
+  }, [answers, currentIndex, testQuestions, phase]);
 
   // Tab-switch detection
   useEffect(() => {
@@ -116,8 +172,22 @@ export function TestMode({ questions, onExit }: TestModeProps) {
     setAnswers({});
     setDropTargets({});
     setTabSwitchCount(0);
+    clearProgress();
+    setShowRestorePrompt(false);
     setPhase("test");
   }, [all]);
+
+  const restoreTest = useCallback(() => {
+    const saved = loadProgress();
+    if (saved) {
+      setTestQuestions(saved.testQuestions);
+      setCurrentIndex(saved.currentIndex);
+      setAnswers(saved.answers);
+      setTabSwitchCount(0);
+      setShowRestorePrompt(false);
+      setPhase("test");
+    }
+  }, []);
 
   const currentQ = testQuestions[currentIndex] ?? null;
   const currentAnswer = currentQ ? answers[currentQ.id] : undefined;
@@ -222,6 +292,11 @@ export function TestMode({ questions, onExit }: TestModeProps) {
     const pct = Math.round((score / testQuestions.length) * 100);
     const passed = pct >= 75;
 
+    // Clear progress when reaching results
+    useEffect(() => {
+      clearProgress();
+    }, []);
+
     return (
       <main className="min-h-screen bg-background text-foreground antialiased">
         <div className="mx-auto max-w-3xl px-4 py-10">
@@ -242,7 +317,7 @@ export function TestMode({ questions, onExit }: TestModeProps) {
                 <Button variant="outline" size="icon" className="h-10 w-10 border-border text-foreground" onClick={() => setIsDark((d) => !d)} aria-label="Toggle theme">
                   {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
                 </Button>
-                <Button variant="outline" className="border-border text-foreground" onClick={() => { if (onExit) { onExit(); } else { setPhase("intro"); } }}>Back to Home</Button>
+                <Button variant="outline" className="border-border text-foreground" onClick={() => { clearProgress(); if (onExit) { onExit(); } else { setPhase("intro"); } }}>Back to Home</Button>
                 <Button className="border border-primary/50 bg-primary/10 text-primary hover:bg-primary/20 hover:text-primary" onClick={startTest}>Retake Test</Button>
               </div>
             </CardContent>
@@ -331,9 +406,41 @@ export function TestMode({ questions, onExit }: TestModeProps) {
   if (phase === "intro") {
     return (
       <main className="min-h-screen bg-background text-foreground antialiased flex items-center justify-center px-4">
+        {/* Restore prompt */}
+        {showRestorePrompt && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm">
+            <Card className="border-primary/50 bg-card shadow-2xl max-w-sm mx-4">
+              <CardContent className="p-6 text-center space-y-4">
+                <div className="text-lg font-semibold text-foreground">Test Progress Found</div>
+                <div className="text-sm text-muted-foreground">
+                  We found your previous test progress. Would you like to continue where you left off?
+                </div>
+                <div className="flex gap-3">
+                  <Button
+                    variant="outline"
+                    className="flex-1 border-border text-foreground"
+                    onClick={() => {
+                      clearProgress();
+                      setShowRestorePrompt(false);
+                    }}
+                  >
+                    Start New
+                  </Button>
+                  <Button
+                    className="flex-1 border border-primary/50 bg-primary/10 text-primary hover:bg-primary/20 hover:text-primary"
+                    onClick={restoreTest}
+                  >
+                    Resume Test
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        )}
+
         <div className="w-full max-w-md">
           <div className="mb-2 flex items-center justify-between">
-            <button type="button" onClick={() => { if (onExit) { onExit(); } else { window.location.href = '/'; } }} className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors">
+            <button type="button" onClick={() => { clearProgress(); if (onExit) { onExit(); } else { window.location.href = '/'; } }} className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors">
               <ChevronLeft className="h-3.5 w-3.5" /> Back to Reviewer
             </button>
             <Button variant="outline" size="icon" className="h-8 w-8 border-border bg-card/40" onClick={() => setIsDark((d) => !d)} aria-label="Toggle theme">
@@ -436,7 +543,7 @@ export function TestMode({ questions, onExit }: TestModeProps) {
               variant="outline"
               size="icon"
               className="h-8 w-8 border-border text-muted-foreground hover:text-foreground"
-              onClick={() => setPhase("intro")}
+              onClick={() => { clearProgress(); setPhase("intro"); }}
               aria-label="Exit test"
             >
               <XCircle className="h-4 w-4" />

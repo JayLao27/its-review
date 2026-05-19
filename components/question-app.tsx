@@ -29,6 +29,55 @@ import { TestMode } from "./test-mode";
 
 type QuestionAppProps = { questions: QuestionItem[] };
 
+const QUESTION_APP_STORAGE_KEY = "question-app-session";
+
+interface QuestionAppStoredSession {
+  selectedAnswers: Record<string, number | number[]>;
+  revealedIds: string[];
+  dragMappingsByQuestion: Record<string, Record<string, string>>;
+  currentIndex: number;
+  query: string;
+  isShuffled: boolean;
+  reviewMode: boolean;
+  timestamp: number;
+}
+
+function saveQuestionAppSession(
+  selectedAnswers: Record<string, number | number[]>,
+  revealedIds: Set<string>,
+  dragMappingsByQuestion: Record<string, Record<string, string>>,
+  currentIndex: number,
+  query: string,
+  isShuffled: boolean,
+  reviewMode: boolean
+) {
+  const session: QuestionAppStoredSession = {
+    selectedAnswers,
+    revealedIds: Array.from(revealedIds),
+    dragMappingsByQuestion,
+    currentIndex,
+    query,
+    isShuffled,
+    reviewMode,
+    timestamp: Date.now(),
+  };
+  localStorage.setItem(QUESTION_APP_STORAGE_KEY, JSON.stringify(session));
+}
+
+function loadQuestionAppSession(): QuestionAppStoredSession | null {
+  const stored = localStorage.getItem(QUESTION_APP_STORAGE_KEY);
+  if (!stored) return null;
+  try {
+    return JSON.parse(stored);
+  } catch {
+    return null;
+  }
+}
+
+function clearQuestionAppSession() {
+  localStorage.removeItem(QUESTION_APP_STORAGE_KEY);
+}
+
 function optionLabel(index: number) {
   return String.fromCharCode(65 + index);
 }
@@ -124,6 +173,33 @@ export function QuestionApp({ questions }: QuestionAppProps) {
   const [shuffleSeed, setShuffleSeed] = useState(0);
   const [isDark, setIsDark] = useState(true);
 
+  // Load saved session on mount
+  useEffect(() => {
+    const saved = loadQuestionAppSession();
+    if (saved) {
+      setSelectedAnswers(saved.selectedAnswers);
+      setRevealedIds(new Set(saved.revealedIds));
+      setDragMappingsByQuestion(saved.dragMappingsByQuestion);
+      setCurrentIndex(saved.currentIndex);
+      setQuery(saved.query);
+      setIsShuffled(saved.isShuffled);
+      setReviewMode(saved.reviewMode);
+    }
+  }, []);
+
+  // Save session whenever relevant state changes
+  useEffect(() => {
+    saveQuestionAppSession(
+      selectedAnswers,
+      revealedIds,
+      dragMappingsByQuestion,
+      currentIndex,
+      query,
+      isShuffled,
+      reviewMode
+    );
+  }, [selectedAnswers, revealedIds, dragMappingsByQuestion, currentIndex, query, isShuffled, reviewMode]);
+
   useEffect(() => {
     document.documentElement.classList.toggle("dark", isDark);
     document.documentElement.style.colorScheme = isDark ? "dark" : "light";
@@ -173,6 +249,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
     setDropTargetsByQuestion({});
     setIsShuffled(false);
     setExternalQuestions(null);
+    clearQuestionAppSession();
   };
 
   const startNewQuestionsTest = async () => {
@@ -190,6 +267,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
   const [testModeItems, setTestModeItems] = useState<QuestionItem[] | null>(null);
 
   const start50Test = () => {
+    clearQuestionAppSession();
     setTestModeItems(pickRandomQuestions(questions, 50));
     setInTestMode(true);
     setCurrentIndex(0);
@@ -197,6 +275,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
   };
 
   const startFullTest = () => {
+    clearQuestionAppSession();
     setTestModeItems(pickRandomQuestions(questions, Math.min(600, questions.length)));
     setInTestMode(true);
     setCurrentIndex(0);
