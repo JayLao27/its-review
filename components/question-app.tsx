@@ -682,9 +682,60 @@ export function QuestionApp({ questions }: QuestionAppProps) {
     }
 
     return (
-      <div className="rounded-none border border-dashed border-border bg-card/60 p-4 text-sm leading-6 text-muted-foreground">
-        This item uses a structured answer. Use the guidance panel to inspect
-        the response shape.
+      <div className="space-y-3 rounded-none border border-dashed border-border bg-card/60 p-4">
+        <div className="p-3 text-sm leading-6 text-muted-foreground">
+          This item uses a structured answer. Use the guidance panel to inspect
+          the response shape.
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
+          <Button
+            type="button"
+            variant="outline"
+            className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-foreground"
+            onClick={goPrev}
+            disabled={currentIndex === 0}
+          >
+            <ArrowLeft className="mr-2 h-3 w-3 sm:h-4 sm:w-4" /> Prev
+          </Button>
+          <Button
+            type="button"
+            className="rounded-none border border-primary/50 bg-primary/10 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-primary hover:bg-primary/20 hover:text-primary"
+            onClick={goNext}
+            disabled={
+              currentIndex >= filteredQuestions.length - 1 ||
+              (!hasAnsweredCurrentQuestion && !reviewMode)
+            }
+          >
+            Next <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
+          </Button>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
+          <Button
+            type="button"
+            variant="outline"
+            className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-foreground"
+            onClick={() => currentQuestion && revealCurrent(currentQuestion.id)}
+          >
+            Check Answer
+          </Button>
+          <Button
+            type="button"
+            variant="outline"
+            className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-foreground"
+            onClick={resetSession}
+          >
+            Reset view
+          </Button>
+        </div>
+
+        <div className="flex items-center justify-between border-t border-border px-4 py-3 text-[11px] uppercase tracking-[0.18em] text-muted-foreground sm:px-5">
+          <span>
+            CASE {currentQuestionNumber} OF {filteredQuestions.length}
+          </span>
+          <span>Threat Feed</span>
+        </div>
       </div>
     );
   }
@@ -1000,12 +1051,57 @@ export function QuestionApp({ questions }: QuestionAppProps) {
         key={question.id}
         className="min-h-screen w-full snap-start scroll-mt-20 flex flex-col items-center justify-center p-4"
       >
-        <div className="rounded-none border border-dashed border-border bg-card/60 p-4 text-sm leading-6 text-muted-foreground max-w-md">
-          This item uses a structured answer. Use the guidance panel to inspect
-          the response shape.
-        </div>
-        <div className="mt-4 flex items-center justify-between w-full max-w-md border-t border-border px-4 py-3 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-          <span>CASE {index + 1} OF {filteredQuestions.length}</span>
+        <div className="max-w-md w-full space-y-3">
+          <div className="rounded-none border border-dashed border-border bg-card/60 p-4 text-sm leading-6 text-muted-foreground">
+            This item uses a structured answer. Use the guidance panel to inspect
+            the response shape.
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <Button
+              type="button"
+              variant="outline"
+              className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-foreground"
+              onClick={goPrev}
+              disabled={index === 0}
+            >
+              <ChevronLeft className="mr-2 h-3 w-3 sm:h-4 sm:w-4" /> Prev
+            </Button>
+            <Button
+              type="button"
+              className="rounded-none border border-primary/50 bg-primary/10 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-primary hover:bg-primary/20 hover:text-primary"
+              onClick={goNext}
+              disabled={
+                index >= filteredQuestions.length - 1 ||
+                (!hasAnsweredCurrentQuestion && !reviewMode)
+              }
+            >
+              Next <ChevronRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <Button
+              type="button"
+              variant="outline"
+              className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-foreground"
+              onClick={() => revealCurrent(question.id)}
+            >
+              Check Answer
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-foreground"
+              onClick={resetSession}
+            >
+              Reset view
+            </Button>
+          </div>
+
+          <div className="mt-4 flex items-center justify-between w-full border-t border-border px-4 py-3 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+            <span>CASE {index + 1} OF {filteredQuestions.length}</span>
+          </div>
         </div>
       </div>
     );
