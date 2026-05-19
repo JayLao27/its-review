@@ -25,11 +25,20 @@ import {
   type NormalizedQuestionItem,
   type QuestionItem,
 } from "../lib/questions";
+import { TestMode } from "./test-mode";
 
 type QuestionAppProps = { questions: QuestionItem[] };
 
 function optionLabel(index: number) {
   return String.fromCharCode(65 + index);
+}
+
+function pickRandomQuestions(source: QuestionItem[], count: number) {
+  return [...source]
+    .map((q) => ({ q, r: Math.random() }))
+    .sort((a, b) => a.r - b.r)
+    .map((x) => x.q)
+    .slice(0, count);
 }
 
 function stringifyValue(value: unknown): string {
@@ -177,21 +186,19 @@ export function QuestionApp({ questions }: QuestionAppProps) {
     }
   };
 
+  const [inTestMode, setInTestMode] = useState(false);
+  const [testModeItems, setTestModeItems] = useState<QuestionItem[] | null>(null);
+
   const start50Test = () => {
-    const shuffled = [...questions]
-      .map((q) => ({ q, r: Math.random() }))
-      .sort((a, b) => a.r - b.r)
-      .map((x) => x.q)
-      .slice(0, 50);
-    setExternalQuestions(shuffled);
+    setTestModeItems(pickRandomQuestions(questions, 50));
+    setInTestMode(true);
     setCurrentIndex(0);
     setIsShuffled(false);
   };
 
   const startFullTest = () => {
-    const max = Math.min(600, questions.length);
-    const items = questions.slice(0, max);
-    setExternalQuestions(items);
+    setTestModeItems(pickRandomQuestions(questions, Math.min(600, questions.length)));
+    setInTestMode(true);
     setCurrentIndex(0);
     setIsShuffled(false);
   };
@@ -1125,6 +1132,10 @@ export function QuestionApp({ questions }: QuestionAppProps) {
       </div>
     );
   };
+
+  if (inTestMode && testModeItems && testModeItems.length > 0) {
+    return <TestMode questions={testModeItems} onExit={() => setInTestMode(false)} />;
+  }
 
   return (
     <main

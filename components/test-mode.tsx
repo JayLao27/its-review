@@ -9,7 +9,7 @@ import { Progress } from "./ui/progress";
 import { cn } from "../lib/utils";
 import { normalizeQuestions, type NormalizedQuestionItem, type QuestionItem } from "../lib/questions";
 
-type TestModeProps = { questions: QuestionItem[] };
+type TestModeProps = { questions: QuestionItem[]; onExit?: () => void };
 
 type UserAnswer =
   | { type: "mcq" | "msq"; selected: number[] }
@@ -58,7 +58,7 @@ function isCorrect(q: NormalizedQuestionItem, answer: UserAnswer | undefined): b
   return selected === q.answer;
 }
 
-export function TestMode({ questions }: TestModeProps) {
+export function TestMode({ questions, onExit }: TestModeProps) {
   const all = useMemo(() => normalizeQuestions(questions), [questions]);
   const [phase, setPhase] = useState<Phase>("intro");
   const [testQuestions, setTestQuestions] = useState<NormalizedQuestionItem[]>([]);
@@ -110,7 +110,7 @@ export function TestMode({ questions }: TestModeProps) {
   }, [currentIndex, testQuestions]);
 
   const startTest = useCallback(() => {
-    const picked = shuffle(all).slice(0, 50);
+    const picked = shuffle(all).slice(0, Math.min(600, all.length));
     setTestQuestions(picked);
     setCurrentIndex(0);
     setAnswers({});
@@ -242,7 +242,7 @@ export function TestMode({ questions }: TestModeProps) {
                 <Button variant="outline" size="icon" className="h-10 w-10 border-border text-foreground" onClick={() => setIsDark((d) => !d)} aria-label="Toggle theme">
                   {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
                 </Button>
-                <Button variant="outline" className="border-border text-foreground" onClick={() => setPhase("intro")}>Back to Home</Button>
+                <Button variant="outline" className="border-border text-foreground" onClick={() => { if (onExit) { onExit(); } else { setPhase("intro"); } }}>Back to Home</Button>
                 <Button className="border border-primary/50 bg-primary/10 text-primary hover:bg-primary/20 hover:text-primary" onClick={startTest}>Retake Test</Button>
               </div>
             </CardContent>
@@ -333,9 +333,9 @@ export function TestMode({ questions }: TestModeProps) {
       <main className="min-h-screen bg-background text-foreground antialiased flex items-center justify-center px-4">
         <div className="w-full max-w-md">
           <div className="mb-2 flex items-center justify-between">
-            <a href="/" className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors">
+            <button type="button" onClick={() => { if (onExit) { onExit(); } else { window.location.href = '/'; } }} className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors">
               <ChevronLeft className="h-3.5 w-3.5" /> Back to Reviewer
-            </a>
+            </button>
             <Button variant="outline" size="icon" className="h-8 w-8 border-border bg-card/40" onClick={() => setIsDark((d) => !d)} aria-label="Toggle theme">
               {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </Button>
@@ -345,10 +345,10 @@ export function TestMode({ questions }: TestModeProps) {
               <Badge className="rounded-none border border-primary/20 bg-primary/10 px-4 py-1 text-[10px] uppercase tracking-[0.35em] text-primary">Test Mode</Badge>
               <div>
                 <h1 className="text-2xl font-bold text-foreground">Cybersecurity Test</h1>
-                <p className="mt-1 text-sm text-muted-foreground">50 randomized questions from the full question pool</p>
+                <p className="mt-1 text-sm text-muted-foreground">{Math.min(all.length, 600)} randomized questions from the full question pool</p>
               </div>
               <div className="grid grid-cols-3 gap-3 text-center">
-                {[["50", "Questions"], ["No limit", "Time"], ["75%", "Pass mark"]].map(([val, label]) => (
+                {[[String(Math.min(all.length, 600)), "Questions"], ["No limit", "Time"], ["75%", "Pass mark"]].map(([val, label]) => (
                   <div key={label} className="rounded border border-border bg-muted/50 px-2 py-3">
                     <div className="text-lg font-bold text-primary">{val}</div>
                     <div className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground">{label}</div>
@@ -365,7 +365,7 @@ export function TestMode({ questions }: TestModeProps) {
                 </ul>
               </div>
               <Button className="w-full border border-primary/50 bg-primary/10 text-primary hover:bg-primary/20 hover:text-primary" onClick={startTest}>
-                Start Test
+                Start Full Test
               </Button>
             </CardContent>
           </Card>
