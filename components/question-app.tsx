@@ -8,6 +8,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Download,
+  Menu,
   Moon,
   Search,
   Shuffle,
@@ -172,6 +173,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
   const [isShuffled, setIsShuffled] = useState(false);
   const [shuffleSeed, setShuffleSeed] = useState(0);
   const [isDark, setIsDark] = useState(true);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   // Load saved session on mount
   useEffect(() => {
@@ -357,8 +359,12 @@ export function QuestionApp({ questions }: QuestionAppProps) {
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
-    if (isLeftSwipe) goNext();
-    if (isRightSwipe) goPrev();
+    if (isLeftSwipe && !showMobileMenu) {
+      goNext();
+    }
+    if (isRightSwipe && !showMobileMenu) {
+      goPrev();
+    }
   };
 
   useEffect(() => {
@@ -1219,7 +1225,56 @@ export function QuestionApp({ questions }: QuestionAppProps) {
   return (
     <main
       className="bg-background text-foreground font-sans antialiased overflow-x-hidden"
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
     >
+      {/* Shadcn-like background mesh/glow */}
+      <div className="pointer-events-none fixed inset-0 -z-10">
+        <div className="absolute inset-0 opacity-60 dark:opacity-100 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" />
+        <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-amber-500/10 opacity-30 blur-[100px] dark:bg-cyan-500/10 dark:opacity-20" />
+      </div>
+
+      {/* Mobile Menu Slide-out */}
+      <div
+        className={cn(
+          "fixed inset-0 z-40 transition-opacity duration-300",
+          showMobileMenu ? "opacity-100" : "opacity-0 pointer-events-none"
+        )}
+        onClick={() => setShowMobileMenu(false)}
+      >
+        <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+      </div>
+
+      <div
+        className={cn(
+          "fixed right-0 top-0 h-screen w-64 bg-card border-l border-border z-50 transform transition-transform duration-300 overflow-y-auto",
+          showMobileMenu ? "translate-x-0" : "translate-x-full"
+        )}
+      >
+        <div className="p-4 space-y-4">
+          <div className="flex items-center justify-between pb-4 border-b border-border">
+            <span className="text-sm font-semibold uppercase tracking-[0.18em] text-foreground">Menu</span>
+            <button
+              onClick={() => setShowMobileMenu(false)}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <XCircle className="h-5 w-5" />
+            </button>
+          </div>
+          <Button
+            type="button"
+            className="w-full border border-primary/50 bg-primary/10 text-primary hover:bg-primary/20 hover:text-primary text-sm"
+            onClick={() => {
+              resetSession();
+              setShowMobileMenu(false);
+            }}
+          >
+            Reset Session
+          </Button>
+        </div>
+      </div>
+
       {/* Shadcn-like background mesh/glow */}
       <div className="pointer-events-none fixed inset-0 -z-10">
         <div className="absolute inset-0 opacity-60 dark:opacity-100 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" />
@@ -1257,6 +1312,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
             <a
               href="/cybersecurity-reviewer.pdf"
               download="cybersecurity-reviewer.pdf"
+              className="hidden sm:block"
             >
               <Button
                 type="button"
@@ -1279,10 +1335,21 @@ export function QuestionApp({ questions }: QuestionAppProps) {
             <Button
               type="button"
               variant="outline"
-              className="h-10 rounded-md border-border bg-card/40 px-3 text-sm font-medium text-foreground"
+              className="h-10 rounded-md border-border bg-card/40 px-3 text-sm font-medium text-foreground hidden sm:flex"
               onClick={resetSession}
             >
               Reset Session
+            </Button>
+
+            {/* Mobile Menu Button */}
+            <Button
+              type="button"
+              variant="outline"
+              className="h-10 w-10 rounded-md border-border bg-card/40 p-0 sm:hidden"
+              onClick={() => setShowMobileMenu(!showMobileMenu)}
+              aria-label="Toggle menu"
+            >
+              <Menu className="h-4 w-4" />
             </Button>
           </div>
         </div>

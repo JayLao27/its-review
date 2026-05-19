@@ -110,6 +110,8 @@ export function TestMode({ questions, onExit }: TestModeProps) {
   const [showTabWarning, setShowTabWarning] = useState(false);
   const [isDark, setIsDark] = useState(true);
   const [showRestorePrompt, setShowRestorePrompt] = useState(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const warningDismissed = useRef(false);
 
   // Sync dark mode with document on mount, then apply on toggle
@@ -284,6 +286,27 @@ export function TestMode({ questions, onExit }: TestModeProps) {
   const goPrev = () => {
     setCurrentIndex((c) => Math.max(c - 1, 0));
     setActiveDragItem(null);
+  };
+
+  const minSwipeDistance = 50;
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe && qtype !== "drag_and_drop") {
+      goNext();
+    }
+    if (isRightSwipe && qtype !== "drag_and_drop") {
+      goPrev();
+    }
   };
 
   // ── RESULTS ──────────────────────────────────────────────────────────────
@@ -490,15 +513,9 @@ export function TestMode({ questions, onExit }: TestModeProps) {
 
   return (
     <main className="min-h-screen bg-background text-foreground antialiased flex flex-col"
-      onTouchStart={(e) => { if (qtype !== "drag_and_drop") { const t = e.targetTouches[0].clientX; (e.currentTarget as any)._ts = t; } }}
-      onTouchEnd={(e) => {
-        if (qtype === "drag_and_drop") return;
-        const ts = (e.currentTarget as any)._ts;
-        if (!ts) return;
-        const dist = ts - e.changedTouches[0].clientX;
-        if (dist > 50) goNext();
-        if (dist < -50) goPrev();
-      }}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
     >
       {/* Tab switch warning overlay */}
       {showTabWarning && (
