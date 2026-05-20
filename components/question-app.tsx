@@ -7,6 +7,7 @@ import {
   CheckCircle2,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
   Download,
   Menu,
   Moon,
@@ -27,6 +28,7 @@ import {
   type QuestionItem,
 } from "../lib/questions";
 import { TestMode } from "./test-mode";
+import { topicHierarchy } from "../lib/topics-hierarchy";
 
 type QuestionAppProps = { questions: QuestionItem[] };
 
@@ -174,6 +176,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
   const [shuffleSeed, setShuffleSeed] = useState(0);
   const [isDark, setIsDark] = useState(true);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [expandedTopics, setExpandedTopics] = useState<Record<string, boolean>>({ "ITS Cybersecurity Review": true });
   const [topicsVisible, setTopicsVisible] = useState(false);
   const [selectedTopics, setSelectedTopics] = useState<Set<string>>(new Set());
   const topicsList = useMemo(() => {
@@ -1239,6 +1242,77 @@ export function QuestionApp({ questions }: QuestionAppProps) {
     return <TestMode questions={testModeItems} onExit={() => setInTestMode(false)} />;
   }
 
+  const toggleExpanded = (key: string) => {
+    setExpandedTopics((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
+
+  const handleTopicSelect = (topic: string) => {
+    setSelectedTopics(new Set([topic]));
+    setQuery("");
+    setCurrentIndex(0);
+    setReviewMode(true);
+    setShowMobileMenu(false);
+  };
+
+  const renderTopicsLayer = (node: any, path: string = "", level: number = 0) => {
+    if (Array.isArray(node)) {
+      return (
+        <div className="pl-4 space-y-1 mt-1 border-l border-border/50 ml-2">
+          {node.map((item) => {
+            const isSelected = selectedTopics.has(item);
+            return (
+              <button
+                key={item}
+                onClick={() => handleTopicSelect(item)}
+                className={cn(
+                  "w-full text-left px-3 py-2 text-sm rounded-md transition-colors",
+                  isSelected
+                    ? "bg-primary/10 text-primary font-medium border border-primary/20"
+                    : "text-muted-foreground hover:bg-card/50 hover:text-foreground"
+                )}
+              >
+                {item}
+              </button>
+            );
+          })}
+        </div>
+      );
+    } else if (typeof node === "object" && node !== null) {
+      return (
+        <div className={cn("space-y-1", level > 0 && "pl-4 mt-1 border-l border-border/50 ml-2")}>
+          {Object.entries(node).map(([key, value]) => {
+            const fullPath = path ? `${path}/${key}` : key;
+            const isExpanded = expandedTopics[fullPath];
+            const isLeaf = Array.isArray(value) && value.length === 0;
+            return (
+              <div key={fullPath}>
+                <button
+                  onClick={() => {
+                    if (isLeaf) handleTopicSelect(key);
+                    else toggleExpanded(fullPath);
+                  }}
+                  className="w-full flex items-center justify-between px-3 py-2 text-sm rounded-md hover:bg-card/50 transition-colors text-foreground font-medium"
+                >
+                  <span className="truncate">{key}</span>
+                  {!isLeaf && (
+                    <ChevronDown
+                      className={cn(
+                        "h-4 w-4 text-muted-foreground transition-transform",
+                        !isExpanded && "-rotate-90"
+                      )}
+                    />
+                  )}
+                </button>
+                {isExpanded && renderTopicsLayer(value, fullPath, level + 1)}
+              </div>
+            );
+          })}
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <main
       className="bg-background text-foreground font-sans antialiased overflow-x-hidden"
@@ -1252,7 +1326,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
         <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-amber-500/10 opacity-30 blur-[100px] dark:bg-cyan-500/10 dark:opacity-20" />
       </div>
 
-      {/* Mobile Menu Slide-out */}
+      {/* Topics Sidebar Overlay */}
       <div
         className={cn(
           "fixed inset-0 z-40 transition-opacity duration-300",
@@ -1263,25 +1337,31 @@ export function QuestionApp({ questions }: QuestionAppProps) {
         <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
       </div>
 
+      {/* Topics Sidebar Panel */}
       <div
         className={cn(
-          "fixed right-0 top-0 h-screen w-64 bg-card border-l border-border z-50 transform transition-transform duration-300 overflow-y-auto",
+          "fixed right-0 top-0 h-screen w-80 bg-card border-l border-border z-50 transform transition-transform duration-300 flex flex-col shadow-2xl",
           showMobileMenu ? "translate-x-0" : "translate-x-full"
         )}
       >
-        <div className="p-4 space-y-4">
-          <div className="flex items-center justify-between pb-4 border-b border-border">
-            <span className="text-sm font-semibold uppercase tracking-[0.18em] text-foreground">Menu</span>
-            <button
-              onClick={() => setShowMobileMenu(false)}
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <XCircle className="h-5 w-5" />
-            </button>
-          </div>
+        <div className="flex items-center justify-between p-4 border-b border-border/50 bg-card/50 backdrop-blur-md">
+          <span className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Topics</span>
+          <button
+            onClick={() => setShowMobileMenu(false)}
+            className="text-muted-foreground hover:text-foreground transition-colors p-1 rounded-md hover:bg-muted"
+          >
+            <XCircle className="h-5 w-5" />
+          </button>
+        </div>
+        
+        <div className="flex-1 overflow-y-auto p-4 space-y-4">
+          {renderTopicsLayer(topicHierarchy)}
+        </div>
+
+        <div className="p-4 border-t border-border/50 bg-card/50 backdrop-blur-md">
           <Button
             type="button"
-            className="w-full border border-primary/50 bg-primary/10 text-primary hover:bg-primary/20 hover:text-primary text-sm"
+            className="w-full border border-primary/50 bg-primary/10 text-primary hover:bg-primary/20 hover:text-primary text-sm transition-all shadow-[0_0_15px_rgba(var(--primary),0.1)]"
             onClick={() => {
               resetSession();
               setShowMobileMenu(false);
@@ -1358,11 +1438,11 @@ export function QuestionApp({ questions }: QuestionAppProps) {
               Reset Session
             </Button>
 
-            {/* Mobile Menu Button */}
+            {/* Menu Button */}
             <Button
               type="button"
               variant="outline"
-              className="h-10 w-10 rounded-md border-border bg-card/40 p-0 sm:hidden"
+              className="h-10 w-10 rounded-md border-border bg-card/40 p-0 flex"
               onClick={() => setShowMobileMenu(!showMobileMenu)}
               aria-label="Toggle menu"
             >
@@ -1461,24 +1541,54 @@ export function QuestionApp({ questions }: QuestionAppProps) {
         {!reviewMode ? (
           <>
             <div>
-              <div className="grid gap-2 sm:grid-cols-[1fr_auto] mb-2">
-                <div className="relative">
+              <div className="flex flex-col gap-2 mb-2">
+                <div className="relative w-full">
                   <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                   <Input
-                    className="h-12 rounded-none border-border bg-card/80 pl-10 text-foreground placeholder:text-muted-foreground focus-visible:ring-ring"
+                    className="h-12 w-full rounded-none border-border bg-card/80 pl-10 pr-10 text-foreground placeholder:text-muted-foreground focus-visible:ring-ring"
                     placeholder="Search findings, topics, or response text"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                   />
+                  {query && (
+                    <button
+                      onClick={() => setQuery("")}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground p-1 rounded-sm"
+                    >
+                      <XCircle className="h-5 w-5" />
+                    </button>
+                  )}
                 </div>
-                <Button
-                  type="button"
-                  variant="outline"
-                  className="h-12 rounded-none border-border bg-card/60 text-[12px] font-semibold uppercase tracking-[0.18em] text-foreground"
-                  onClick={() => setQuery("")}
-                >
-                  Clear
-                </Button>
+
+                {selectedTopics.size > 0 && (
+                  <div className="flex flex-wrap gap-2 items-center px-1 mb-2">
+                    <span className="text-[10px] text-muted-foreground uppercase tracking-widest font-semibold">Filters:</span>
+                    {Array.from(selectedTopics).map((t) => (
+                      <Badge 
+                        key={t}
+                        variant="secondary"
+                        className="flex items-center gap-1 cursor-pointer hover:bg-destructive/10 hover:text-destructive hover:border-destructive/30 transition-colors bg-primary/10 text-primary border-primary/20"
+                        onClick={() => {
+                          setSelectedTopics((cur) => {
+                            const next = new Set(cur);
+                            next.delete(t);
+                            return next;
+                          });
+                          setCurrentIndex(0);
+                        }}
+                      >
+                        {t}
+                        <XCircle className="h-3 w-3" />
+                      </Badge>
+                    ))}
+                    <button
+                      className="text-[10px] text-muted-foreground hover:text-foreground underline ml-1 uppercase tracking-wider"
+                      onClick={() => { setSelectedTopics(new Set()); setCurrentIndex(0); }}
+                    >
+                      Clear all
+                    </button>
+                  </div>
+                )}
               </div>
 
               <Card className="border-border bg-card/70 shadow-xl backdrop-blur-sm">
@@ -1538,7 +1648,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
                   <div className="relative flex-1">
                     <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                     <Input
-                      className="h-10 w-full rounded-none border-border bg-card/80 pl-10 text-foreground placeholder:text-muted-foreground focus-visible:ring-ring"
+                      className="h-10 w-full rounded-none border-border bg-card/80 pl-10 pr-10 text-foreground placeholder:text-muted-foreground focus-visible:ring-ring"
                       placeholder="Search findings, topics, or response text"
                       value={query}
                       onChange={(e) => {
@@ -1547,18 +1657,15 @@ export function QuestionApp({ questions }: QuestionAppProps) {
                       }}
                       autoFocus={false}
                     />
+                    {query && (
+                      <button
+                        onClick={() => { setQuery(""); setCurrentIndex(0); }}
+                        className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground p-1"
+                      >
+                        <XCircle className="h-4 w-4" />
+                      </button>
+                    )}
                   </div>
-
-                  {query && (
-                    <Button
-                      type="button"
-                      variant="outline"
-                      className="h-10 rounded-none border-border bg-card/60 text-[12px] font-semibold"
-                      onClick={() => { setQuery(""); setCurrentIndex(0); }}
-                    >
-                      Clear
-                    </Button>
-                  )}
 
                   <Button
                     type="button"
@@ -1594,6 +1701,36 @@ export function QuestionApp({ questions }: QuestionAppProps) {
                   </div>
                   <div>{reviewedCount} reviewed</div>
                 </div>
+
+                {selectedTopics.size > 0 && (
+                  <div className="mt-3 flex flex-wrap gap-2 items-center">
+                    <span className="text-[10px] text-muted-foreground uppercase tracking-widest font-semibold">Filters:</span>
+                    {Array.from(selectedTopics).map((t) => (
+                      <Badge 
+                        key={t}
+                        variant="secondary"
+                        className="flex items-center gap-1 cursor-pointer hover:bg-destructive/10 hover:text-destructive hover:border-destructive/30 transition-colors bg-primary/10 text-primary border-primary/20"
+                        onClick={() => {
+                          setSelectedTopics((cur) => {
+                            const next = new Set(cur);
+                            next.delete(t);
+                            return next;
+                          });
+                          setCurrentIndex(0);
+                        }}
+                      >
+                        {t}
+                        <XCircle className="h-3 w-3" />
+                      </Badge>
+                    ))}
+                    <button
+                      className="text-[10px] text-muted-foreground hover:text-foreground underline ml-1 uppercase tracking-wider"
+                      onClick={() => { setSelectedTopics(new Set()); setCurrentIndex(0); }}
+                    >
+                      Clear all
+                    </button>
+                  </div>
+                )}
 
                 {topicsVisible ? (
                   <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-2">
