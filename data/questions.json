@@ -6560,7 +6560,7 @@
       "Logon script",
       "Group policy"
     ],
-    "answer": "Local policy",
+    "answer": "Group policy",
     "category": "General IT Security",
     "tags": [
       "group-policy",

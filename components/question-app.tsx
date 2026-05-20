@@ -178,6 +178,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [expandedTopics, setExpandedTopics] = useState<Record<string, boolean>>({ "ITS Cybersecurity Review": true });
   const [topicsVisible, setTopicsVisible] = useState(false);
+  const [showUnanswered, setShowUnanswered] = useState(false);
   const [selectedTopics, setSelectedTopics] = useState<Set<string>>(new Set());
   const topicsList = useMemo(() => {
     const s = new Set<string>();
@@ -229,9 +230,23 @@ export function QuestionApp({ questions }: QuestionAppProps) {
     });
   }, [normalizedQuestions, isShuffled, shuffleSeed]);
 
+  const isQuestionAnswered = (item: any) => {
+    if (revealedIds.has(item.id)) return true;
+    if (item.type === "drag_and_drop") {
+      const targets = dropTargetsByQuestion[item.id] ?? [];
+      const mappings = dragMappingsByQuestion[item.id] ?? {};
+      return targets.length > 0 && targets.every((t: string) => Boolean(mappings[t]));
+    }
+    if (item.type === "msq") {
+      return Array.isArray(selectedAnswers[item.id]) && (selectedAnswers[item.id] as number[]).length > 0;
+    }
+    return selectedAnswers[item.id] !== undefined;
+  };
+
   const filteredQuestions = useMemo(() => {
     const q = query.trim().toLowerCase();
     return processedQuestions.filter((item) => {
+      if (showUnanswered && isQuestionAnswered(item)) return false;
       const hay = [
         item.id,
         ...(item.options ?? []),
@@ -352,8 +367,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
   );
 
   const goNext = () => {
-    if (!hasAnsweredCurrentQuestion && !reviewMode) return;
-    if (currentQuestion) revealCurrent(currentQuestion.id);
+    if (currentQuestion && hasAnsweredCurrentQuestion) revealCurrent(currentQuestion.id);
     setCurrentIndex((c) =>
       Math.min(c + 1, Math.max(filteredQuestions.length - 1, 0)),
     );
@@ -641,7 +655,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
                 onClick={goNext}
                 disabled={
                   currentIndex >= filteredQuestions.length - 1 ||
-                  (!hasAnsweredCurrentQuestion && !reviewMode)
+                  false
                 }
               >
                 Next <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
@@ -660,10 +674,18 @@ export function QuestionApp({ questions }: QuestionAppProps) {
               <Button
                 type="button"
                 variant="outline"
-                className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-foreground"
-                onClick={resetSession}
+                className={cn(
+                  "rounded-none text-[10px] sm:text-[11px] uppercase tracking-[0.18em]",
+                  showUnanswered 
+                    ? "border-primary/50 bg-primary/10 text-primary hover:bg-primary/20 hover:text-primary"
+                    : "border-border bg-card/80 text-foreground"
+                )}
+                onClick={() => {
+                  setShowUnanswered(!showUnanswered);
+                  setCurrentIndex(0);
+                }}
               >
-                Reset view
+                {showUnanswered ? "Show All" : "Unanswered"}
               </Button>
             </div>
 
@@ -775,7 +797,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
                 onClick={goNext}
                 disabled={
                   currentIndex >= filteredQuestions.length - 1 ||
-                  (!hasAnsweredCurrentQuestion && !reviewMode)
+                  false
                 }
               >
                 Next <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
@@ -794,10 +816,18 @@ export function QuestionApp({ questions }: QuestionAppProps) {
               <Button
                 type="button"
                 variant="outline"
-                className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-foreground"
-                onClick={resetSession}
+                className={cn(
+                  "rounded-none text-[10px] sm:text-[11px] uppercase tracking-[0.18em]",
+                  showUnanswered 
+                    ? "border-primary/50 bg-primary/10 text-primary hover:bg-primary/20 hover:text-primary"
+                    : "border-border bg-card/80 text-foreground"
+                )}
+                onClick={() => {
+                  setShowUnanswered(!showUnanswered);
+                  setCurrentIndex(0);
+                }}
               >
-                Reset view
+                {showUnanswered ? "Show All" : "Unanswered"}
               </Button>
             </div>
 
@@ -835,7 +865,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
             onClick={goNext}
             disabled={
               currentIndex >= filteredQuestions.length - 1 ||
-              (!hasAnsweredCurrentQuestion && !reviewMode)
+              false
             }
           >
             Next <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
@@ -854,10 +884,18 @@ export function QuestionApp({ questions }: QuestionAppProps) {
           <Button
             type="button"
             variant="outline"
-            className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-foreground"
-            onClick={resetSession}
+            className={cn(
+              "rounded-none text-[10px] sm:text-[11px] uppercase tracking-[0.18em]",
+              showUnanswered 
+                ? "border-primary/50 bg-primary/10 text-primary hover:bg-primary/20 hover:text-primary"
+                : "border-border bg-card/80 text-foreground"
+            )}
+            onClick={() => {
+              setShowUnanswered(!showUnanswered);
+              setCurrentIndex(0);
+            }}
           >
-            Reset view
+            {showUnanswered ? "Show All" : "Unanswered"}
           </Button>
         </div>
 
@@ -1204,7 +1242,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
               onClick={goNext}
               disabled={
                 index >= filteredQuestions.length - 1 ||
-                (!hasAnsweredCurrentQuestion && !reviewMode)
+                false
               }
             >
               Next <ChevronRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
@@ -1223,10 +1261,18 @@ export function QuestionApp({ questions }: QuestionAppProps) {
             <Button
               type="button"
               variant="outline"
-              className="rounded-none border-border bg-card/80 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-foreground"
-              onClick={resetSession}
+              className={cn(
+                "rounded-none text-[10px] sm:text-[11px] uppercase tracking-[0.18em]",
+                showUnanswered 
+                  ? "border-primary/50 bg-primary/10 text-primary hover:bg-primary/20 hover:text-primary"
+                  : "border-border bg-card/80 text-foreground"
+              )}
+              onClick={() => {
+                setShowUnanswered(!showUnanswered);
+                setCurrentIndex(0);
+              }}
             >
-              Reset view
+              {showUnanswered ? "Show All" : "Unanswered"}
             </Button>
           </div>
 
@@ -1604,7 +1650,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
                 size="icon"
                 className={cn(
                   "h-14 w-10 rounded-l-2xl border-y border-l border-primary/30 bg-card/60 shadow-[0_0_20px_rgba(var(--primary),0.1)] backdrop-blur-md transition-all active:scale-95",
-                  (!hasAnsweredCurrentQuestion && !reviewMode) ||
+                  false ||
                     currentIndex >= filteredQuestions.length - 1
                     ? "opacity-20 grayscale"
                     : "opacity-100",
@@ -1612,7 +1658,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
                 onClick={goNext}
                 disabled={
                   currentIndex >= filteredQuestions.length - 1 ||
-                  (!hasAnsweredCurrentQuestion && !reviewMode)
+                  false
                 }
               >
                 <ChevronRight className="h-6 w-6 text-primary" />
