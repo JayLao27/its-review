@@ -174,6 +174,16 @@ export function QuestionApp({ questions }: QuestionAppProps) {
   const [shuffleSeed, setShuffleSeed] = useState(0);
   const [isDark, setIsDark] = useState(true);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [mindMapVisible, setMindMapVisible] = useState(false);
+  const [selectedTopics, setSelectedTopics] = useState<Set<string>>(new Set());
+  const topicsList = useMemo(() => {
+    const s = new Set<string>();
+    normalizedQuestions.forEach((it) => {
+      if (it.category) s.add(it.category);
+      (it.tags ?? []).forEach((tg) => s.add(tg));
+    });
+    return Array.from(s).sort();
+  }, [normalizedQuestions]);
 
   // Load saved session on mount
   useEffect(() => {
@@ -220,6 +230,8 @@ export function QuestionApp({ questions }: QuestionAppProps) {
     const q = query.trim().toLowerCase();
     return processedQuestions.filter((item) => {
       const hay = [
+        item.id,
+        ...(item.options ?? []),
         item.question,
         stringifyValue(item.answer),
         item.category,
@@ -228,9 +240,14 @@ export function QuestionApp({ questions }: QuestionAppProps) {
       ]
         .join(" ")
         .toLowerCase();
-      return q.length === 0 || hay.includes(q);
+      const matchesQuery = q.length === 0 || hay.includes(q);
+      if (!matchesQuery) return false;
+      if (!selectedTopics || selectedTopics.size === 0) return true;
+      const inCategory = item.category && selectedTopics.has(item.category);
+      const inTags = (item.tags ?? []).some((t) => selectedTopics.has(t));
+      return Boolean(inCategory || inTags);
     });
-  }, [processedQuestions, query]);
+  }, [processedQuestions, query, selectedTopics]);
 
   const currentQuestion = filteredQuestions[currentIndex] ?? null;
   const currentQuestionNumber = currentQuestion ? currentIndex + 1 : 0;
@@ -1511,12 +1528,109 @@ export function QuestionApp({ questions }: QuestionAppProps) {
         ) : (
           // Scrollable Review Mode
           <div
-            className="fixed inset-0 top-0 left-0 right-0 bottom-0 overflow-y-scroll snap-y snap-mandatory bg-background pt-[200px] pb-[100px]"
+            className="fixed inset-0 overflow-y-scroll bg-background"
             style={{ scrollBehavior: "smooth" }}
           >
-            <div className="mx-auto w-full max-w-5xl">
-              {filteredQuestions.map((question, index) =>
-                renderQuestionCard(question, index)
+            {/* Search bar — pinned at the very top of the scroll container */}
+            <div className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur-sm shadow-sm">
+              <div className="mx-auto w-full max-w-5xl px-4 py-3">
+                <div className="flex items-center gap-2">
+                  <div className="relative flex-1">
+                    <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                    <Input
+                      className="h-10 w-full rounded-none border-border bg-card/80 pl-10 text-foreground placeholder:text-muted-foreground focus-visible:ring-ring"
+                      placeholder="Search findings, topics, or response text"
+                      value={query}
+                      onChange={(e) => {
+                        setQuery(e.target.value);
+                        setCurrentIndex(0);
+                      }}
+                      autoFocus={false}
+                    />
+                  </div>
+
+                  {query && (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      className="h-10 rounded-none border-border bg-card/60 text-[12px] font-semibold"
+                      onClick={() => { setQuery(""); setCurrentIndex(0); }}
+                    >
+                      Clear
+                    </Button>
+                  )}
+
+                  <Button
+                    type="button"
+                    className={cn(
+                      "h-10 rounded-none border px-3 text-sm font-medium",
+                      mindMapVisible
+                        ? "border-primary/50 bg-primary/10 text-primary"
+                        : "border-border bg-card/40 text-muted-foreground hover:border-muted hover:text-foreground",
+                    )}
+                    onClick={() => setMindMapVisible((v) => !v)}
+                  >
+                    <Menu className="h-4 w-4" />
+                  </Button>
+
+                  <Button
+                    type="button"
+                    className="h-10 rounded-md border border-primary/50 bg-primary/10 px-3 text-sm font-medium text-primary"
+                    onClick={() => setReviewMode(false)}
+                  >
+                    Review Off
+                  </Button>
+                </div>
+
+                <div className="mt-2 flex items-center justify-between text-xs text-muted-foreground">
+                  <div>
+                    {query ? (
+                      <span>
+                        <span className="text-primary font-semibold">{filteredQuestions.length}</span> results for &ldquo;<span className="text-foreground">{query}</span>&rdquo;
+                      </span>
+                    ) : (
+                      <span>{filteredQuestions.length} questions</span>
+                    )}
+                  </div>
+                  <div>{reviewedCount} reviewed</div>
+                </div>
+
+                {mindMapVisible ? (
+                  <div className="mt-4 w-full h-[60vh] min-h-[500px] rounded-lg overflow-hidden border border-border bg-card/50">
+                    <iframe 
+                      src="https://notebooklm.google.com/notebook/db8e0c22-bf17-44ed-b28b-f45fa5785812/artifact/54b2079b-addc-4ca8-a87a-7e3640a2959f?utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_"
+                      className="w-full h-full border-0"
+                      allowFullScreen
+                    />
+                  </div>
+                ) : null}
+              </div>
+            </div>
+
+            {/* Question cards */}
+            <div className="mx-auto w-full max-w-5xl pb-20">
+              {filteredQuestions.length === 0 ? (
+                <div className="flex min-h-[60vh] flex-col items-center justify-center gap-3 p-8 text-center">
+                  <Search className="h-10 w-10 text-muted-foreground" />
+                  <div className="space-y-1">
+                    <h3 className="text-xl font-semibold text-foreground">No results found</h3>
+                    <p className="max-w-md text-sm leading-6 text-muted-foreground">
+                      Try a different search term or clear your filters.
+                    </p>
+                  </div>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="mt-2 rounded-none border-border"
+                    onClick={() => { setQuery(""); setSelectedTopics(new Set()); }}
+                  >
+                    Clear all filters
+                  </Button>
+                </div>
+              ) : (
+                filteredQuestions.map((question, index) =>
+                  renderQuestionCard(question, index)
+                )
               )}
             </div>
           </div>

@@ -113,6 +113,7 @@ export function TestMode({ questions, onExit }: TestModeProps) {
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const warningDismissed = useRef(false);
+  const correctCount = useMemo(() => testQuestions.filter((q) => isCorrect(q, answers[q.id])).length, [testQuestions, answers]);
 
   // Sync dark mode with document on mount, then apply on toggle
   useEffect(() => {
@@ -138,6 +139,13 @@ export function TestMode({ questions, onExit }: TestModeProps) {
       saveProgress(answers, currentIndex, testQuestions, phase);
     }
   }, [answers, currentIndex, testQuestions, phase]);
+
+  // Clear saved progress when entering results
+  useEffect(() => {
+    if (phase === "results") {
+      clearProgress();
+    }
+  }, [phase]);
 
   // Tab-switch detection
   useEffect(() => {
@@ -314,11 +322,6 @@ export function TestMode({ questions, onExit }: TestModeProps) {
     const score = testQuestions.filter((q) => isCorrect(q, answers[q.id])).length;
     const pct = Math.round((score / testQuestions.length) * 100);
     const passed = pct >= 75;
-
-    // Clear progress when reaching results
-    useEffect(() => {
-      clearProgress();
-    }, []);
 
     return (
       <main className="min-h-screen bg-background text-foreground antialiased">
@@ -510,6 +513,7 @@ export function TestMode({ questions, onExit }: TestModeProps) {
     ? Object.keys((currentQ as any).items ?? {}).filter((k) => !assigned.has(k))
     : [];
   const answeredCount = testQuestions.filter((q) => answers[q.id] !== undefined).length;
+  
 
   return (
     <main className="min-h-screen bg-background text-foreground antialiased flex flex-col"
@@ -547,6 +551,9 @@ export function TestMode({ questions, onExit }: TestModeProps) {
           </div>
           <div className="flex items-center gap-2">
             <span className="text-xs text-muted-foreground">{answeredCount} answered</span>
+            <span className="text-xs text-muted-foreground">•</span>
+            <span className="text-xs text-muted-foreground">{correctCount} correct</span>
+            <span className="text-xs text-muted-foreground">({Math.round((correctCount / Math.max(1, answeredCount)) * 100)}%)</span>
             <Button
               variant="outline"
               size="icon"
