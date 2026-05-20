@@ -174,7 +174,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
   const [shuffleSeed, setShuffleSeed] = useState(0);
   const [isDark, setIsDark] = useState(true);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [mindMapVisible, setMindMapVisible] = useState(false);
+  const [topicsVisible, setTopicsVisible] = useState(false);
   const [selectedTopics, setSelectedTopics] = useState<Set<string>>(new Set());
   const topicsList = useMemo(() => {
     const s = new Set<string>();
@@ -246,7 +246,7 @@ export function QuestionApp({ questions }: QuestionAppProps) {
       const inCategory = item.category && selectedTopics.has(item.category);
       const inTags = (item.tags ?? []).some((t) => selectedTopics.has(t));
       return Boolean(inCategory || inTags);
-    });
+    }); 
   }, [processedQuestions, query, selectedTopics]);
 
   const currentQuestion = filteredQuestions[currentIndex] ?? null;
@@ -1564,11 +1564,11 @@ export function QuestionApp({ questions }: QuestionAppProps) {
                     type="button"
                     className={cn(
                       "h-10 rounded-none border px-3 text-sm font-medium",
-                      mindMapVisible
+                      topicsVisible
                         ? "border-primary/50 bg-primary/10 text-primary"
                         : "border-border bg-card/40 text-muted-foreground hover:border-muted hover:text-foreground",
                     )}
-                    onClick={() => setMindMapVisible((v) => !v)}
+                    onClick={() => setTopicsVisible((v) => !v)}
                   >
                     <Menu className="h-4 w-4" />
                   </Button>
@@ -1595,13 +1595,39 @@ export function QuestionApp({ questions }: QuestionAppProps) {
                   <div>{reviewedCount} reviewed</div>
                 </div>
 
-                {mindMapVisible ? (
-                  <div className="mt-4 w-full h-[60vh] min-h-[500px] rounded-lg overflow-hidden border border-border bg-card/50">
-                    <iframe 
-                      src="https://notebooklm.google.com/notebook/db8e0c22-bf17-44ed-b28b-f45fa5785812/artifact/54b2079b-addc-4ca8-a87a-7e3640a2959f?utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_"
-                      className="w-full h-full border-0"
-                      allowFullScreen
-                    />
+                {topicsVisible ? (
+                  <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    {topicsList.map((t) => (
+                      <button
+                        key={t}
+                        type="button"
+                        onClick={() => {
+                          setSelectedTopics((cur) => {
+                            const next = new Set(cur);
+                            if (next.has(t)) next.delete(t);
+                            else next.add(t);
+                            return next;
+                          });
+                          setCurrentIndex(0);
+                        }}
+                        className={cn(
+                          "px-2 py-1 text-sm rounded border text-left truncate",
+                          selectedTopics.has(t)
+                            ? "border-primary bg-primary/10 text-primary"
+                            : "border-border bg-card/30 text-foreground",
+                        )}
+                      >
+                        {t}
+                      </button>
+                    ))}
+
+                    <button
+                      type="button"
+                      onClick={() => { setSelectedTopics(new Set()); setCurrentIndex(0); }}
+                      className="px-2 py-1 rounded border border-border bg-card/30 text-sm"
+                    >
+                      Clear topics
+                    </button>
                   </div>
                 ) : null}
               </div>
