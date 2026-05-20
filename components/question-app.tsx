@@ -305,7 +305,8 @@ export function QuestionApp({ questions }: QuestionAppProps) {
 
   const start50Test = () => {
     clearQuestionAppSession();
-    setTestModeItems(pickRandomQuestions(questions, 50));
+    const source = externalQuestions && externalQuestions.length ? externalQuestions : questions;
+    setTestModeItems(pickRandomQuestions(source, 50));
     setInTestMode(true);
     setCurrentIndex(0);
     setIsShuffled(false);
@@ -313,7 +314,8 @@ export function QuestionApp({ questions }: QuestionAppProps) {
 
   const startFullTest = () => {
     clearQuestionAppSession();
-    setTestModeItems(pickRandomQuestions(questions, Math.min(600, questions.length)));
+    const source = externalQuestions && externalQuestions.length ? externalQuestions : questions;
+    setTestModeItems(pickRandomQuestions(source, Math.min(600, source.length)));
     setInTestMode(true);
     setCurrentIndex(0);
     setIsShuffled(false);
