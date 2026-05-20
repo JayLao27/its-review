@@ -6422,7 +6422,7 @@
       "System Configuration Utility",
       "Security Accounts Manager"
     ],
-    "answer": "Windows Security Center",
+    "answer": "AppLocker group policies",
     "category": "General IT Security",
     "tags": [
       "applocker",
@@ -6474,7 +6474,7 @@
       "Remote Desktop: Home/Work (Private)",
       "Remote Assistance: Domain"
     ],
-    "answer": "Remote Assistance: Home/Work (Private)",
+    "answer": "Remote Desktop: Home/Work (Private)",
     "category": "General IT Security",
     "tags": [
       "remote-desktop",
